@@ -4,9 +4,10 @@ import { SpaceService } from '../../../services/space/space.service';
 import { SongService } from '../../../services/song/song.service';
 
 @Component({
-  selector: 'app-space-details',
-  templateUrl: './space-details.component.html',
-  styleUrls: ['./space-details.component.scss']
+    selector: 'app-space-details',
+    templateUrl: './space-details.component.html',
+    styleUrls: ['./space-details.component.scss'],
+    standalone: false
 })
 export class SpaceDetailsComponent implements OnInit {
 

@@ -4,9 +4,10 @@ import { SpaceService } from '../../../services/space/space.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-space-admin',
-  templateUrl: './space-admin.component.html',
-  styleUrl: './space-admin.component.scss'
+    selector: 'app-space-admin',
+    templateUrl: './space-admin.component.html',
+    styleUrl: './space-admin.component.scss',
+    standalone: false
 })
 export class SpaceAdminComponent implements OnInit {
 
