@@ -1,0 +1,59 @@
+<div class="container">
+    <h1 id="vibeSyncTitleCard">VIBESYNC</h1>
+    <h1>Space: {{this.spaceName}}</h1>
+    <div class="link-section">
+        <h2>Public link: url://{{this.publicToken}}</h2>
+        <h3>Divulgue esse link para as pessoas escolherem as músicas</h3>
+    </div>
+    <div class="link-section">
+        <h2>Link privado (admin): url://{{this.adminToken}}</h2>
+        <h3>NUNCA divulgue esse link, ele dá acesso a administração do seu Space</h3>
+    </div>
+    <div class="qrcode-section">
+        <h2>QRCode:</h2>
+        <img [src]="imageQrCode" alt="QR Code" />
+    </div>
+</div>
+
+<style>
+    #vibeSyncTitleCard {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    .link-section {
+        margin-bottom: 20px;
+    }
+
+    .link-section h2 {
+        margin: 10px 0;
+    }
+
+    .link-section h3 {
+        margin: 5px 0;
+        color: #666;
+    }
+
+    .qrcode-section {
+        text-align: center;
+    }
+
+    .qrcode-section img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>

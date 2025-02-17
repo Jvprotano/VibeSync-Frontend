@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="header">
+        <h1>VibeSync</h1>
+        <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o público do seu evento na mesma sintonia.</p>
+        <p>Com o VibeSync, você pode criar um space para seu evento e compartilhar um link para que o público escolha as
+            músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.</p>
+    </div>
+    <div class="buttons">
+        <button routerLink="/create-space" class="btn">Criar novo Space</button>
+        <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">Entrar em um
+            Space (admin)</button>
+        <button (click)="showPublicSpace = !showPublicSpace; showAdminSpace = false" routerLink="/join-space-user"
+            class="btn">Entrar em um
+            Space (usuário)</button>
+    </div>
+    <div class="space-tokens">
+        <div *ngIf="showAdminSpace">
+            <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
+            <button (click)="joinSpace()" class="btn">Entrar</button>
+        </div>
+        <div *ngIf="showPublicSpace">
+            <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
+            <button (click)="joinSpace()" class="btn">Entrar</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .header h1 {
+        font-size: 3em;
+    }
+
+    .header p {
+        font-size: 1.2em;
+        color: #cfcbcb;
+    }
+
+    button {
+        margin: 20px 0;
+        padding: 10px 20px;
+        margin: 5px;
+    }
+
+    .space-tokens {
+        margin-top: 20px;
+    }
+</style>

@@ -1,0 +1,48 @@
+<head>
+  <title>VibeSync - Crie seu Space</title>
+</head>
+
+  <div class="container">
+    <header>
+      <h1>VibeSync</h1>
+      <p>Crie seu Space para conectar as pessoas no seu evento e controlar a música de acordo com os pedidos</p>
+    </header>
+    <form>
+      <label for="spaceName">Nome do Space:</label>
+      <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Nome do seu Space" name="spaceName">
+      <button type="button" (click)="createSpace()">Criar</button>
+    </form>
+  </div>
+
+<style>
+
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+</style>
