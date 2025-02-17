@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -13,24 +13,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SpaceAdminComponent } from './components/space/space-admin/space-admin.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    CreateSpaceComponent,
-    SpaceDetailsComponent,
-    SpaceAdminComponent,
-    HomeComponent,
-    LoadingComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        CreateSpaceComponent,
+        SpaceDetailsComponent,
+        SpaceAdminComponent,
+        HomeComponent,
+        LoadingComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
