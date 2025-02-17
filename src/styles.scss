@@ -1,3 +1,17 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #040d36, #431770);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
 button {
   padding: 0.75rem;
   border: none;
@@ -25,13 +39,24 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #040d36, #431770);
+.link-section {
+  margin-bottom: 20px;
+}
+
+.link-section h2 {
+  margin: 10px 0;
+  word-break: break-all;
+}
+
+.link-section p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.btn-voltar{
+  background: #f00;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
 }

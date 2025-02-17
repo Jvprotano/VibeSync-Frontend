@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header">
         <h1>VibeSync</h1>
-        <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o público do seu evento na mesma sintonia.</p>
+        <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o evento na mesma sintonia.</p>
         <p>Com o VibeSync, você pode criar um space para seu evento e compartilhar um link para que o público escolha as
             músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.</p>
     </div>
@@ -16,11 +16,11 @@
     <div class="space-tokens">
         <div *ngIf="showAdminSpace">
             <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
-            <button (click)="joinSpace()" class="btn">Entrar</button>
+            <button (click)="joinSpace()" class="btn">Entrar no painel admin</button>
         </div>
         <div *ngIf="showPublicSpace">
-            <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
-            <button (click)="joinSpace()" class="btn">Entrar</button>
+            <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token para entrar no space" class="input">
+            <button (click)="joinSpace()" class="btn">Entrar no Space</button>
         </div>
     </div>
 </div>

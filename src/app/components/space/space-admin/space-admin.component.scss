@@ -1,0 +1,27 @@
+.qrcode-section {
+    text-align: center;
+}
+
+.qrcode-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+#vibeSyncTitleCard {
+    font-size: 3em;
+    text-align: center;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 90%;
+  }
