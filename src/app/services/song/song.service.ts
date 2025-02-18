@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SearchSongResult } from '../../models/search-song-result.model';
+import { Song } from '../../models/song-model';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class SongService {
 
   constructor(private http: HttpClient) { }
 
-  search(term: string, pageSize: number, pageToken?: string): Observable<SearchSongResult[]> {
+  search(term: string, pageSize: number, pageToken?: string): Observable<Song[]> {
     return this.http.get<any[]>(`${this.apiUrl}/search?term=${term}&pageSize=${pageSize}&pageToken=${pageToken}`);
   }
 }

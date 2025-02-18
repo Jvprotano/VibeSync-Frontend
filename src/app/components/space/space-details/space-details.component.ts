@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { SpaceService } from '../../../services/space/space.service';
 import { SongService } from '../../../services/song/song.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { SuggestionService } from '../../../services/suggestion/suggestion.service';
 
 @Component({
-    selector: 'app-space-details',
-    templateUrl: './space-details.component.html',
-    styleUrls: ['./space-details.component.scss'],
-    standalone: false
+  selector: 'app-space-details',
+  templateUrl: './space-details.component.html',
+  styleUrls: ['./space-details.component.scss'],
+  standalone: false
 })
 export class SpaceDetailsComponent implements OnInit {
 
-  spaceId: string = '';
+  spaceToken: string = '';
   searchQuery: string = '';
   searchResults: any[] = [];
+  spaceName: string = 'Nome Teste';
 
   currentPage: number = 1;
   pageSize: number = 10;
@@ -24,23 +27,37 @@ export class SpaceDetailsComponent implements OnInit {
   prevPageToken: string = '';
 
   pageToken: string = '';
-
-
+  isLoading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
     private spaceService: SpaceService,
-    private songService: SongService) { }
+    private songService: SongService,
+    private router: Router,
+    private toastrService: ToastrService,
+    private suggestService: SuggestionService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.spaceId = params.get('id')!.toString(); // Obtém o ID da rota
+      this.spaceToken = params.get('id')!.toString(); // Obtém o ID da rota
+    });
+
+    this.spaceService.getSpace(this.spaceToken).subscribe({
+      next: (space) => {
+        this.spaceName = space.name;
+        this.isLoading = false;
+      },
+      error: () => {
+        this.router.navigate(['home']).then(() => {
+          this.toastrService.error('Space selecionado não encontrado', 'Ocorreu um erro!');
+        });
+      }
     });
   }
 
   search() {
     this.songService.search(this.searchQuery, this.pageSize, this.pageToken).subscribe(results => {
-      console.log(results);
+
       this.searchResults = results;
 
       this.nextPageToken = results[0].nextPageToken;
@@ -52,8 +69,8 @@ export class SpaceDetailsComponent implements OnInit {
   }
 
   suggestSong(songId: any) {
-    this.spaceService.suggestSong(this.spaceId, songId).subscribe(() => {
-      alert('Música sugerida com sucesso!');
+    this.suggestService.suggestSong(this.spaceToken, songId).subscribe(() => {
+      this.toastrService.success('Música sugerida com sucesso!', 'Sucesso');
     });
   }
 

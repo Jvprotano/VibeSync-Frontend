@@ -7,11 +7,12 @@
     </div>
     <div class="buttons">
         <button routerLink="/create-space" class="btn">Criar novo Space</button>
-        <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">Entrar em um
-            Space (admin)</button>
-        <button (click)="showPublicSpace = !showPublicSpace; showAdminSpace = false" routerLink="/join-space-user"
-            class="btn">Entrar em um
-            Space (usuário)</button>
+        <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
+            Entrar em um Space (admin)
+        </button>
+        <button (click)="showPublicSpace = !showPublicSpace; showAdminSpace = false" class="btn">
+            Entrar em um Space (usuário)
+        </button>
     </div>
     <div class="space-tokens">
         <div *ngIf="showAdminSpace">

@@ -1,0 +1,35 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div *ngIf="!isLoading" class="container">
+    <button class="btn-voltar" mat-icon-button (click)="voltar()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <h1 id="vibeSyncTitleCard">VIBESYNC - {{this.spaceName}}</h1>
+
+    <div class="suggestions">
+        <div class="row">
+            <div class="last-30-minutes col-md-6">
+                <h2>Sugestões dos últimos 30 minutos</h2>
+                <div class="suggestions-list">
+                    <div *ngFor="let suggestion of suggestionsLast30Minutes" class="suggestion">
+                        <div class="suggestion-info">
+                            <div class="suggestion-user">{{ suggestion.user }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="all-suggestions col-md-6">
+                <h2>Todas as sugestões</h2>
+                <div class="suggestions-list">
+                    <div *ngFor="let suggestion of allSuggestions" class="suggestion">
+                        <div class="suggestion-info">
+                            <div class="suggestion-user">{{ suggestion.user }}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

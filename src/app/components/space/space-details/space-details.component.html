@@ -1,33 +1,38 @@
-<header>
-  <h1>VibeSync</h1>
-  <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você ao evento</p>
-  <p>Pesquise na barra de busca abaixo a música que deseja ouvir e clique em sugerir.</p>
-  <p>O administrador desse space receberá sua sugestão. Seja parte da playlist do evento!</p>
-</header>
+<app-loading [isLoading]="isLoading"></app-loading>
 
-<div class="container">
-  <div class="header">
-    <h2>Festa do Zezão </h2>
-  </div>
-  <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="Search...">
+<div *ngIf="!isLoading">
+  <header>
+    <h1 routerLink="/home">VibeSync - Space</h1>
+    <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você ao evento</p>
+    <p>Pesquise na barra de busca abaixo a música que deseja ouvir e clique em sugerir.</p>
+    <p>O administrador desse space receberá sua sugestão. Seja parte da playlist do evento!</p>
+  </header>
 
-  <div class="listMusics" *ngFor="let result of searchResults">
-    <div class="music-item">
-      <h3>{{ result.title }}</h3>
-      <img src="{{ result.thumbnailUrl }}" alt="{{ result.title }}">
-      <p>{{ result.artistName }}</p>
-      <button (click)="suggestSong(result.videoId)">Sugerir música</button>
+  <div class="container">
+    <div class="header">
+      <h2>{{spaceName}}</h2>
     </div>
-  </div>
+    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="Pesquise uma música...">
 
-  <div *ngIf="totalPages > 1" class="pagination">
-    <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Anterior</button>
-    <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Próxima</button>
+    <div class="listMusics" *ngFor="let result of searchResults">
+      <div class="music-item">
+        <h3>{{ result.title }}</h3>
+        <img src="{{ result.thumbnailUrl }}" alt="{{ result.title }}">
+        <p>{{ result.artistName }}</p>
+        <p>Publicado em {{result.publishedAt | date: 'dd/MM/yyyy'}}</p>
+        <button (click)="suggestSong(result.videoId)">Sugerir música</button>
+      </div>
+    </div>
+
+    <div *ngIf="totalPages > 1" class="pagination">
+      <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Anterior</button>
+      <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Próxima</button>
+    </div>
   </div>
 </div>
 
-<style>
 
+<style>
   header {
     text-align: center;
     margin-bottom: 2rem;
@@ -39,6 +44,7 @@
 
   header h1 {
     font-size: 3em;
+    cursor: pointer;
   }
 
   .container {
@@ -69,7 +75,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #203593, #764ba2);
+    background: linear-gradient(135deg, #0c1540, #764ba2);
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;

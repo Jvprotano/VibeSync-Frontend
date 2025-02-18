@@ -1,27 +1,68 @@
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 .qrcode-section {
-    text-align: center;
+  text-align: center;
 }
 
 .qrcode-section img {
-    max-width: 100%;
-    height: auto;
+  max-width: 300px;
+  height: auto;
+  width: 100%;
 }
 
 #vibeSyncTitleCard {
-    font-size: 3em;
-    text-align: center;
+  font-size: 3em;
+  text-align: center;
 }
 
-.card{
-    display: flex;
-    justify-content: center;
+.card {
+  display: flex;
+  justify-content: center;
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    max-width: 90%;
+.copy-field {
+  background-color: #2b2626;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: all;
+  margin-bottom: 5px;
+  word-break: break-all;
+  /* Quebra links longos */
+}
+
+.copy-field:hover {
+  background-color: #1f1d1d;
+}
+
+.copy-icon {
+  margin-left: 10px;
+}
+
+.btn-sugestoes {
+  background: #327a70;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  // align to right
+  float: right;
+}
+
+.btn-sugestoes:hover {
+  background: #6ec0b5;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    max-width: 100%;
   }
+}

@@ -54,9 +54,13 @@ input[type="text"] {
 }
 
 .btn-voltar{
-  background: #f00;
+  background: #c32424;
   color: #fff;
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
+}
+
+.btn-voltar:hover{
+  background: #ff0000;
 }
