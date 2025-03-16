@@ -16,6 +16,7 @@ import { SuggestionsDashboardComponent } from './components/suggestions-dashboar
 import { SuggestionsTableComponent } from './suggestions-table/suggestions-table.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         ToastrModule.forRoot(),
         MatProgressSpinnerModule,
         MatTooltipModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()]
 })
 export class AppModule { }

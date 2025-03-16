@@ -40,7 +40,7 @@ export class SuggestionsDashboardComponent implements OnInit {
     this.updateSuggestions();
     setInterval(() => {
       this.updateSuggestions();
-    }, 10000);
+    }, 15000);
 
     this.spaceService.getAdminSpace(this.adminToken).subscribe({
       next: (space) => {
