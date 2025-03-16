@@ -1,0 +1,22 @@
+<h2>{{ title }}</h2>
+<div class="suggestions-list">
+    <div *ngIf="suggestions.length === 0" class="no-suggestions">
+        Nenhuma sugestão encontrada.
+    </div>
+    <table *ngIf="suggestions.length > 0" class="suggestions-table" border="1">
+        <thead>
+            <tr>
+                <th>Ordem</th>
+                <th>Pedidos</th>
+                <th>Título</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let suggestion of suggestions; let i = index" class="suggestion">
+                <td>{{ i + 1 }}</td>
+                <td>{{ suggestion.countSuggestions }}</td>
+                <td>{{ suggestion.song.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

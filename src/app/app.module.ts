@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SuggestionsDashboardComponent } from './components/suggestions-dashboard/suggestions-dashboard.component';
+import { SuggestionsTableComponent } from './suggestions-table/suggestions-table.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [
@@ -22,7 +25,8 @@ import { SuggestionsDashboardComponent } from './components/suggestions-dashboar
         SpaceAdminComponent,
         HomeComponent,
         LoadingComponent,
-        SuggestionsDashboardComponent
+        SuggestionsDashboardComponent,
+        SuggestionsTableComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -30,7 +34,9 @@ import { SuggestionsDashboardComponent } from './components/suggestions-dashboar
         FormsModule,
         BrowserAnimationsModule,
         MatIconModule,
-        ToastrModule.forRoot()],
+        ToastrModule.forRoot(),
+        MatProgressSpinnerModule,
+        MatTooltipModule],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }

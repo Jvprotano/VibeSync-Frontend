@@ -84,4 +84,10 @@ export class SpaceDetailsComponent implements OnInit {
     this.currentPage = page;
     this.search();
   }
+
+  shareOnWhatsApp() {
+    const message = `Check out the suggestions on VibeSync - ${this.spaceName}`;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
 }

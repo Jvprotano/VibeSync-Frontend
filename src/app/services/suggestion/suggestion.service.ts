@@ -16,7 +16,7 @@ export class SuggestionService {
     return this.http.post(`${this.apiUrl}/suggest`, { spaceToken, songId });
   }
 
-  getSuggestions(spaceAdminToken: string, amount: number, startDate?: Date, endDate?: Date): Observable<Suggestion[]> {
+  getSuggestions(spaceAdminToken: string, amount: number, startDate?: string, endDate?: string): Observable<Suggestion[]> {
     return this.http.get<Suggestion[]>(`${this.apiUrl}/suggestions?SpaceAdminToken=${spaceAdminToken}&StartDateTime=${startDate}&EndDateTime=${endDate}&Amount=${amount}`);
   }
 }

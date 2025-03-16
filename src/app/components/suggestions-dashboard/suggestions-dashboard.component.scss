@@ -1,8 +1,103 @@
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  margin: 20px auto;
+  /* Adicionado margem superior */
+}
+
+.no-suggestions {
+  text-align: center;
+  padding: 20px;
+  /* Aumentado o padding */
+  color: #888;
+  font-style: italic;
+  /* Adicionado estilo itálico */
+}
+
+.suggestions {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.col-md-4 {
+  flex: 1 1 33.33%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.suggestions-list {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  /* Aumentado o padding */
+  margin-bottom: 20px;
+  /* Aumentado o espaçamento */
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  /* Aumentado o padding */
+  border-bottom: 1px solid #eee;
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.suggestion-count {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  /* Ajustado o padding */
+  border-radius: 50%;
+  margin-right: 12px;
+  /* Aumentado o espaçamento */
+  font-size: 0.9em;
+  /* Ajustado o tamanho da fonte */
+}
+
+.suggestion-title {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-voltar {
+  top: 10px;
+  left: 10px;
+  background: rgb(175 23 23 / 81%);
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.update-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 1 1 100%;
   }
+}
