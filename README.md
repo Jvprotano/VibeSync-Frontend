@@ -1,27 +1,75 @@
-# VibesyncFrontend
+# VibeSync
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+## Description
 
-## Development server
+VibeSync is an innovative platform that enables musical interaction at events. It allows organizers to create "Spaces" for their events, where the audience can suggest songs to play. The system provides a detailed control panel to track suggestions in real-time, ensuring the music is always in sync with the event's vibe.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+* **Space Creation:**
+    * Create unique spaces for each event.
+* **Audience Music Suggestions:**
+    * Allow the audience to suggest songs for the event playlist.
+* **Detailed Control Panel:**
+    * Track suggestions in real-time and control the event's vibe.
+* **Angular Material Integration:**
+    * Modern and responsive interface with Angular Material components.
+* **Animations and Visual Effects:**
+    * Party atmosphere with background animations and visual effects.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies Used
 
-## Build
+* **Angular:**
+    * Front-end framework for application development.
+* **Angular Material:**
+    * Component library for modern and responsive interfaces.
+* **TypeScript:**
+    * Programming language for front-end development.
+* **SCSS:**
+    * CSS preprocessor for application styling.
+* **Git:**
+    * Version control system.
+* **Node.js and npm:**
+    * Runtime environment and package manager.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How to Run
 
-## Running unit tests
+1.  **Clone the repository:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ```bash
+    git clone https://github.com/Jvprotano/VibeSync-Frontend.git
+    ```
 
-## Running end-to-end tests
+2.  **Install dependencies:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    cd [project name]
+    npm install
+    ```
 
-## Further help
+3.  **Run the application:**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```bash
+    ng serve
+    ```
+
+4.  **Access the application:**
+
+    * Open your browser and go to `http://localhost:4200/`.
+
+## Contributing
+
+Contributions are always welcome! Feel free to open issues and pull requests for improvements and new features.
+
+## License
+
+This project is under the MIT license.
+
+## Author
+
+* Jose Vinicius Protano Silva
+
+## Acknowledgments
+
+* We thank the Angular and Angular Material communities for their valuable contributions.
+* Thank you for following this project.
