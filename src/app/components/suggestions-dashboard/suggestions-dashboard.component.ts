@@ -4,6 +4,7 @@ import { SuggestionService } from '../../services/suggestion/suggestion.service'
 import { Suggestion } from '../../models/suggestion-model';
 import { SpaceService } from '../../services/space/space.service';
 import { ToastrService } from 'ngx-toastr';
+import { DateService } from '../../services/date/date.service';
 
 @Component({
   selector: 'app-suggestions-dashboard',
@@ -13,15 +14,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class SuggestionsDashboardComponent implements OnInit {
-  spaceName: string = 'Space Name';
+  spaceName: string = '';
   isLoading: boolean = true;
   adminToken: string = '';
 
-  suggestionsLast30Minutes: Suggestion[] = [];
-  suggestionsLast60Minutes: Suggestion[] = [];
+  allSuggestions: Suggestion[] = [];
   suggestionsLast5Minutes: Suggestion[] = [];
   suggestionsLast10Minutes: Suggestion[] = [];
-  allSuggestions: Suggestion[] = [];
+  suggestionsLast30Minutes: Suggestion[] = [];
+  suggestionsLast60Minutes: Suggestion[] = [];
+
+  quantitiesPerPage: any[] = [10, 30, 50, 100];
+  quantityPerPage: number = 10;
 
   lastUpdated: Date = new Date();
 
@@ -30,7 +34,8 @@ export class SuggestionsDashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private suggestionService: SuggestionService,
     private spaceService: SpaceService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private dateService: DateService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -61,70 +66,56 @@ export class SuggestionsDashboardComponent implements OnInit {
     this.router.navigate(['/space-admin/' + this.adminToken]);
   }
 
+  changeQuantityPerPage(quantity: number) {
+    this.quantityPerPage = quantity;
+    this.updateSuggestions();
+  }
+
   updateSuggestions() {
     this.isLoading = true;
 
-    var dataAtual = this.getFormatedCurrentDateTime();
-    var minData = this.generateDateTimeString(99999099);
-
-    this.suggestionService.getSuggestions(this.adminToken, 10, this.generateDateTimeString(30), dataAtual).subscribe(suggestions => {
-      this.suggestionsLast30Minutes = suggestions;
-    });
-
-    this.suggestionService.getSuggestions(this.adminToken, 10, this.generateDateTimeString(60), dataAtual).subscribe(suggestions => {
-      this.suggestionsLast60Minutes = suggestions;
-    });
-
-    this.suggestionService.getSuggestions(this.adminToken, 10, this.generateDateTimeString(5), dataAtual).subscribe(suggestions => {
-      this.suggestionsLast5Minutes = suggestions;
-    });
-
-    this.suggestionService.getSuggestions(this.adminToken, 10, this.generateDateTimeString(10), dataAtual).subscribe(suggestions => {
-      this.suggestionsLast10Minutes = suggestions;
-    });
-
-    this.suggestionService.getSuggestions(this.adminToken, 10, minData, dataAtual).subscribe(suggestions => {
-      this.allSuggestions = suggestions;
-    });
+    this.getSuggestions(0);
+    this.getSuggestions(5);
+    this.getSuggestions(10);
+    this.getSuggestions(30);
+    this.getSuggestions(60);
 
     this.lastUpdated = new Date();
     this.isLoading = false;
   }
 
-  generateDateTimeString(minutesAgo: number) {
-    var date = new Date();
-    date.setMinutes(date.getMinutes() - minutesAgo);
+  getSuggestions(minutes: number) {
 
-    const dataFormatada = date.toLocaleDateString('en-CA', { // Formato AAAA-MM-DD
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
+    var startDate = '';
+    var dataAtual = this.dateService.getFormatedCurrentDateTime();
+
+    if (minutes == 0)
+      startDate = this.dateService.generateDateTimeString(99999099);
+    else
+      startDate = this.dateService.generateDateTimeString(minutes);
+
+    this.suggestionService.getSuggestions(this.adminToken, this.quantityPerPage, startDate, dataAtual).subscribe(suggestions => {
+      this.updateListByMinutes(minutes, suggestions);
     });
-
-    const horaFormatada = date.toLocaleTimeString('en-CA', { // Formato HH:MM
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false // Formato 24 horas
-    });
-
-    return `${dataFormatada} ${horaFormatada}`;
   }
 
-  getFormatedCurrentDateTime() {
-    const dataAtual = new Date();
-
-    const dataFormatada = dataAtual.toLocaleDateString('en-CA', { // Formato AAAA-MM-DD
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    });
-
-    const horaFormatada = dataAtual.toLocaleTimeString('en-CA', { // Formato HH:MM
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false // Formato 24 horas
-    });
-
-    return `${dataFormatada} ${horaFormatada}`;
+  updateListByMinutes(minutes: number, suggestions: Suggestion[]) {
+    switch (minutes) {
+      case 5:
+        this.suggestionsLast5Minutes = suggestions;
+        break;
+      case 10:
+        this.suggestionsLast10Minutes = suggestions;
+        break;
+      case 30:
+        this.suggestionsLast30Minutes = suggestions;
+        break;
+      case 60:
+        this.suggestionsLast60Minutes = suggestions;
+        break;
+      case 0:
+        this.allSuggestions = suggestions;
+        break;
+    }
   }
 }

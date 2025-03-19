@@ -1,8 +1,9 @@
 <div class="container">
+    <div class="party-background"></div>
     <div class="header">
         <h1>VibeSync</h1>
         <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o evento na mesma sintonia.</p>
-        <p>Com o VibeSync, você pode criar um space para seu evento e compartilhar um link para que o público escolha as
+        <p>Com o VibeSync, você pode criar um Space para seu evento e compartilhar um link para que o público escolha as
             músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.</p>
     </div>
     <div class="buttons">
@@ -10,44 +11,60 @@
         <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
             Entrar em um Space (admin)
         </button>
-        <button (click)="showPublicSpace = !showPublicSpace; showAdminSpace = false" class="btn">
-            Entrar em um Space (usuário)
-        </button>
     </div>
     <div class="space-tokens">
         <div *ngIf="showAdminSpace">
             <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
             <button (click)="joinSpace()" class="btn">Entrar no painel admin</button>
         </div>
-        <div *ngIf="showPublicSpace">
-            <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token para entrar no space" class="input">
-            <button (click)="joinSpace()" class="btn">Entrar no Space</button>
-        </div>
     </div>
+    <div class="scroll-down" (click)="scrollToHowItWorks()">
+        <mat-icon class="arrow-down">arrow_downward</mat-icon>
+    </div>
+    <section class="how-it-works" #howItWorksSection>
+        <div class="how-it-works-content">
+            <h2>Como o VibeSync funciona</h2>
+            <p>O VibeSync transforma a interação musical em eventos, permitindo que o público participe ativamente da
+                playlist. Veja como:</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Crie seu Space</h3>
+                        <p>Inicie criando um Space único para seu evento, definindo o ambiente musical.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <mat-icon>share</mat-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Compartilhe o Link</h3>
+                        <p>Distribua o link do Space para o público, convidando-os a participar da experiência musical.
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <mat-icon>music_note</mat-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Sugestões Musicais</h3>
+                        <p>O público sugere músicas, adicionando suas faixas favoritas à playlist do evento.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <mat-icon>dashboard</mat-icon>
+                    </div>
+                    <div class="step-content">
+                        <h3>Painel de Controle</h3>
+                        <p>Acompanhe as sugestões em tempo real no painel admin e controle a vibe do seu evento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-
-<style>
-    .container {
-        text-align: center;
-        margin: 20px;
-    }
-
-    .header h1 {
-        font-size: 3em;
-    }
-
-    .header p {
-        font-size: 1.2em;
-        color: #cfcbcb;
-    }
-
-    button {
-        margin: 20px 0;
-        padding: 10px 20px;
-        margin: 5px;
-    }
-
-    .space-tokens {
-        margin-top: 20px;
-    }
-</style>

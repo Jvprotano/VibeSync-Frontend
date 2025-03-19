@@ -86,7 +86,7 @@ export class SpaceDetailsComponent implements OnInit {
   }
 
   shareOnWhatsApp() {
-    const message = `Check out the suggestions on VibeSync - ${this.spaceName}`;
+    const message = `Venha participar da festa - ${this.spaceName} com VibeSync`;
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }

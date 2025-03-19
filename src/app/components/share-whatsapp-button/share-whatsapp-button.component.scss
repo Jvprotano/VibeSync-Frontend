@@ -1,0 +1,23 @@
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    text-decoration: none;
+  
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  
+    &:hover {
+      background-color: #1EBE57;
+    }
+  }

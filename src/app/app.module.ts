@@ -13,10 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SuggestionsDashboardComponent } from './components/suggestions-dashboard/suggestions-dashboard.component';
-import { SuggestionsTableComponent } from './suggestions-table/suggestions-table.component';
+import { SuggestionsTableComponent } from './components/suggestions-table/suggestions-table.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ShareWhatsappButtonComponent } from './components/share-whatsapp-button/share-whatsapp-button.component';
+import { DateService } from './services/date/date.service';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         HomeComponent,
         LoadingComponent,
         SuggestionsDashboardComponent,
-        SuggestionsTableComponent
+        SuggestionsTableComponent,
+        ShareWhatsappButtonComponent,
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -38,6 +41,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
         ToastrModule.forRoot(),
         MatProgressSpinnerModule,
         MatTooltipModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()]
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync(), DateService]
 })
 export class AppModule { }

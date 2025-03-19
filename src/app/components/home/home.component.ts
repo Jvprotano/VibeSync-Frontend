@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -14,6 +14,12 @@ export class HomeComponent {
   showAdminSpace: boolean = false;
   showPublicSpace: boolean = false;
   spaceToken: string = '';
+
+  @ViewChild('howItWorksSection') howItWorksSection?: ElementRef;
+
+  scrollToHowItWorks() {
+    this.howItWorksSection?.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 
 
   joinSpace() {

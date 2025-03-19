@@ -96,6 +96,20 @@ h1 {
   right: 20px;
 }
 
+.filter-quantity {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quantity-per-page {
+  margin-left: 1%;
+}
+
+.btn-quantity:disabled{
+  background-color: #7a92b1;;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .col-md-4 {
     flex: 1 1 100%;

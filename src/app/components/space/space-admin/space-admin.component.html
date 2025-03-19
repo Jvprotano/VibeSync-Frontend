@@ -19,6 +19,9 @@
         {{ publicLink }}
         <mat-icon class="copy-icon">content_copy</mat-icon>
       </div>
+      <app-share-whatsapp-button [publicToken]="this.publicToken"
+        [spaceName]="this.spaceName"></app-share-whatsapp-button>
+
       <p>Link de divulgação para que as pessoas acessem e selecionem as músicas que desejam ouvir</p>
     </div>
 
@@ -28,11 +31,13 @@
         {{ adminLink }}
         <mat-icon class="copy-icon">content_copy</mat-icon>
       </div>
-      <p>Link que dá acesso a esse painel de divulgação administração do Space. Guarde esse link e NÃO divulgue para o público.</p>
+      <p>Link que dá acesso a este painel de divulgação administração do Space. Guarde esse link e <b>NÃO</b> divulgue para o
+        público.</p>
     </div>
 
     <div class="qrcode-section">
-      <h2>QRCode de divulgação pública do Space. Lendo esse QRCode o público ganhará acesso direto para sugerir as músicas no seu Space. Funciona da mesma forma que o link público:</h2>
+      <h2>QRCode de divulgação pública do Space. Lendo esse QRCode o público ganhará acesso direto para sugerir as
+        músicas no seu Space. Funciona da mesma forma que o link público:</h2>
       <img [src]="imageQrCode" alt="QR Code" />
     </div>
   </div>

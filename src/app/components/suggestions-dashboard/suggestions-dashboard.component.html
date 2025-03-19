@@ -8,6 +8,14 @@
     <h1 id="vibeSyncTitleCard">VIBESYNC - {{ this.spaceName }}</h1>
 
     <div class="suggestions">
+
+        <div class="filter-quantity">
+            <div *ngFor="let quantity of quantitiesPerPage" class="quantity-per-page">
+                <button class="btn-quantity" [disabled]="quantity === this.quantityPerPage"
+                    (click)="changeQuantityPerPage(quantity)">{{quantity}}</button>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <app-suggestions-table [title]="'Top sugestões'" [suggestions]="allSuggestions"></app-suggestions-table>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SpaceService } from '../../../services/space/space.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-space',
@@ -11,11 +12,18 @@ import { Router } from '@angular/router';
 export class CreateSpaceComponent {
   spaceName: string = '';
 
-  constructor(private spaceService: SpaceService, private router: Router) { }
+  constructor(private spaceService: SpaceService, private router: Router, private toastrService: ToastrService) { }
 
   createSpace() {
-    this.spaceService.createSpace(this.spaceName).subscribe(space => {
-      this.router.navigate(['/space-admin', space.id]);
+    this.spaceService.createSpace(this.spaceName).subscribe({
+      next: (space) => {
+        this.toastrService.success('Espaço criado com sucesso!');
+        this.router.navigate(['/space-admin', space.adminToken]);
+      },
+      error: (error) => {
+        console.log(error);
+        this.toastrService.error('Ocorreu um erro ao criar o espaço. Por favor, tente novamente mais tarde.');
+      }
     });
   }
 }
