@@ -5,12 +5,14 @@
         <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o evento na mesma sintonia.</p>
         <p>Com o VibeSync, você pode criar um Space para seu evento e compartilhar um link para que o público escolha as
             músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.</p>
+            <p>Conheça nosso plano <b>GRATUITO</b> e experimente hoje mesmo essa nova experiência! </p>
     </div>
     <div class="buttons">
         <button routerLink="/create-space" class="btn">Criar novo Space</button>
         <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
             Entrar em um Space (admin)
         </button>
+        <button routerLink="/prices" class="btn btn-planos">Veja nossos planos <mat-icon>diamond</mat-icon></button>
     </div>
     <div class="space-tokens">
         <div *ngIf="showAdminSpace">

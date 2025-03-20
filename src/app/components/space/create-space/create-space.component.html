@@ -4,12 +4,15 @@
 
 <div class="container">
   <header>
-    <h1>VibeSync</h1>
+    <h1 routerLink="/home">VibeSync</h1>
     <p>Crie seu Space para conectar as pessoas no seu evento e controlar a música de acordo com os pedidos</p>
   </header>
   <form>
     <label for="spaceName">Nome do Space:</label>
     <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Nome do seu Space" name="spaceName">
+    <div *ngIf="spaceName.length > 0 && !isValid(spaceName)">
+      <p id="validation-message">O nome do Space deve ter no mínimo 3 caracteres</p>
+    </div>
     <button type="button" (click)="createSpace()">Criar</button>
   </form>
 </div>

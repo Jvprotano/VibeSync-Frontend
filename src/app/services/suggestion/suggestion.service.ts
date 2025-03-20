@@ -10,9 +10,26 @@ export class SuggestionService {
 
   private apiUrl = 'http://localhost:5260/api/suggestion';
 
+  private suggestedSongs = JSON.parse(localStorage.getItem('suggestedSongs') || '[]');
+
   constructor(private http: HttpClient) { }
 
   suggestSong(spaceToken: string, songId: string): Observable<any> {
+
+    if (this.suggestedSongs.includes(songId)) {
+
+      return new Observable(observer => {
+        observer.error({ status: 429, message: 'Song already suggested' });
+      });
+    }
+
+    this.suggestedSongs.push(songId);
+    localStorage.setItem('suggestedSongs', JSON.stringify(this.suggestedSongs));
+
+    return this.suggest(spaceToken, songId);
+  }
+
+  private suggest(spaceToken: string, songId: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/suggest`, { spaceToken, songId });
   }
 

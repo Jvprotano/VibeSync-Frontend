@@ -69,8 +69,16 @@ export class SpaceDetailsComponent implements OnInit {
   }
 
   suggestSong(songId: any) {
-    this.suggestService.suggestSong(this.spaceToken, songId).subscribe(() => {
-      this.toastrService.success('Música sugerida com sucesso!', 'Sucesso');
+    this.suggestService.suggestSong(this.spaceToken, songId).subscribe({
+      next: () => {
+        this.toastrService.success('Música sugerida com sucesso!', 'Sucesso');
+      },
+      error: (error) => {
+        if (error.status === 429)
+          this.toastrService.error('Você só pode sugerir uma música uma vez!', 'Música já sugerida');
+        else
+          this.toastrService.error('Não foi possível sugerir essa música', 'Ocorreu um erro');
+      }
     });
   }
 
