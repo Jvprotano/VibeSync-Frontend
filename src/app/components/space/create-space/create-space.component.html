@@ -9,10 +9,15 @@
   </header>
   <form>
     <label for="spaceName">Nome do Space:</label>
-    <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Nome do seu Space" name="spaceName">
+    <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Digite o nome do seu Space" name="spaceName">
     <div *ngIf="spaceName.length > 0 && !isValid(spaceName)">
       <p id="validation-message">O nome do Space deve ter no mínimo 3 caracteres</p>
     </div>
-    <button type="button" (click)="createSpace()">Criar</button>
+    <label for="userEmail">Seu e-mail:</label>
+    <input type="text" [(ngModel)]="userEmail" placeholder="Digite seu melhor e-mail" name="userEmail">
+    <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)">
+      <p id="validation-message">Digite um e-mail válido</p>
+    </div>
+    <button type="button" id="btn-create" [disabled]="!(isValid(spaceName) && isValidEmail(userEmail))" (click)="createSpace()">Criar</button>
   </form>
 </div>

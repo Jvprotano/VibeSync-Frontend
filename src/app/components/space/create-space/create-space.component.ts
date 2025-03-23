@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreateSpaceComponent {
   spaceName: string = '';
+  userEmail: string = '';
 
   constructor(private spaceService: SpaceService, private router: Router, private toastrService: ToastrService) { }
 
@@ -20,7 +21,7 @@ export class CreateSpaceComponent {
       return;
     }
 
-    this.spaceService.createSpace(this.spaceName).subscribe({
+    this.spaceService.createSpace(this.spaceName, this.userEmail).subscribe({
       next: (space) => {
         this.toastrService.success('Space criado com sucesso!');
         this.router.navigate(['/space-admin', space.adminToken]);
@@ -37,6 +38,14 @@ export class CreateSpaceComponent {
       return false
     }
     return true;
+  }
+
+  isValidEmail(userEmail: string): boolean {
+    if (!userEmail || userEmail.trim() === '') {
+      return false;
+    }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(userEmail);
   }
 }
 

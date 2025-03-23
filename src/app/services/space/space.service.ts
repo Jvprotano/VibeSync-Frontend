@@ -12,8 +12,8 @@ export class SpaceService {
 
   constructor(private http: HttpClient) { }
 
-  createSpace(name: string): Observable<Space> {
-    return this.http.post<Space>(this.apiUrl, { name });
+  createSpace(name: string, userEmail: string): Observable<Space> {
+    return this.http.post<Space>(this.apiUrl, { name, userEmail });
   }
 
   searchSpace(id: number, query: string): Observable<any[]> {

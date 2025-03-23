@@ -33,6 +33,11 @@ form {
   margin-top: -0.5rem;
 }
 
+#btn-create:disabled{
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 h1 {
   cursor: pointer;
 }
