@@ -1,44 +1,42 @@
 <app-loading [isLoading]="isLoading"></app-loading>
 
-<div class="card">
-  <div *ngIf="!isLoading" class="container">
-    <button class="btn-voltar" mat-icon-button (click)="voltar()">
+<div class="space-detail-container" *ngIf="!isLoading">
+  <div class="space-detail-header">
+    <button mat-icon-button (click)="voltar()" class="back-button">
       <mat-icon>arrow_back</mat-icon>
     </button>
-
-    <button class="btn-sugestoes" mat-icon-button (click)="painelSugestoes()">
+    <button (click)="painelSugestoes()" class="suggestions-button">
       <mat-icon>library_music</mat-icon>
-      Acessar Painel de sugestões
+      Painel de Sugestões
     </button>
+  </div>
 
-    <h1 id="vibeSyncTitleCard">VIBESYNC - {{this.spaceName}}</h1>
+  <div class="space-detail-content">
+    <h1 class="space-title">VIBESYNC - {{ spaceName }}</h1>
 
     <div class="link-section">
-      <h2>Link público:</h2>
-      <div class="copy-field" (click)="copyToClipboard(publicLink)">
+      <h2 class="link-title">Link Público:</h2>
+      <div class="link-copy" (click)="copyToClipboard(publicLink)">
         {{ publicLink }}
         <mat-icon class="copy-icon">content_copy</mat-icon>
       </div>
-      <app-share-whatsapp-button [publicToken]="this.publicToken"
-        [spaceName]="this.spaceName"></app-share-whatsapp-button>
-
-      <p>Link de divulgação para que as pessoas acessem e selecionem as músicas que desejam ouvir</p>
+      <app-share-whatsapp-button [publicToken]="publicToken" [spaceName]="spaceName"></app-share-whatsapp-button>
+      <p class="link-description">Compartilhe este link para que as pessoas sugiram músicas no Space.</p>
     </div>
 
     <div class="link-section">
-      <h2>Link privado (admin):</h2>
-      <div class="copy-field" (click)="copyToClipboard(adminLink)">
+      <h2 class="link-title">Link Privado (Admin):</h2>
+      <div class="link-copy" (click)="copyToClipboard(adminLink)">
         {{ adminLink }}
         <mat-icon class="copy-icon">content_copy</mat-icon>
       </div>
-      <p>Link que dá acesso a este painel de divulgação administração do Space. Guarde esse link e <b>NÃO</b> divulgue para o
-        público.</p>
+      <p class="link-description">Link para administração do Space. Mantenha em segredo.</p>
     </div>
 
     <div class="qrcode-section">
-      <h2>QRCode de divulgação pública do Space. Lendo esse QRCode o público ganhará acesso direto para sugerir as
-        músicas no seu Space. Funciona da mesma forma que o link público:</h2>
-      <img [src]="imageQrCode" alt="QR Code" />
+      <h2 class="qrcode-title">QRCode Público:</h2>
+      <img [src]="imageQrCode" alt="QR Code" class="qrcode-image" />
+      <p class="qrcode-description">Leia o QRCode para sugerir músicas no Space.</p>
     </div>
   </div>
 </div>

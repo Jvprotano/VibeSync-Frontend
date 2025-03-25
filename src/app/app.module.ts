@@ -19,6 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ShareWhatsappButtonComponent } from './components/share-whatsapp-button/share-whatsapp-button.component';
 import { DateService } from './services/date/date.service';
+import { PricingComponent } from './components/pricing/pricing.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { DateService } from './services/date/date.service';
         SuggestionsDashboardComponent,
         SuggestionsTableComponent,
         ShareWhatsappButtonComponent,
+        PricingComponent
     ],
     bootstrap: [AppComponent],
     imports: [

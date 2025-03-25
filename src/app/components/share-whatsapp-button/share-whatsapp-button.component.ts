@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-share-whatsapp-button',
@@ -10,7 +11,7 @@ export class ShareWhatsappButtonComponent {
   @Input() spaceName: string = '';
   @Input() publicToken: string = '';
 
-  publicLink: string = 'http://localhost:4200/space/';
+  publicLink: string = environment.baseUrl + '/space/';
 
   shareOnWhatsApp() {
     const message = `Venha participar da festa - "${this.spaceName}" com VibeSync

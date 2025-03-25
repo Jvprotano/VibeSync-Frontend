@@ -3,12 +3,13 @@ import { Observable } from 'rxjs';
 import { Space } from '../../models/space-model';
 import { SpacePublic } from '../../models/space-public-model';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpaceService {
-  private apiUrl = 'http://localhost:5260/api/space'; // URL do seu backend
+  private apiUrl = environment.apiUrl + '/space';
 
   constructor(private http: HttpClient) { }
 

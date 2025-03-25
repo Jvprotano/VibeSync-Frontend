@@ -1,0 +1,67 @@
+<div class="pricing-container">
+  <section class="pricing-header">
+    <h1>Escolha o plano ideal para você</h1>
+    <p>Experimente o VibeSync e leve a experiência musical do seu evento para o próximo nível.</p>
+  </section>
+
+  <section class="pricing-plans">
+    <div class="plan">
+      <h2>Freemium</h2>
+      <p class="price">Grátis</p>
+      <ul>
+        <li>1 Space que expira em 10 dias</li>
+        <li>Dashboard de pedidos limitado</li>
+        <li>Sem personalização</li>
+      </ul>
+      <button routerLink="/create-space" class="btn">Experimente Grátis</button>
+    </div>
+
+    <div class="plan recommended">
+      <h2>Plano Básico</h2>
+      <p class="price">R$ 29,90/mês</p>
+      <ul>
+        <li>Até 5 Spaces por mês</li>
+        <li>Dashboard completo e atualizado em tempo real</li>
+        <li>Imagem de convite personalizado com QRCode</li>
+      </ul>
+      <button class="btn">Assinar Plano Básico</button>
+    </div>
+
+    <div class="plan">
+      <h2>Plano Profissional</h2>
+      <p class="price">R$ 49,90/mês</p>
+      <ul>
+        <li>Até 10 Spaces por mês</li>
+        <li>Dashboard completo</li>
+        <li>Imagem de convite personalizado com QRCode</li>
+        <li>Personalização de cores</li>
+      </ul>
+      <button disabled class="btn">EM BREVE</button>
+    </div>
+
+    <div class="plan">
+      <h2>Plano Premium</h2>
+      <p class="price">R$ 99,90/mês</p>
+      <ul>
+        <li>Spaces ilimitados</li>
+        <li>Dashboard completo</li>
+        <li>Imagem de convite personalizado com QRCode</li>
+        <li>Personalização de cores</li>
+        <li>White-label</li>
+      </ul>
+      <button disabled class="btn">EM BREVE</button>
+    </div>
+  </section>
+
+  <section class="pricing-faq">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item" *ngFor="let faq of faqs">
+      <div class="faq-question" (click)="faq.expanded = !faq.expanded">
+        <h3>{{ faq.question }} <mat-icon>{{ faq.expanded ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+      </div>
+      <div class="faq-answer" *ngIf="faq.expanded">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </section>
+</div>

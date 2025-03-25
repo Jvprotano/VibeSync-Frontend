@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Song } from '../../models/song-model';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
 
-  private apiUrl = 'http://localhost:5260/api/song'; // URL do seu backend
+  private apiUrl = environment.apiUrl + '/song';
 
   constructor(private http: HttpClient) { }
 

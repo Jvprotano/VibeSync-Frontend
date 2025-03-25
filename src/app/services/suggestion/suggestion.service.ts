@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Suggestion } from '../../models/suggestion-model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuggestionService {
 
-  private apiUrl = 'http://localhost:5260/api/suggestion';
+  private apiUrl = environment.apiUrl + '/suggestion';
 
   private suggestedSongs = JSON.parse(localStorage.getItem('suggestedSongs') || '[]');
 

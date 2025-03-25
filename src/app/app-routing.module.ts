@@ -5,6 +5,7 @@ import { SpaceAdminComponent } from './components/space/space-admin/space-admin.
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { SuggestionsDashboardComponent } from './components/suggestions-dashboard/suggestions-dashboard.component';
+import { PricingComponent as PricingComponent } from './components/pricing/pricing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'create-space', component: CreateSpaceComponent },
   { path: 'space/:id', component: SpaceDetailsComponent },
   { path: 'space-admin/:id', component: SpaceAdminComponent },
-  { path: 'suggestions/:id', component: SuggestionsDashboardComponent }
+  { path: 'suggestions/:id', component: SuggestionsDashboardComponent },
+  { path: 'pricing', component: PricingComponent }
 ];
 
 @NgModule({

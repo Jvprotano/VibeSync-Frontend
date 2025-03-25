@@ -1,0 +1,17 @@
+body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  button {
+    background: var(--primary-color);
+  }
+  
+  button:hover {
+    background: var(--primary-hover-color);
+  }
+  
+  button:disabled {
+    background: var(--secondary-color);
+  }

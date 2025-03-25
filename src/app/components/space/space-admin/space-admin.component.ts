@@ -3,6 +3,7 @@ import { SpaceService } from '../../../services/space/space.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Space } from '../../../models/space-model';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-space-admin',
@@ -26,8 +27,8 @@ export class SpaceAdminComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.adminToken = params.get('id')!.toString();
-      this.adminLink = `http://localhost:4200/space-admin/${this.adminToken}`; // Define o link admin
-      this.publicLink = `http://localhost:4200/space/${this.adminToken}`; // Define o link público
+      this.adminLink = environment.baseUrl + `/space-admin/${this.adminToken}`; // Define o link admin
+      this.publicLink = environment.baseUrl + `/space/${this.adminToken}`; // Define o link público
     });
 
     this.spaceService.getAdminSpace(this.adminToken).subscribe({
