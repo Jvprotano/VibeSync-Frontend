@@ -9,10 +9,11 @@
     </div>
     <div class="buttons">
         <button routerLink="/create-space" class="btn">Criar novo Space GRÁTIS</button>
-        <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
+        <!-- <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
             Entrar em um Space (admin)
-        </button>
-        <button routerLink="/pricing" class="btn btn-planos">Veja nossos planos<mat-icon>diamond</mat-icon></button>
+        </button> -->
+        <button routerLink="/pricing" class="btn btn-planos">Veja nossos planos <mat-icon class="btn-icon">diamond</mat-icon></button>
+        <button routerLink="/signin" class="btn btn-planos">Acesse sua conta <mat-icon class="btn-icon">person</mat-icon></button>
     </div>
     <div class="space-tokens">
         <div *ngIf="showAdminSpace">

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CreateSpaceComponent {
   spaceName: string = '';
   userEmail: string = '';
+  showSpaceLimitModal: boolean = false;
 
   constructor(private spaceService: SpaceService, private router: Router, private toastrService: ToastrService) { }
 
@@ -27,17 +28,18 @@ export class CreateSpaceComponent {
         this.router.navigate(['/space-admin', space.adminToken]);
       },
       error: (error) => {
-        console.log(error);
-        this.toastrService.error('Ocorreu um erro ao criar o Space. Por favor, tente novamente mais tarde.');
+        console.error('Erro ao criar o Space:', error); // Use console.error para erros
+        if (error.status === 429) {
+          this.showSpaceLimitPerUserModal();
+        } else {
+          this.toastrService.error('Ocorreu um erro ao criar o Space. Por favor, tente novamente mais tarde.');
+        }
       }
     });
   }
 
   isValid(spaceName: string): boolean {
-    if (!spaceName || spaceName.trim() === '' || spaceName.length < 3) {
-      return false
-    }
-    return true;
+    return !!spaceName && spaceName.trim().length >= 3; // Simplificação da lógica
   }
 
   isValidEmail(userEmail: string): boolean {
@@ -47,5 +49,12 @@ export class CreateSpaceComponent {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(userEmail);
   }
-}
 
+  showSpaceLimitPerUserModal() {
+    this.showSpaceLimitModal = true;
+  }
+
+  closeSpaceLimitModal() {
+    this.showSpaceLimitModal = false;
+  }
+}

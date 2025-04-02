@@ -1,0 +1,21 @@
+<div class="login-container">
+
+  <div class="login-card">
+    <div class="login-header">
+      <img routerLink="/home" src="\assets\images\logo-sem-fundo.png" alt="Logo" class="logo">
+    </div>
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" placeholder="Informe seu e-mail" id="email" name="email" [(ngModel)]="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password" required>
+      </div>
+      <button type="submit" class="login-button">Entrar</button>
+    </form>
+    <p class="signup-link">Não tem uma conta? <a routerLink="/signup">Cadastre-se</a></p>
+  </div>
+</div>

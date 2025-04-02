@@ -10,14 +10,27 @@
   <form>
     <label for="spaceName">Nome do Space:</label>
     <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Digite o nome do seu Space" name="spaceName">
-    <div *ngIf="spaceName.length > 0 && !isValid(spaceName)">
-      <p id="validation-message">O nome do Space deve ter no mínimo 3 caracteres</p>
+    <div *ngIf="spaceName.length > 0 && !isValid(spaceName)" class="error-message">
+      O nome do Space deve ter no mínimo 3 caracteres
     </div>
     <label for="userEmail">Seu e-mail:</label>
     <input type="text" [(ngModel)]="userEmail" placeholder="Digite seu melhor e-mail" name="userEmail">
-    <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)">
-      <p id="validation-message">Digite um e-mail válido</p>
+    <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)" class="error-message">
+      Digite um e-mail válido
     </div>
     <button type="button" id="btn-create" [disabled]="!(isValid(spaceName) && isValidEmail(userEmail))" (click)="createSpace()">Criar</button>
   </form>
+</div>
+
+<div class="modal" *ngIf="showSpaceLimitModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <p>Ops! <mat-icon>sentiment_dissatisfied</mat-icon></p>
+    </div>
+    <span class="close" (click)="closeSpaceLimitModal()">&times;</span>
+    <p>Você atingiu o limite de spaces criados.</p>
+    <p>Para criar mais spaces, adquira um de nossos planos.</p>
+    <button routerLink="/pricing" class="modal-button">Ver planos!</button>
+    <button routerLink="/login" class="modal-button">Já possuo uma conta!</button>
+  </div>
 </div>

@@ -1,0 +1,33 @@
+<div class="signup-container">
+    <div class="signup-background">
+      <div class="signup-card">
+        <div class="signup-header">
+          <img routerLink="/home" src="\assets\images\logo-sem-fundo.png" alt="Logo" class="logo">
+        </div>
+        <h2>Registre-se</h2>
+        <p class="signup-description">Crie uma conta para acessar todos os recursos.</p>
+        <p class="signup-link">Já possui uma conta? <a routerLink="/signin">Acesse agora!</a></p>
+      </div>
+      <div class="signup-card-form">
+        <form (ngSubmit)="signup()">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" placeholder="Informe seu nome" id="name" name="name" [(ngModel)]="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Informe seu e-mail" id="email" name="email" [(ngModel)]="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirme a Senha</label>
+            <input type="password" placeholder="Confirme sua senha" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+          </div>
+          <button type="submit" class="signup-button">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>

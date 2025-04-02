@@ -20,6 +20,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ShareWhatsappButtonComponent } from './components/share-whatsapp-button/share-whatsapp-button.component';
 import { DateService } from './services/date/date.service';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +35,10 @@ import { PricingComponent } from './components/pricing/pricing.component';
         SuggestionsDashboardComponent,
         SuggestionsTableComponent,
         ShareWhatsappButtonComponent,
-        PricingComponent
+        PricingComponent,
+        LoginComponent,
+        RegisterComponent,
+        UserSpacesComponent
     ],
     bootstrap: [AppComponent],
     imports: [
