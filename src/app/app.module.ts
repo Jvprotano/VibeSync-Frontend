@@ -20,9 +20,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ShareWhatsappButtonComponent } from './components/share-whatsapp-button/share-whatsapp-button.component';
 import { DateService } from './services/date/date.service';
 import { PricingComponent } from './components/pricing/pricing.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { RegisterComponent } from './components/user/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.c
         PricingComponent,
         LoginComponent,
         RegisterComponent,
-        UserSpacesComponent
+        UserSpacesComponent,
+        PageNotFoundComponent
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -49,6 +51,9 @@ import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.c
         ToastrModule.forRoot(),
         MatProgressSpinnerModule,
         MatTooltipModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync(), DateService]
+    providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimationsAsync(),
+        DateService]
 })
 export class AppModule { }

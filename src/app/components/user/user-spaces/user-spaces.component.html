@@ -1,1 +1,22 @@
-<p>user-spaces works!</p>
+<div class="user-spaces-container">
+    <div class="user-spaces-header">
+      <img routerLink="/home" src="assets/images/logo-sem-fundo.png" alt="VibeSync icon" class="vibesync-icon">
+    </div>
+  
+    <section class="user-spaces-actions">
+      <h2>Meus Spaces</h2>
+      <button (click)="createSpace()" class="create-space-button"><mat-icon>add</mat-icon></button>
+    </section>
+  
+    <section class="user-spaces-list">
+      <div class="space-cards-grid">
+        <div *ngFor="let space of spaces" class="space-card">
+          <h3>{{ space.name }}</h3>
+          <button (click)="navigateToSpace(space.adminToken)" class="space-card-button">Acessar Space</button>
+        </div>
+      </div>
+      <div *ngIf="spaces.length === 0" class="no-spaces-message">
+        <p>Nenhum Space disponível.</p>
+      </div>
+    </section>
+  </div>

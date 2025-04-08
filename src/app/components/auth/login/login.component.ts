@@ -3,22 +3,22 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-login',
   standalone: false,
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
-export class RegisterComponent {
+export class LoginComponent {
   email = '';
   password = '';
-  confirmPassword = '';
-  name = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  signup() {
+  login() {
     this.authService.login(this.email, this.password).subscribe({
-      next: () => { this.router.navigate(['/home']); },
+      next: () => {
+        this.router.navigate(['/user-spaces']);
+      },
       error: (error) => console.error('Erro no login:', error)
     });
   }
