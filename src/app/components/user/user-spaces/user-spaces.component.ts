@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Space } from '../../../models/space-model';
-import { SpaceService } from '../../../services/space/space.service';
+import { Space } from '../../../models/space.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { SpaceService } from '../../../services/space.service';
 
 @Component({
   selector: 'app-user-spaces',
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class UserSpacesComponent {
 
   constructor(private spaceService: SpaceService, private toastrService: ToastrService, private router: Router) { };
+  spaces: Space[] = [];
 
   ngOnInit() {
     this.spaceService.getUserSpaces().subscribe({
@@ -24,8 +25,6 @@ export class UserSpacesComponent {
       }
     });
   }
-
-  spaces: Space[] = [];
 
   createSpace() {
     this.router.navigate(['/create-space']);

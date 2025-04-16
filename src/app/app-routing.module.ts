@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { GuestGuard } from './guards/guest.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: 'space-admin/:id', component: SpaceAdminComponent },
   { path: 'suggestions/:id', component: SuggestionsDashboardComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'signin', component: LoginComponent, canActivate: [!AuthGuard] },
-  { path: 'signup', component: RegisterComponent, canActivate: [!AuthGuard] },
+  { path: 'signin', component: LoginComponent, canActivate: [GuestGuard] },
+  { path: 'signup', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'user-spaces', component: UserSpacesComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];

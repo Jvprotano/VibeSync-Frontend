@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PaymentService } from '../../services/payment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pricing',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
   styleUrl: './pricing.component.scss'
 })
 export class PricingComponent {
+
+  constructor(
+    private paymentService: PaymentService,
+    private toastrService: ToastrService) { }
+
+  buyPlan(planId: string) {
+
+    this.paymentService.getCheckoutUrl(planId).subscribe({
+      next: (response) => {
+        this.toastrService.success('Redirecionando para o checkout...');
+        window.location.href = response.checkoutUrl;
+      },
+      error: (error) => {
+        this.toastrService.error('Ocorreu um erro ao processar gerar o pagamento!');
+        console.error('Erro ao gerar o pagamento:', error);
+      }
+    });
+  }
 
   faqs = [
     {
@@ -19,7 +39,6 @@ export class PricingComponent {
       answer: 'Sim, você pode cancelar sua assinatura quando quiser.',
       expanded: false
     },
-    // Adicione mais perguntas e respostas aqui
   ];
 
 }

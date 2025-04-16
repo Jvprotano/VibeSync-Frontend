@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SpaceService } from '../../../services/space/space.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SpaceService } from '../../../services/space.service';
 
 @Component({
   selector: 'app-create-space',

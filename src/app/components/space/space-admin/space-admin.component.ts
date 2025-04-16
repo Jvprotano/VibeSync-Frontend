@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpaceService } from '../../../services/space/space.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
-import { Space } from '../../../models/space-model';
+import { Space } from '../../../models/space.model';
 import { environment } from '../../../../environments/environment';
+import { SpaceService } from '../../../services/space.service';
 
 @Component({
   selector: 'app-space-admin',

@@ -1,8 +1,7 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component'; // Importe o AppComponent
+import { AppComponent } from './app.component';
 import { CreateSpaceComponent } from './components/space/create-space/create-space.component';
 import { SpaceDetailsComponent } from './components/space/space-details/space-details.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,7 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ShareWhatsappButtonComponent } from './components/share-whatsapp-button/share-whatsapp-button.component';
-import { DateService } from './services/date/date.service';
+import { DateService } from './services/date.service';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';

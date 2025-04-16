@@ -1,4 +1,4 @@
-import { Song } from "./song-model";
+import { Song } from "./song.model";
 
 export interface Suggestion {
     countSuggestions: number;

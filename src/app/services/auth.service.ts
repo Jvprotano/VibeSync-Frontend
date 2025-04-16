@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { environment } from '../../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { tap, catchError, map } from 'rxjs/operators';
 import { jwtDecode } from 'jwt-decode';
-import { TokenResponse } from '../../models/token-response-model';
+import { environment } from '../../environments/environment';
+import { TokenResponse } from '../models/token.model';
 
 @Injectable({
   providedIn: 'root'

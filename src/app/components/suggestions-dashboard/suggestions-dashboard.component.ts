@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { SuggestionService } from '../../services/suggestion/suggestion.service';
-import { Suggestion } from '../../models/suggestion-model';
-import { SpaceService } from '../../services/space/space.service';
+import { Suggestion } from '../../models/suggestion.model';
 import { ToastrService } from 'ngx-toastr';
-import { DateService } from '../../services/date/date.service';
+import { DateService } from '../../services/date.service';
+import { SuggestionService } from '../../services/suggestion.service';
+import { SpaceService } from '../../services/space.service';
 
 @Component({
   selector: 'app-suggestions-dashboard',

@@ -1,9 +1,9 @@
-import { SpaceService } from '../../../services/space/space.service';
-import { SongService } from '../../../services/song/song.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { SuggestionService } from '../../../services/suggestion/suggestion.service';
+import { SuggestionService } from '../../../services/suggestion.service';
+import { SongService } from '../../../services/song.service';
+import { SpaceService } from '../../../services/space.service';
 
 @Component({
   selector: 'app-space-details',
