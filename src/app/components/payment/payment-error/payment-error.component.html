@@ -1,0 +1,11 @@
+<div class="payment-error-container">
+    <div class="payment-error-card">
+      <div class="error-icon">
+        <mat-icon color="warn" aria-label="Ícone de erro de pagamento">error_outline</mat-icon>
+      </div>
+      <h1>Pagamento Não Confirmado</h1>
+      <p class="error-message">Houve um problema ao processar seu pagamento.</p>
+      <p class="redirect-message">Você será redirecionado para a página de planos em <span id="countdown">{{ countdown }}</span> segundos.</p>
+      <button (click)="goToPricing()" class="retry-button">Ver Planos Disponíveis</button>
+    </div>
+  </div>

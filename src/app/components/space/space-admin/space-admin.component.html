@@ -1,17 +1,16 @@
 <app-loading [isLoading]="isLoading"></app-loading>
 
 <div class="space-detail-container" *ngIf="!isLoading">
-  <div class="space-detail-header">
-    <button mat-icon-button (click)="voltar()" class="back-button">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-    <button (click)="painelSugestoes()" class="suggestions-button">
-      <mat-icon>library_music</mat-icon>
-      Painel de Sugestões
-    </button>
-  </div>
-
   <div class="space-detail-content">
+    <div class="space-detail-header">
+      <button mat-icon-button (click)="voltar()" class="back-button">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <button (click)="painelSugestoes()" class="suggestions-button">
+        <mat-icon>library_music</mat-icon>
+        Acessar Painel de Sugestões
+      </button>
+    </div>
     <h1 class="space-title">VIBESYNC - {{ spaceName }}</h1>
 
     <div class="link-section">
@@ -24,14 +23,14 @@
       <p class="link-description">Compartilhe este link para que as pessoas sugiram músicas no Space.</p>
     </div>
 
-    <div class="link-section">
+    <!-- <div class="link-section">
       <h2 class="link-title">Link Privado (Admin):</h2>
       <div class="link-copy" (click)="copyToClipboard(adminLink)">
         {{ adminLink }}
         <mat-icon class="copy-icon">content_copy</mat-icon>
       </div>
       <p class="link-description">Link para administração do Space. Mantenha em segredo.</p>
-    </div>
+    </div> -->
 
     <div class="qrcode-section">
       <h2 class="qrcode-title">QRCode Público:</h2>

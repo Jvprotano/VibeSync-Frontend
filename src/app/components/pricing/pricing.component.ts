@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { PaymentService } from '../../services/payment.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/auth.service';
+import { NavigationStateService } from '../../services/navigation-state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pricing',
@@ -12,20 +15,20 @@ export class PricingComponent {
 
   constructor(
     private paymentService: PaymentService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private authService: AuthService,
+    private navigationStateService: NavigationStateService,
+    private router: Router) { }
 
   buyPlan(planId: string) {
 
-    this.paymentService.getCheckoutUrl(planId).subscribe({
-      next: (response) => {
-        this.toastrService.success('Redirecionando para o checkout...');
-        window.location.href = response.checkoutUrl;
-      },
-      error: (error) => {
-        this.toastrService.error('Ocorreu um erro ao processar gerar o pagamento!');
-        console.error('Erro ao gerar o pagamento:', error);
-      }
-    });
+    if (this.authService.isAuthenticated()) {
+      this.paymentService.initiateCheckoutAndRedirect(planId);
+    } else {
+      this.navigationStateService.setPostLoginAction({ type: 'buyPlan', payload: planId });
+      this.toastrService.info('Você precisa estar logado para comprar um plano. Redirecionando para o login...');
+      this.router.navigate(['/login']);
+    }
   }
 
   faqs = [

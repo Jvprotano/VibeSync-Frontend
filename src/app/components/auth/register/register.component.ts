@@ -20,7 +20,7 @@ export class RegisterComponent {
   signup() {
     this.authService.register(this.email, this.password).subscribe({
       next: () => {
-        this.router.navigate(['/signin']).then(() => {
+        this.router.navigate(['/login']).then(() => {
           this.toastrService.success('Usuário cadastrado com sucesso!', 'Realize o login para continuar!');
         });
       },

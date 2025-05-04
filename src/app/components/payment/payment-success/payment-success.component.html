@@ -1,0 +1,11 @@
+<div class="payment-success-container">
+    <div class="payment-success-card">
+        <div class="success-icon">
+            <mat-icon color="primary" aria-label="Ícone de sucesso de pagamento">check_circle_outline</mat-icon>
+        </div>
+        <h1>Pagamento Concluído!</h1>
+        <p class="success-message">Seu pagamento foi processado com sucesso.</p>
+        <p class="transaction-id">ID da Transação: <strong>{{ sessionId }}</strong></p>
+        <button (click)="goToUserSpaces()" class="user-spaces-button">Ir para Meus Spaces</button>
+    </div>
+</div>

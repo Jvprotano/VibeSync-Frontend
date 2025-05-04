@@ -23,6 +23,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PaymentErrorComponent } from './components/payment/payment-error/payment-error.component';
+import { PaymentSuccessComponent } from './components/payment/payment-success/payment-success.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
         LoginComponent,
         RegisterComponent,
         UserSpacesComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        PaymentErrorComponent,
+        PaymentSuccessComponent
     ],
     bootstrap: [AppComponent],
     imports: [

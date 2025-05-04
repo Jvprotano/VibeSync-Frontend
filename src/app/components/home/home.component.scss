@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 
-.btn-icon{
+.btn-icon {
     height: 20px;
 }
 
@@ -16,9 +16,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #d11154, #8459b3, #490356, #1ce36d, #2dab42);
-    background-size: 500% 500%;
-    animation: partyAnimation 30s linear infinite;
+    background: linear-gradient(135deg, #2d075a, #a48bb1, #0e4e81, #2f8fdb, #8ab3d5, #81147d);
+    background-size: 300% 300%;
+    animation: partyAnimation 20s ease-in-out infinite alternate;
     z-index: -1;
 }
 

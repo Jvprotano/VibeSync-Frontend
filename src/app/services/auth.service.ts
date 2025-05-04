@@ -33,8 +33,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
+    this.clearItens();
     this.isAuthenticatedSubject.next(false);
   }
 
@@ -46,7 +45,15 @@ export class AuthService {
     }
     try {
       const decodedToken: any = jwtDecode(accessToken);
-      return decodedToken.exp > Date.now() / 1000;
+
+      var sessionIsValid = decodedToken.exp > Date.now() / 1000;
+
+      if (!sessionIsValid) {
+        this.logout();
+        return false;
+      }
+
+      return sessionIsValid;
     } catch (error) {
       return false;
     }
@@ -57,6 +64,7 @@ export class AuthService {
   }
 
   refreshToken(): Observable<TokenResponse> {
+    console.log('Refreshing token...');
     const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) {
       return throwError(() => new Error('No refresh token available'));
@@ -65,7 +73,7 @@ export class AuthService {
     return this.http.post<TokenResponse>(`${this.apiUrl}/refresh`, { refreshToken }).pipe(
       tap(response => this.setTokens(response)),
       tap(() => this.isAuthenticatedSubject.next(true)),
-      catchError(this.handleError)
+      catchError(this.handleRefreshError)
     );
   }
 
@@ -74,8 +82,19 @@ export class AuthService {
     localStorage.setItem('refreshToken', response.refreshToken);
   }
 
+  private clearItens(): void {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('suggestedSongs');
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error);
     return throwError(() => new Error('Something went wrong. Please try again later.'));
+  }
+  private handleRefreshError(error: HttpErrorResponse) {
+    console.error('An refresh error occurred:', error);
+    this.logout();
+    return throwError(() => new Error('Session expired. Please log in again.'));
   }
 }

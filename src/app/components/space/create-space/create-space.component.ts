@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SpaceService } from '../../../services/space.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-create-space',
@@ -13,11 +14,16 @@ export class CreateSpaceComponent {
   spaceName: string = '';
   userEmail: string = '';
   showSpaceLimitModal: boolean = false;
+  flagUserAuthenticated: boolean | null = null;
 
-  constructor(private spaceService: SpaceService, private router: Router, private toastrService: ToastrService) { }
+  constructor(
+    private spaceService: SpaceService,
+    private router: Router,
+    private toastrService: ToastrService,
+    private authService: AuthService) { }
 
   createSpace() {
-    if (!this.isValid(this.spaceName)) {
+    if (!this.isValidSpaceName(this.spaceName)) {
       this.toastrService.error('Por favor, insira um nome para o Space.');
       return;
     }
@@ -28,8 +34,11 @@ export class CreateSpaceComponent {
         this.router.navigate(['/space-admin', space.adminToken]);
       },
       error: (error) => {
-        console.error('Erro ao criar o Space:', error); // Use console.error para erros
+        console.error('Erro ao criar o Space:', error);
+        console.log(error.status)
+        console.log(error.status === 429)
         if (error.status === 429) {
+          console.log('Limite de Space por usuário atingido.');
           this.showSpaceLimitPerUserModal();
         } else {
           this.toastrService.error('Ocorreu um erro ao criar o Space. Por favor, tente novamente mais tarde.');
@@ -38,8 +47,8 @@ export class CreateSpaceComponent {
     });
   }
 
-  isValid(spaceName: string): boolean {
-    return !!spaceName && spaceName.trim().length >= 3; // Simplificação da lógica
+  isValidSpaceName(spaceName: string): boolean {
+    return !!spaceName && spaceName.trim().length >= 3;
   }
 
   isValidEmail(userEmail: string): boolean {
@@ -56,5 +65,13 @@ export class CreateSpaceComponent {
 
   closeSpaceLimitModal() {
     this.showSpaceLimitModal = false;
+  }
+
+  userIsAuthenticated(): boolean {
+    if (this.flagUserAuthenticated == null) {
+      this.flagUserAuthenticated = this.authService.isAuthenticated();
+    }
+
+    return this.flagUserAuthenticated;
   }
 }

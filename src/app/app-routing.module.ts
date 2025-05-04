@@ -12,6 +12,8 @@ import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.c
 import { AuthGuard } from './guards/auth.guard';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { GuestGuard } from './guards/guest.guard';
+import { PaymentSuccessComponent } from './components/payment/payment-success/payment-success.component';
+import { PaymentErrorComponent } from './components/payment/payment-error/payment-error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'space-admin/:id', component: SpaceAdminComponent },
   { path: 'suggestions/:id', component: SuggestionsDashboardComponent },
   { path: 'pricing', component: PricingComponent },
-  { path: 'signin', component: LoginComponent, canActivate: [GuestGuard] },
+  { path: 'success', component: PaymentSuccessComponent },
+  { path: 'payment-error', component: PaymentErrorComponent },
+  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'signup', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'user-spaces', component: UserSpacesComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent }

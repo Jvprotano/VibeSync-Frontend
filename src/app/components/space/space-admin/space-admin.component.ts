@@ -16,19 +16,22 @@ export class SpaceAdminComponent implements OnInit {
   adminToken: string = '';
   spaceName: string = '';
   publicToken: string = '';
-  imageQrCode: string = 'https://lncimg.lance.com.br/cdn-cgi/image/width=850,quality=75,format=webp/uploads/2024/09/escudo-palmeiras.jpg';
+  imageQrCode: string = '';
   isLoading: boolean = true;
 
   publicLink: string = '';
   adminLink: string = '';
 
-  constructor(private route: ActivatedRoute, private spaceService: SpaceService, private toastrService: ToastrService, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private spaceService: SpaceService,
+    private toastrService: ToastrService,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.adminToken = params.get('id')!.toString();
-      this.adminLink = environment.baseUrl + `/space-admin/${this.adminToken}`; // Define o link admin
-      this.publicLink = environment.baseUrl + `/space/${this.adminToken}`; // Define o link público
+      this.adminLink = environment.baseUrl + `/space-admin/${this.adminToken}`;
     });
 
     this.spaceService.getAdminSpace(this.adminToken).subscribe({
@@ -53,7 +56,7 @@ export class SpaceAdminComponent implements OnInit {
   }
 
   voltar() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/user-spaces']);
   }
 
   painelSugestoes() {
@@ -64,5 +67,6 @@ export class SpaceAdminComponent implements OnInit {
     this.spaceName = space.name;
     this.publicToken = space.publicToken;
     this.imageQrCode = 'data:image/png;base64,' + space.qrCode;
+    this.publicLink = environment.baseUrl + `/space/${this.publicToken}`;
   }
 }
