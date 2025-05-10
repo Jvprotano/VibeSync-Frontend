@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { catchError, Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -15,10 +15,6 @@ export class BaseService {
 
   private getHeaders(): HttpHeaders {
     const accessToken = this.authService.getAccessToken();
-
-    if (!accessToken) {
-      throw new Error('No access token available'); // Use `throw` for synchronous errors
-    }
 
     return new HttpHeaders({
       'Authorization': `Bearer ${accessToken}`

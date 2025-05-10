@@ -14,7 +14,8 @@ export class ShareWhatsappButtonComponent {
   publicLink: string = environment.baseUrl + '/space/';
 
   shareOnWhatsApp() {
-    const message = `Venha participar da festa - "${this.spaceName}" com VibeSync
+    const message = `Faça parte do evento - "${this.spaceName}" com VibeSync \n
+    Acesse o link abaixo e selecione as músicas que você quer ouvir: \n
     ${this.publicLink + this.publicToken}`;
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
