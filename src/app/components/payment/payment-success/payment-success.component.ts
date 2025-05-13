@@ -13,9 +13,7 @@ export class PaymentSuccessComponent {
   constructor(private router: Router, private route: ActivatedRoute) {
     this.route.queryParamMap.subscribe(params => {
       this.sessionId = params.get('session_id'); // Obtém o ID da rota
-      console.log('Session ID:', this.sessionId); // Log do ID da sessão  
     });
-
   }
 
   goToUserSpaces() {

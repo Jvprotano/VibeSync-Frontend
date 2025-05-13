@@ -47,15 +47,15 @@ label {
   font-weight: bold;
 }
 
-input[type="text"] {
+input {
   padding: 0.75rem;
-  margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width: 100%;
 }
 
-.error-message {
-  color: var(--error-color);
+.info-message {
+  color: var(--accent-color);
   font-size: 0.9em;
   margin-bottom: 1rem;
 }
@@ -115,4 +115,9 @@ input[type="text"] {
   cursor: pointer;
   max-width: 150px;
   height: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
 }

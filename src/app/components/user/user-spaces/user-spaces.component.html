@@ -22,6 +22,7 @@
     <div class="space-cards-grid">
       <div *ngFor="let space of spaces" class="space-card">
         <h3>{{ space.name }}</h3>
+        <h5>Data do evento: {{ space.eventDate | date: 'dd/MM/yyyy' }}</h5>
         <h5>Sugestões: 0</h5>
         <button (click)="navigateToSpace(space.adminToken)" class="space-card-button">Acessar Space</button>
       </div>

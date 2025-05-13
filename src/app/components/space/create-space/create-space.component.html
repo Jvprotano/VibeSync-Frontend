@@ -7,18 +7,52 @@
   <form>
     <label for="spaceName">Nome do Space:</label>
     <input type="text" id="spaceName" [(ngModel)]="spaceName" placeholder="Digite o nome do seu Space" name="spaceName">
-    <div *ngIf="spaceName.length > 0 && !isValidSpaceName(spaceName)" class="error-message">
+    <div *ngIf="spaceName.length > 0 && !isValidSpaceName(spaceName)" class="validation-error-message">
       O nome do Space deve ter no mínimo 3 caracteres
     </div>
+    <label for="eventDate">Data do evento:</label>
+    <input type="date" id="eventDate" [(ngModel)]="eventDate" placeholder="Digite a data prevista do evento"
+      name="eventDate" required>
+    <div class="info-message">
+      <mat-icon>info</mat-icon> Atenção! O Space ficará disponível para uso 5 dias antes e 5 dias depois da data do
+      evento.
+    </div>
     <div style="display: contents;" *ngIf="!userIsAuthenticated()">
-      <label for="userEmail">Seu e-mail:</label>
-      <input type="text" [(ngModel)]="userEmail" placeholder="Digite seu melhor e-mail" name="userEmail">
-      <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)" class="error-message">
-        Digite um e-mail válido
+      <div class="form-group">
+        <label for="fullName">Nome</label>
+        <input type="text" placeholder="Informe seu nome" id="name" name="name" [(ngModel)]="fullName" required>
+        <div *ngIf="fullName.length > 0 && !isValidFullName(fullName)" class="validation-error-message">
+          Digite um nome válido com no mínimo 3 caracteres!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userEmail">Seu e-mail:</label>
+        <input type="email" placeholder="Informe seu e-mail" id="userEmail" name="userEmail" [(ngModel)]="userEmail"
+          required>
+        <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)" class="validation-error-message">
+          Digite um e-mail válido
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password"
+          required>
+        <div *ngIf="password.length > 0 && !isValidPassword(password)" [innerHTML]="passwordErrorMessage"
+          class="validation-error-message">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirme a Senha</label>
+        <input type="password" placeholder="Confirme sua senha" id="confirmPassword" name="confirmPassword"
+          [(ngModel)]="confirmPassword" required>
+        <div *ngIf="password.length > 0 && confirmPassword.length > 0 && confirmPassword !== password"
+          class="validation-error-message">
+          As senhas não conferem
+        </div>
       </div>
     </div>
     <button type="button" id="btn-create"
-      [disabled]="!(isValidSpaceName(spaceName) && (isValidEmail(userEmail) || userIsAuthenticated()))"
+      [disabled]="!(isValidSpaceName(spaceName) && isValidEventDate() &&  (isValidUserCreation() || userIsAuthenticated()))"
       (click)="createSpace()">Criar</button>
   </form>
 </div>
@@ -32,6 +66,5 @@
     <p>Você atingiu o limite de spaces criados.</p>
     <p>Para criar mais spaces, adquira um de nossos planos.</p>
     <button routerLink="/pricing" class="modal-button">Ver planos!</button>
-    <button routerLink="/login" class="modal-button">Já possuo uma conta!</button>
   </div>
 </div>

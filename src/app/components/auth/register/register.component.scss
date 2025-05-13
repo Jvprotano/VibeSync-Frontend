@@ -1,100 +1,108 @@
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.signup-background {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.signup-card,
+.signup-card-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+
+  .signup-card,
+  .signup-card-form {
+    width: 48%;
   }
-  
-  .signup-background {
-    width: 100%;
-    max-width: 800px;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  cursor: pointer;
+  max-width: 150px;
+  height: auto;
+  animation: rotateLogo 5s linear infinite;
+}
+
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .signup-card, .signup-card-form {
-    width: 100%;
-    box-sizing: border-box;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  @media (min-width: 600px) {
-    .signup-card, .signup-card-form {
-      width: 48%;
-    }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.signup-description {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.signup-button {
+  width: 110%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.8s ease;
+
+  &:hover {
+    background-color: var(--primary-hover-color);
   }
-  
-  .signup-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .logo {
-    cursor: pointer;
-    max-width: 150px;
-    height: auto;
-    animation: rotateLogo 5s linear infinite;
-  }
-  
-  @keyframes rotateLogo {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .signup-description {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  input {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  .signup-button {
-    width: 110%;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.8s ease;
-  
-    &:hover {
-      background-color: var(--primary-hover-color);
-    }
-  }
-  
-  .signup-link {
-    text-align: center;
-    margin-top: 1rem;
-  }
-  
-  .signup-link a {
-    color: #41c3c3;
-  }
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.signup-link a {
+  color: #41c3c3;
+}

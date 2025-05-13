@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
+import { HelperService } from '../../../services/helper.service';
 
 @Component({
   selector: 'app-register',
@@ -13,12 +14,17 @@ export class RegisterComponent {
   email = '';
   password = '';
   confirmPassword = '';
-  name = '';
+  fullName = '';
+  passwordErrorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router, private toastrService: ToastrService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastrService: ToastrService,
+    private helperService: HelperService) { }
 
   signup() {
-    this.authService.register(this.email, this.password).subscribe({
+    this.authService.register(this.fullName, this.email, this.password).subscribe({
       next: () => {
         this.router.navigate(['/login']).then(() => {
           this.toastrService.success('Usuário cadastrado com sucesso!', 'Realize o login para continuar!');
@@ -32,5 +38,24 @@ export class RegisterComponent {
         this.toastrService.error('Ocorreu um erro ao realizar seu cadastro!');
       }
     });
+  }
+
+  isValidPassword(password: string): boolean {
+    const passwordValidation = this.helperService.isValidPassword(password);
+    this.passwordErrorMessage = passwordValidation.errorMessage;
+
+    return passwordValidation.isValid;
+  }
+
+  isValidEmail(userEmail: string): boolean {
+    return this.helperService.isValidEmail(userEmail);
+  }
+
+  isValidFullName(fullName: string): boolean {
+    if (!fullName || fullName.trim() === '' || fullName.length < 3) {
+      return false;
+    }
+    const nameRegex = /^[a-zA-ZÀ-ÿ\s]+$/;
+    return nameRegex.test(fullName);
   }
 }

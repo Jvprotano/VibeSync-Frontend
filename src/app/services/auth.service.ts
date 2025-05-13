@@ -26,8 +26,8 @@ export class AuthService {
     );
   }
 
-  register(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, { email, password }).pipe(
+  register(fullName: string, email: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, { email, password, fullName }).pipe(
       catchError(this.handleError)
     );
   }
@@ -64,7 +64,6 @@ export class AuthService {
   }
 
   refreshToken(): Observable<TokenResponse> {
-    console.log('Refreshing token...');
     const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) {
       return throwError(() => new Error('No refresh token available'));

@@ -12,8 +12,8 @@ export class SpaceService extends BaseService {
 
   private endpointBaseUrl = '/space';
 
-  createSpace(name: string, userEmail: string): Observable<Space> {
-    return this.postAuth<Space>(this.endpointBaseUrl, { name, userEmail });
+  createSpace(name: string, eventDate: Date): Observable<Space> {
+    return this.postAuth<Space>(this.endpointBaseUrl, { name, eventDate });
   }
 
   searchSpace(id: number, query: string): Observable<any[]> {
