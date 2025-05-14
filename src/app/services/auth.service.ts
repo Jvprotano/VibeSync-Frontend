@@ -88,9 +88,14 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.error('An error occurred:', error);
-    return throwError(() => new Error('Something went wrong. Please try again later.'));
+    console.error('AuthService Error:', error.message); // Log mais específico
+    console.error('Status code:', error.status);
+    console.error('Error object:', error.error); // Corpo do erro vindo do backend
+
+    // Simplesmente relance o erro original para que o subscriber possa tratá-lo
+    return throwError(() => error);
   }
+  
   private handleRefreshError(error: HttpErrorResponse) {
     console.error('An refresh error occurred:', error);
     this.logout();

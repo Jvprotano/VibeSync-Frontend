@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Suggestion } from '../../models/suggestion.model';
 
 @Component({
   selector: 'app-suggestions-table',
@@ -8,6 +9,11 @@ import { Component, Input } from '@angular/core';
 })
 
 export class SuggestionsTableComponent {
+
   @Input() title: string = '';
-  @Input() suggestions: any[] = [];
+  @Input() suggestions: Suggestion[] = [];
+
+  openSuggestion(url: string) {
+    window.open(url, '_blank');
+  }
 }

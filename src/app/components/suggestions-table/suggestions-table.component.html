@@ -9,6 +9,7 @@
                 <th>Ordem</th>
                 <th>Pedidos</th>
                 <th>Título</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,11 @@
                 <td>{{ i + 1 }}</td>
                 <td>{{ suggestion.countSuggestions }}</td>
                 <td>{{ suggestion.song.title }}</td>
+                <td>
+                    <button id="youtube-button" mat-icon-button (click)="openSuggestion(suggestion.song.youtubeUrl)">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

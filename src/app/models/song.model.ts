@@ -6,4 +6,5 @@ export interface Song {
   prevPageToken: string;
   artistName: string;
   publishedAt: Date;
+  youtubeUrl: string;
 }

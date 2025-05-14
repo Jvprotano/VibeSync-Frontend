@@ -31,8 +31,6 @@
   }
   
   .suggestion {
-    // display: flex;
-    // align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
   }
@@ -41,7 +39,11 @@
     border-bottom: none;
   }
   
-  /* Alinhamento específico para a coluna "Pedidos" */
   .suggestions-table td:nth-child(2) {
     text-align: center;
+  }
+
+  #youtube-button{
+    padding: revert;
+    background: red;
   }

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SpaceService } from '../../../services/space.service';
 import { AuthService } from '../../../services/auth.service';
 import { HelperService } from '../../../services/helper.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-create-space',
@@ -32,7 +33,6 @@ export class CreateSpaceComponent {
     private helperService: HelperService) { }
 
   createSpace() {
-    debugger
     if (!this.isValidSpaceName(this.spaceName)) {
       this.toastrService.error('Por favor, insira um nome para o Space.');
       return;
@@ -74,23 +74,28 @@ export class CreateSpaceComponent {
   }
 
   private createUserAndGenerateSpace() {
-    this.authService.register(this.fullName, this.userEmail, this.password).subscribe({
-      next: () => {
-        this.authService.login(this.userEmail, this.password).subscribe({
-          next: (response) => {
-            this.createSpaceRequest();
-          },
-          error: (error) => {
-            console.error('Erro ao logar o usuário:', error);
-            this.toastrService.error('Ocorreu um erro ao logar o usuário. Por favor, tente novamente mais tarde.');
-            return;
-          }
-        });
+    this.authService.register(this.fullName, this.userEmail, this.password).pipe(
+      switchMap(() => this.authService.login(this.userEmail, this.password)),
+      switchMap(() => this.spaceService.createSpace(this.spaceName, this.eventDate!))
+    ).subscribe({
+      next: (space) => {
+        this.toastrService.success('Space criado com sucesso!');
+        this.router.navigate(['/space-admin', space.adminToken]);
       },
       error: (error) => {
-        console.error('Erro ao criar o usuário:', error);
-        this.toastrService.error('Ocorreu um erro ao criar o usuário. Por favor, tente novamente mais tarde.');
-        return;
+        console.error('Erro ao criar o Space:', error);
+
+        switch (error.status) {
+          case 429:
+            this.showSpaceLimitPerUserModal();
+            break;
+          case 409:
+            this.toastrService.error('Este e-mail já está cadastrado. Por favor, faça login.', 'Usuário já cadastrado!');
+            break;
+          default:
+            this.toastrService.error('Ocorreu um erro ao criar o Space. Por favor, tente novamente mais tarde.');
+            break;
+        }
       }
     });
   }
