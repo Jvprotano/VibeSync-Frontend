@@ -1,0 +1,29 @@
+<header id="header">
+    <div class="d-flex align-items-center justify-content-between h-100 header-container">
+        <div class="d-flex align-items-center gap-md-4">
+            <div class="d-flex align-items-center">
+                <a routerLink="/">
+                    <img src="assets/images/logo-sem-fundo.png" alt="Logo" class="logo" />
+                </a>
+            </div>
+            <nav>
+                <ul class="d-flex list-unstyled m-0">
+                    <li class="me-3"><a routerLink="/">Início</a></li>
+                    <li class="me-3"><a [routerLink]="[]" fragment="how-it-works">Como Funciona</a></li>
+                    <li><a routerLink="/pricing">Planos</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div *ngIf="!user" class="d-md-flex d-none align-items-center gap-4">
+            <a class="btn btn-login" routerLink="/login">Entrar</a>
+            <a class="btn btn-register" routerLink="/signup">Cadastrar</a>
+        </div>
+        <div *ngIf="user" class="d-md-flex d-none align-items-center gap-4">
+            <h4 *ngIf="user.name" class="text-white fs-5">Usuário: {{ user.name }}</h4>
+            <h4 *ngIf="user.planName" class="text-white fs-5">Plano: {{ user.planName }}</h4>
+            <button (click)="logout()" class="btn btn-logout text-white">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+    </div>
+</header>

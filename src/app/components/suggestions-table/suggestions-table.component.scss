@@ -1,49 +1,49 @@
 .suggestions-list {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 20px;
-    margin-right: 2%;
-  }
-  
-  .no-suggestions {
-    text-align: center;
-    padding: 20px;
-    color: #888;
-    font-style: italic;
-  }
-  
-  .suggestions-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .suggestions-table th,
-  .suggestions-table td {
-    padding: 10px;
-    text-align: left;
-    vertical-align: middle;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .suggestions-table th {
-    font-weight: bold;
-  }
-  
-  .suggestion {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .suggestion:last-child {
-    border-bottom: none;
-  }
-  
-  .suggestions-table td:nth-child(2) {
-    text-align: center;
-  }
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-right: 2%;
+  background: #040d36;
+}
 
-  #youtube-button{
-    padding: revert;
-    background: red;
-  }
+.no-suggestions {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-style: italic;
+}
+
+.suggestions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.suggestions-table th,
+.suggestions-table td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestions-table th {
+  font-weight: bold;
+}
+
+.suggestion {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestions-table td:nth-child(2) {
+  text-align: center;
+}
+
+#youtube-button {
+  padding: revert;
+  background: red;
+}

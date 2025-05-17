@@ -1,14 +1,14 @@
 <h2>{{ title }}</h2>
-<div class="suggestions-list">
+<div class="suggestions-list border-0">
     <div *ngIf="suggestions.length === 0" class="no-suggestions">
         Nenhuma sugestão encontrada.
     </div>
-    <table *ngIf="suggestions.length > 0" class="suggestions-table" border="1">
+    <table *ngIf="suggestions.length > 0" class="suggestions-table border-0" border="1">
         <thead>
             <tr>
                 <th>Ordem</th>
                 <th>Pedidos</th>
-                <th>Título</th>
+                <th>Música</th>
                 <th></th>
             </tr>
         </thead>
@@ -16,9 +16,14 @@
             <tr *ngFor="let suggestion of suggestions; let i = index" class="suggestion">
                 <td>{{ i + 1 }}</td>
                 <td>{{ suggestion.countSuggestions }}</td>
-                <td>{{ suggestion.song.title }}</td>
                 <td>
-                    <button id="youtube-button" mat-icon-button (click)="openSuggestion(suggestion.song.youtubeUrl)">
+                    <div class="d-flex align-items-center"><img *ngIf="suggestion.song.thumbnailUrl"
+                            class="rounded me-3" width="60" [src]="suggestion.song.thumbnailUrl"><span>{{
+                            suggestion.song.title }}</span></div>
+                </td>
+                <td>
+                    <button id="youtube-button" class="d-flex align-items-center" mat-icon-button
+                        (click)="openSuggestion(suggestion.song.youtubeUrl)">
                         <mat-icon>play_arrow</mat-icon>
                     </button>
                 </td>
