@@ -219,7 +219,7 @@
 }
 
 .how-it-works .step {
-    background-color: rgba(28, 39, 90, 0.6);
+    background-color: rgba(28, 39, 90, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     padding: 16px;
@@ -228,7 +228,7 @@
 }
 
 .home-top .buttons .btn {
-    background-color: rgba(28, 39, 90, 0.6);
+    background-color: rgba(28, 39, 90, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     width: 320px;
@@ -237,3 +237,17 @@
 .home-top .buttons .btn:hover {
     background-color: #1c275a !important;
 }
+
+// .home-image-background {
+//     background-image: url('../../../assets/images/home-background.jpg');
+//     width: 100%;
+//     height: calc(100vh - 100px);
+//     position: absolute;
+//     opacity: 0.3;
+//     left: 0;
+//     background-position: center center;
+// }
+
+// .home-top {
+//     height: calc(100vh - 100px);
+// }
