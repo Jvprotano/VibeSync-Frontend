@@ -1,6 +1,43 @@
 <app-loading [isLoading]="isLoading"></app-loading>
+<div class="container">
+  <div class="row mx-0 row-gap-md-0 row-gap-3">
+    <div class="col-12">
+      <div class="d-flex align-items-center justify-content-between my-4">
+        <button mat-icon-button (click)="voltar()" class="back-button d-flex align-items-center">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button (click)="painelSugestoes()" class="suggestions-button d-flex align-items-center">
+          <mat-icon>library_music</mat-icon>
+          Acessar Painel de Sugestões
+        </button>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 p-5 block-space">
+      <h2 class="space-title">VibeSync: Space - {{ spaceName }}</h2>
 
-<div class="space-detail-container" *ngIf="!isLoading">
+      <div class="link-section">
+        <h2 class="link-title">Compartilhe o Link Público:</h2>
+        <div class="link-copy" (click)="copyToClipboard(publicLink)">
+          {{ publicLink }}
+          <mat-icon class="copy-icon">content_copy</mat-icon>
+        </div>
+        <app-share-whatsapp-button [publicToken]="publicToken" [spaceName]="spaceName"></app-share-whatsapp-button>
+        <p class="link-description">Compartilhe este link para que as pessoas sugiram músicas no Space.</p>
+      </div>
+    </div>
+    <div class="col-md-1 align-items-center col-md-1 d-flex justify-content-center">
+      <h3>Ou</h3>
+    </div>
+    <div class="col-12 col-md-5 p-5 block-space">
+      <div class="align-items-center d-flex flex-column qrcode-section">
+        <h2 class="qrcode-title">QRCode Público:</h2>
+        <img [src]="imageQrCode" alt="QR Code" class="qrcode-image" />
+        <p class="qrcode-description">Leia o QRCode para sugerir músicas no Space.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="space-detail-container" *ngIf="!isLoading">
   <div class="space-detail-content">
     <div class="space-detail-header">
       <button mat-icon-button (click)="voltar()" class="back-button">
@@ -23,7 +60,7 @@
       <p class="link-description">Compartilhe este link para que as pessoas sugiram músicas no Space.</p>
     </div>
 
-    <!-- <div class="link-section">
+    --><!-- <div class="link-section">
       <h2 class="link-title">Link Privado (Admin):</h2>
       <div class="link-copy" (click)="copyToClipboard(adminLink)">
         {{ adminLink }}
@@ -32,10 +69,10 @@
       <p class="link-description">Link para administração do Space. Mantenha em segredo.</p>
     </div> -->
 
-    <div class="qrcode-section">
+   <!-- <div class="qrcode-section">
       <h2 class="qrcode-title">QRCode Público:</h2>
       <img [src]="imageQrCode" alt="QR Code" class="qrcode-image" />
       <p class="qrcode-description">Leia o QRCode para sugerir músicas no Space.</p>
     </div>
   </div>
-</div>
+</div> -->

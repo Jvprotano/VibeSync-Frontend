@@ -1,6 +1,9 @@
+
+
 @use '@angular/material' as mat;
 @use "variables";
 @use "base";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 html {
   @include mat.theme((
@@ -15,12 +18,12 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 1rem;
+  // padding: 1rem;
   box-sizing: border-box;
   line-height: 1.6;
 }
@@ -66,4 +69,8 @@ input[type="text"] {
   color: var(--error-color);
   font-size: 0.9em;
   margin-bottom: 1rem;
+}
+
+a, i, button, span, h1, h2, h3, h4, h5, h6, input, label, p {
+  font-family: 'Orbitron', 'Roboto', sans-serif !important;
 }

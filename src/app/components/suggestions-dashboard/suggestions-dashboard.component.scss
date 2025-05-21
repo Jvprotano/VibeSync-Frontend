@@ -34,12 +34,12 @@
 }
 
 .suggestions-list {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  // border: 1px solid #ccc;
+  border-radius: 10px;
   padding: 15px;
-  /* Aumentado o padding */
   margin-bottom: 20px;
-  /* Aumentado o espaçamento */
+  margin-right: 2%;
+  background: #040d36;
 }
 
 .suggestion {
@@ -105,8 +105,9 @@ h1 {
   margin-left: 1%;
 }
 
-.btn-quantity:disabled{
-  background-color: #7a92b1;;
+.btn-quantity:disabled {
+  background-color: #7a92b1;
+  ;
   text-decoration: none;
 }
 

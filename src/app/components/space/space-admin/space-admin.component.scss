@@ -15,6 +15,7 @@
 .back-button {
   background-color: var(--error-color);
   color: var(--text-color);
+
   &:hover {
     background-color: var(--error-hover-color);
   }
@@ -26,6 +27,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
   &:hover {
     background-color: var(--accent-hover-color);
   }
@@ -49,7 +51,8 @@
   margin-bottom: 2rem;
 }
 
-.link-title, .qrcode-title {
+.link-title,
+.qrcode-title {
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -66,12 +69,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
   &:hover {
     background-color: #1f1d1d;
   }
 }
 
-.link-description, .qrcode-description {
+.link-description,
+.qrcode-description {
   font-size: 0.9em;
   color: var(--secondary-text-color);
   margin-top: 0.5rem;
@@ -89,4 +94,10 @@
     max-width: 100%;
     padding: 1.5rem;
   }
+}
+
+.block-space {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

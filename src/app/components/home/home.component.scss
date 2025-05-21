@@ -83,7 +83,7 @@
 }
 
 .how-it-works {
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 80px 20px;
     color: white;
     border-radius: 16px;
@@ -115,8 +115,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    max-width: 300px;
+    height: 100%;
 }
 
 .step-icon {
@@ -171,3 +170,84 @@
         opacity: 1;
     }
 }
+
+.home-top .scroll-downs {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 54px;
+    margin: auto;
+}
+
+.home-top .scroll-downs .mousey {
+    width: 3px;
+    padding: 8px 13px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+.home-top .scroll-downs .mousey .scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+.how-it-works .step {
+    background-color: rgba(28, 39, 90, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.home-top .buttons .btn {
+    background-color: rgba(28, 39, 90, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 320px;
+}
+
+.home-top .buttons .btn:hover {
+    background-color: #1c275a !important;
+}
+
+// .home-image-background {
+//     background-image: url('../../../assets/images/home-background.jpg');
+//     width: 100%;
+//     height: calc(100vh - 100px);
+//     position: absolute;
+//     opacity: 0.3;
+//     left: 0;
+//     background-position: center center;
+// }
+
+// .home-top {
+//     height: calc(100vh - 100px);
+// }

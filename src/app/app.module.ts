@@ -25,6 +25,9 @@ import { UserSpacesComponent } from './components/user/user-spaces/user-spaces.c
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PaymentErrorComponent } from './components/payment/payment-error/payment-error.component';
 import { PaymentSuccessComponent } from './components/payment/payment-success/payment-success.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -53,7 +56,11 @@ import { PaymentSuccessComponent } from './components/payment/payment-success/pa
         MatIconModule,
         ToastrModule.forRoot(),
         MatProgressSpinnerModule,
-        MatTooltipModule],
+        MatTooltipModule,
+        NgbModule,
+        HeaderComponent,
+        FooterComponent
+    ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimationsAsync(),
