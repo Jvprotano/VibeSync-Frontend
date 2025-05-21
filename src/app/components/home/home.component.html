@@ -12,20 +12,11 @@
             <p>Conheça nosso plano <b>GRATUITO</b> e experimente hoje mesmo essa nova experiência! </p>
         </div>
         <div class="buttons">
-            <button routerLink="/create-space" class="btn">Criar novo Space GRÁTIS</button>
-            <!-- <button (click)="showAdminSpace = !showAdminSpace; showPublicSpace = false" class="btn">
-            Entrar em um Space (admin)
-        </button> -->
+            <button (click)="CreateSpace()" class="btn">Criar novo Space GRÁTIS</button>
             <button routerLink="/pricing" class="btn btn-planos">Veja nossos planos <mat-icon
                     class="btn-icon">diamond</mat-icon></button>
             <button routerLink="/login" class="btn btn-planos">Acesse sua conta <mat-icon
                     class="btn-icon">person</mat-icon></button>
-        </div>
-        <div *ngIf="showAdminSpace" class="space-tokens">
-            <div>
-                <input type="text" [(ngModel)]="spaceToken" placeholder="Digite o token do Space" class="input">
-                <button (click)="joinSpace()" class="btn">Entrar no painel admin</button>
-            </div>
         </div>
         <div class="scroll-downs">
             <div (click)="scrollToHowItWorks()" class="mousey">
