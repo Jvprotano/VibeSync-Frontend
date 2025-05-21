@@ -20,7 +20,7 @@
         </div>
         <div *ngIf="user" class="d-md-flex d-none align-items-center gap-4">
             <h4 *ngIf="user.name" class="text-white fs-5">Usuário: {{ user.name }}</h4>
-            <h4 *ngIf="user.planName" class="text-white fs-5">Plano: {{ user.planName }}</h4>
+            <h4 *ngIf="user.plan.name" class="text-white fs-5">Plano: {{ user.plan.name }}</h4>
             <button (click)="logout()" class="btn btn-logout text-white">
                 <mat-icon>logout</mat-icon>
             </button>
