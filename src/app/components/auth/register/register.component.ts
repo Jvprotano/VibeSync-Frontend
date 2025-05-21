@@ -25,10 +25,9 @@ export class RegisterComponent {
 
   signup() {
     this.authService.register(this.fullName, this.email, this.password).subscribe({
-      next: () => {
-        this.router.navigate(['/login']).then(() => {
-          this.toastrService.success('Usuário cadastrado com sucesso!', 'Realize o login para continuar!');
-        });
+      next: (space) => {
+        console.log('Space created successfully:', space);
+        this.router.navigate(['/email-confirmation-message']);
       },
       error: (error) => {
         if (error.status === 400) {

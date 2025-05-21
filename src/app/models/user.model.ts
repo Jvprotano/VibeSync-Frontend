@@ -1,5 +1,7 @@
+import { Plan } from "./plan.model";
+
 export interface User {
     name: string;
     email: string;
-    planName: string;
+    plan: Plan;
 }

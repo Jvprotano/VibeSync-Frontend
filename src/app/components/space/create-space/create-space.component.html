@@ -17,42 +17,7 @@
       <mat-icon>info</mat-icon> Atenção! O Space ficará disponível para uso 5 dias antes e 5 dias depois da data do
       evento.
     </div>
-    <div style="display: contents;" *ngIf="!userIsAuthenticated()">
-      <div class="form-group">
-        <label for="fullName">Nome</label>
-        <input type="text" placeholder="Informe seu nome" id="name" name="name" [(ngModel)]="fullName" required>
-        <div *ngIf="fullName.length > 0 && !isValidFullName(fullName)" class="validation-error-message">
-          Digite um nome válido com no mínimo 3 caracteres!
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="userEmail">Seu e-mail:</label>
-        <input type="email" placeholder="Informe seu e-mail" id="userEmail" name="userEmail" [(ngModel)]="userEmail"
-          required>
-        <div *ngIf="userEmail.length > 0 && !isValidEmail(userEmail)" class="validation-error-message">
-          Digite um e-mail válido
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password"
-          required>
-        <div *ngIf="password.length > 0 && !isValidPassword(password)" [innerHTML]="passwordErrorMessage"
-          class="validation-error-message">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirme a Senha</label>
-        <input type="password" placeholder="Confirme sua senha" id="confirmPassword" name="confirmPassword"
-          [(ngModel)]="confirmPassword" required>
-        <div *ngIf="password.length > 0 && confirmPassword.length > 0 && confirmPassword !== password"
-          class="validation-error-message">
-          As senhas não conferem
-        </div>
-      </div>
-    </div>
-    <button type="button" id="btn-create"
-      [disabled]="!(isValidSpaceName(spaceName) && isValidEventDate() &&  (isValidUserCreation() || userIsAuthenticated()))"
+    <button type="button" id="btn-create" [disabled]="!(isValidSpaceName(spaceName) && isValidEventDate())"
       (click)="createSpace()">Criar</button>
   </form>
 </div>

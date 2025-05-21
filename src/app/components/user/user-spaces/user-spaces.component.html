@@ -3,7 +3,7 @@
     <h1 class="navbar-title">VibeSync</h1>
     <div class="navbar-user-info">
       <h4 class="navbar-user">Usuário: {{user?.name}}</h4>
-      <h4 class="navbar-plan">Plano: {{user?.planName}}</h4>
+      <h4 class="navbar-plan">Plano: {{user?.plan?.name}}</h4>
       <button (click)="logout()" class="logout-button"><mat-icon>logout</mat-icon></button>
     </div>
   </div>

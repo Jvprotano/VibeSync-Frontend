@@ -1,21 +1,22 @@
 import { Injectable } from "@angular/core";
 
-interface PostLoginAction {
-    type: 'buyPlan';
-    payload: string;
+interface PostExecuteAction {
+    type: 'buyPlan' | 'createSpace';
+    payload: string | null;
 }
 
 @Injectable({
     providedIn: 'root'
 })
 export class NavigationStateService {
-    private postLoginAction: PostLoginAction | null = null;
 
-    setPostLoginAction(action: PostLoginAction) {
+    private postLoginAction: PostExecuteAction | null = null;
+
+    setPostLoginAction(action: PostExecuteAction) {
         this.postLoginAction = action;
     }
 
-    getAndClearPostLoginAction(): PostLoginAction | null {
+    getAndClearPostLoginAction(): PostExecuteAction | null {
         const action = this.postLoginAction;
         this.postLoginAction = null;
         return action;

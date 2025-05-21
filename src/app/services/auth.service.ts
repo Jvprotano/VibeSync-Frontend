@@ -10,7 +10,6 @@ import { TokenResponse } from '../models/token.model';
   providedIn: 'root'
 })
 export class AuthService {
-
   private apiUrl = environment.apiUrl + '/auth';
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
@@ -76,6 +75,12 @@ export class AuthService {
     );
   }
 
+  confirmUser(userId: string, token: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/confirm-email`, { userId, token }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private setTokens(response: TokenResponse): void {
     localStorage.setItem('accessToken', response.accessToken);
     localStorage.setItem('refreshToken', response.refreshToken);
@@ -88,14 +93,9 @@ export class AuthService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.error('AuthService Error:', error.message); // Log mais específico
-    console.error('Status code:', error.status);
-    console.error('Error object:', error.error); // Corpo do erro vindo do backend
-
-    // Simplesmente relance o erro original para que o subscriber possa tratá-lo
     return throwError(() => error);
   }
-  
+
   private handleRefreshError(error: HttpErrorResponse) {
     console.error('An refresh error occurred:', error);
     this.logout();

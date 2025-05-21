@@ -14,6 +14,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { GuestGuard } from './guards/guest.guard';
 import { PaymentSuccessComponent } from './components/payment/payment-success/payment-success.component';
 import { PaymentErrorComponent } from './components/payment/payment-error/payment-error.component';
+import { EmailConfirmationMessageComponent } from './components/auth/email-confirmation-message/email-confirmation-message.component';
+import { EmailConfirmationComponent } from './components/auth/email-confirmation/email-confirmation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
   { path: 'signup', component: RegisterComponent, canActivate: [GuestGuard] },
   { path: 'user-spaces', component: UserSpacesComponent, canActivate: [AuthGuard] },
+  { path: 'email-confirmation-message', component: EmailConfirmationMessageComponent, canActivate: [GuestGuard] },
+  { path: 'email-confirmation', component: EmailConfirmationComponent, canActivate: [GuestGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 

@@ -37,15 +37,21 @@ export class LoginComponent {
   private handlePostLoginRedirect() {
     const pendingAction = this.navigationStateService.getAndClearPostLoginAction();
 
-    if (pendingAction && pendingAction.type === 'buyPlan') {
-      const planId = pendingAction.payload;
+    switch (pendingAction?.type) {
+      case 'buyPlan':
+        const planId = pendingAction.payload;
 
-      this.paymentService.initiateCheckoutAndRedirect(
-        planId,
-        'Login realizado! Redirecionando para o checkout...'
-      );
-    } else {
-      this.router.navigate(['/user-spaces']);
+        this.paymentService.initiateCheckoutAndRedirect(
+          planId as string,
+          'Login realizado! Redirecionando para o checkout...'
+        );
+        break;
+      case 'createSpace':
+        this.router.navigate(['/create-space']).then(() => {
+          this.toastrService.success('Usuário confirmado com sucesso! Agora você pode criar seu Space.');
+        });
+        break;
+      default: this.router.navigate(['/user-spaces']);
     }
   }
 }

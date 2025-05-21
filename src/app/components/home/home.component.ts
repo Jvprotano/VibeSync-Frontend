@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
+import { NavigationStateService } from "../../services/navigation-state.service";
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,12 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private navigationStateService: NavigationStateService,
+  ) { }
 
-  showAdminSpace: boolean = false;
   showPublicSpace: boolean = false;
   spaceToken: string = '';
 
@@ -21,14 +26,12 @@ export class HomeComponent {
     this.howItWorksSection?.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
-
-  joinSpace() {
-    if (this.showAdminSpace) {
-      this.router.navigate(['/space-admin', this.spaceToken]);
-    }
-    else if (this.showPublicSpace) {
-      this.router.navigate(['/space', this.spaceToken]);
+  CreateSpace() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/create-space']);
+    } else {
+      this.navigationStateService.setPostLoginAction({ type: 'createSpace', payload: null });
+      this.router.navigate(['/signup']);
     }
   }
-
 }
