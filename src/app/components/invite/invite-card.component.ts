@@ -19,7 +19,6 @@ export class InviteCardComponent implements OnInit, OnChanges {
   displayLink: string = '';
   isProcessing: boolean = false;
 
-  constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     this.updateDisplayLink();
     this.setQrCode();

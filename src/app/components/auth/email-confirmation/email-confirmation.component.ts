@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service'; // Verifique o caminho
+import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
