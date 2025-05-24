@@ -1,0 +1,113 @@
+$brand-color-light-purple: #7A60D4; 
+$brand-color-purple: #8A3FFC;     
+$text-color-dark: #333;
+$text-color-light: #FFFFFF;
+$card-background-color: #FFFFFF;
+$font-family-sans-serif: 'Arial', sans-serif; 
+
+.invite-card {
+  background-color: $card-background-color;
+  border-radius: 16px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 350px; 
+  margin: 20px auto; 
+  overflow: hidden; // Garante que as seções internas não ultrapassem as bordas arredondadas
+  font-family: $font-family-sans-serif;
+  text-align: center;
+}
+
+.card-top-section {
+  padding: 25px 20px 20px 20px; 
+}
+
+.brand-text {
+  color: $brand-color-light-purple;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.event-title {
+  color: $text-color-dark;
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.description-text {
+  color: $text-color-dark;
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 20px; 
+}
+
+.card-bottom-section {
+  background-color: $brand-color-purple;
+  padding: 30px 20px 25px 20px;
+  color: $text-color-light;
+}
+
+.qr-code-container {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px; // Altura mínima para o QR code ou placeholder
+}
+
+.qr-code-image {
+  max-width: 180px;
+  height: auto;
+  border: 5px solid $text-color-light; // Borda branca ao redor do QR code
+  border-radius: 8px;
+}
+
+.qr-code-placeholder {
+  font-size: 0.9em;
+}
+
+.access-link-text {
+  font-size: 0.95em;
+  word-break: break-all;
+}
+
+.invite-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  max-width: 350px;
+  margin: 0 auto 20px auto; 
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: $brand-color-purple;
+    color: $text-color-light;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($brand-color-purple, 10%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.invite-status {
+  text-align: center;
+  padding: 10px;
+  color: #555;
+}

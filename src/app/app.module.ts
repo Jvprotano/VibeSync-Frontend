@@ -28,6 +28,7 @@ import { PaymentSuccessComponent } from './components/payment/payment-success/pa
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { InviteCardComponent } from './components/invite/invite-card.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +47,8 @@ import { FooterComponent } from './shared/footer/footer.component';
         UserSpacesComponent,
         PageNotFoundComponent,
         PaymentErrorComponent,
-        PaymentSuccessComponent
+        PaymentSuccessComponent,
+        InviteCardComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

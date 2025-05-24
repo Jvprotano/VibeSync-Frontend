@@ -30,9 +30,14 @@
     </div>
     <div class="col-12 col-md-5 p-5 block-space">
       <div class="align-items-center d-flex flex-column qrcode-section">
-        <h2 class="qrcode-title">QRCode Público:</h2>
+        <!-- <h2 class="qrcode-title">QRCode Público:</h2>
         <img [src]="imageQrCode" alt="QR Code" class="qrcode-image" />
-        <p class="qrcode-description">Leia o QRCode para sugerir músicas no Space.</p>
+        <p class="qrcode-description">Leia o QRCode para sugerir músicas no Space.</p> -->
+        <app-invite-card
+          [spaceName]="this.spaceName"
+          [inviteLink]="this.publicLink"
+          [qrCode64]="this.imageQrCode">
+        </app-invite-card>
       </div>
     </div>
   </div>

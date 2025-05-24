@@ -1,0 +1,30 @@
+<div class="invite-actions" *ngIf="qrCodeDataUrl"> <button (click)="downloadInvite()" [disabled]="isProcessing">
+    {{ isProcessing ? 'Processando...' : 'Baixar Convite' }}
+  </button>
+  <button (click)="printInvite()" [disabled]="isProcessing">
+    {{ isProcessing ? 'Processando...' : 'Imprimir Convite' }}
+  </button>
+</div>
+
+<div *ngIf="isProcessing && !qrCodeDataUrl" class="invite-status">
+  Preparando convite...
+</div>
+
+<div class="invite-card" #inviteCardElement>
+  <div class="card-top-section">
+    <p class="brand-text">VibeSync</p>
+    <h2 class="event-title">{{ spaceName }}</h2>
+    <p class="description-text">
+      Este evento utiliza a tecnologia VibeSync. Acesse o QR Code abaixo e sugira as músicas que deseja ouvir.
+    </p>
+  </div>
+  <div class="card-bottom-section">
+    <div class="qr-code-container">
+      <img *ngIf="qrCodeDataUrl" [src]="qrCodeDataUrl" alt="QR Code para {{ spaceName }}" class="qr-code-image">
+      <div *ngIf="!qrCodeDataUrl" class="qr-code-placeholder">
+        Gerando QR Code...
+      </div>
+    </div>
+    <p class="access-link-text">ou acesse: {{ displayLink }}</p>
+  </div>
+</div>
