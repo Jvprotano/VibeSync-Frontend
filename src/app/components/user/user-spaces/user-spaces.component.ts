@@ -42,6 +42,17 @@ export class UserSpacesComponent {
     });
   }
 
+  canCreateSpaces() {
+    if (!this.user) {
+      return 0;
+    }
+    if (this.user?.plan?.maxSpaces && Number(this.user.plan.maxSpaces) > this.spaces.length) {
+      return Number(this.user.plan.maxSpaces) - this.spaces.length;
+    } else {
+      return 0;
+    }
+  }
+
   createSpace() {
     this.router.navigate(['/create-space']);
   }

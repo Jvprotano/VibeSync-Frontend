@@ -55,7 +55,11 @@ export class SpaceDetailsComponent implements OnInit {
     });
   }
 
-  search() {
+  search(isPageChange: boolean = false) {
+    if (!isPageChange) {
+      this.pageToken = '';
+      this.currentPage = 1;
+    }
     this.songService.search(this.searchQuery, this.pageSize, this.pageToken).subscribe(results => {
 
       this.searchResults = results;
@@ -90,7 +94,7 @@ export class SpaceDetailsComponent implements OnInit {
       this.pageToken = this.prevPageToken;
 
     this.currentPage = page;
-    this.search();
+    this.search(true);
   }
 
   shareOnWhatsApp() {

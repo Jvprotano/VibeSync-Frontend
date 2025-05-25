@@ -14,9 +14,15 @@
                 </ul>
             </nav>
         </div>
-        <div *ngIf="!user" class="d-md-flex d-none align-items-center gap-4">
+        <div *ngIf="!user && !isAuthenticated" class="d-md-flex d-none align-items-center gap-4">
             <a class="btn btn-login" routerLink="/login">Entrar</a>
             <a class="btn btn-register" routerLink="/signup">Cadastrar</a>
+        </div>
+        <div *ngIf="!user && isAuthenticated" class="d-md-flex d-none align-items-center gap-4">
+            <a class="btn btn-login w-100" routerLink="/user-spaces">Meus Spaces</a>
+            <button (click)="logout()" class="btn btn-logout text-white">
+                <mat-icon>logout</mat-icon>
+            </button>
         </div>
         <div *ngIf="user" class="d-md-flex d-none align-items-center gap-4">
             <h4 *ngIf="user.name" class="text-white fs-5">Usuário: {{ user.name }}</h4>

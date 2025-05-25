@@ -18,11 +18,15 @@
       <div class="d-md-flex align-items-center justify-content-between">
         <div>
           <h1 class="user-spaces-title">Olá, {{ user?.name }}</h1>
-          <h6>O seu plano permite criar mais 5 spaces</h6>
+          <h6 *ngIf="canCreateSpaces() > 0">O seu plano permite criar mais {{canCreateSpaces()}} spaces</h6>
+          <h6 *ngIf="canCreateSpaces() === 0">Você atingiu o limite de spaces do seu plano</h6>
         </div>
         <div>
-          <button (click)="createSpace()"
-            class="create-space-button d-flex align-items-center justify-content-center"><span class="me-2">Criar Novo Space</span><mat-icon>add</mat-icon></button>
+          <button *ngIf="canCreateSpaces() > 0" (click)="createSpace()"
+            class="create-space-button d-flex align-items-center justify-content-center"><span class="me-2">Criar Novo
+              Space</span><mat-icon>add</mat-icon></button>
+          <a *ngIf="canCreateSpaces() === 0" routerLink="/pricing"
+            class="create-space-button d-flex align-items-center justify-content-center"><span class="me-2">Faça Upgrade Agora</span><mat-icon>diamond</mat-icon></a>
         </div>
       </div>
       <h4 class="my-3">Meus Spaces</h4>
