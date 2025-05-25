@@ -13,10 +13,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
   @Input() user: User | null = null;
+  isAuthenticated: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.isAuthenticated$.subscribe(isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+    });
+  }
 
-   logout() {
+  logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
