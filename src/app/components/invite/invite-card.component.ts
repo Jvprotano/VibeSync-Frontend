@@ -31,9 +31,6 @@ export class InviteCardComponent implements OnInit, OnChanges {
   }
 
   private updateDisplayLink(): void {
-    console.log(this.spaceName)
-    console.log(this.inviteLink)
-    console.log(this.qrCode64)
     if (this.inviteLink) {
       this.displayLink = this.inviteLink
         .replace(/^https?:\/\//, '')

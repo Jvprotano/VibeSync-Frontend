@@ -4,4 +4,5 @@ export interface Space{
     name: string;
     qrCode: string;
     eventDate: Date;
+    suggestionsCount: number;
 }

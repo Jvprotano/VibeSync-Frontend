@@ -139,16 +139,3 @@
   margin: 0; /* Remove margens padrão dos h4 */
   color: var(--navbar-text-color); /* Adicione uma variável para a cor do texto da navbar */
 }
-
-.logout-button {
-  background: none;
-  border: none;
-  color: var(--logout-icon-color); /* Adicione uma variável para a cor do ícone de logout */
-  cursor: pointer;
-  font-size: 1.2rem; /* Ajuste o tamanho do ícone */
-  outline: none; /* Remove a borda de foco padrão */
-
-  &:hover {
-    color: var(--logout-icon-hover-color); /* Adicione uma variável para o hover do ícone */
-  }
-}

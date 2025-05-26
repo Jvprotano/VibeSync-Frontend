@@ -1,23 +1,25 @@
-$brand-color-light-purple: #7A60D4; 
-$brand-color-purple: #8A3FFC;     
+@use 'sass:color';
+
+$brand-color-light-purple: #7A60D4;
+$brand-color-purple: #8A3FFC;
 $text-color-dark: #333;
 $text-color-light: #FFFFFF;
 $card-background-color: #FFFFFF;
-$font-family-sans-serif: 'Arial', sans-serif; 
+$font-family-sans-serif: 'Arial', sans-serif;
 
 .invite-card {
   background-color: $card-background-color;
-  border-radius: 16px; 
+  border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 350px; 
-  margin: 20px auto; 
+  max-width: 350px;
+  margin: 20px auto;
   overflow: hidden; // Garante que as seções internas não ultrapassem as bordas arredondadas
   font-family: $font-family-sans-serif;
   text-align: center;
 }
 
 .card-top-section {
-  padding: 25px 20px 20px 20px; 
+  padding: 25px 20px 20px 20px;
 }
 
 .brand-text {
@@ -39,7 +41,7 @@ $font-family-sans-serif: 'Arial', sans-serif;
   color: $text-color-dark;
   font-size: 1em;
   line-height: 1.5;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .card-bottom-section {
@@ -79,10 +81,10 @@ $font-family-sans-serif: 'Arial', sans-serif;
   padding: 20px;
   background-color: #f8f9fa;
   max-width: 350px;
-  margin: 0 auto 20px auto; 
+  margin: 0 auto 20px auto;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 
   button {
     padding: 10px 20px;
@@ -96,7 +98,7 @@ $font-family-sans-serif: 'Arial', sans-serif;
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: darken($brand-color-purple, 10%);
+      background-color: color.scale($brand-color-purple, $lightness: 10%);
     }
 
     &:disabled {

@@ -63,6 +63,14 @@ header#header {
     border: 2px solid #1c275a;
 }
 
+#header .btn-logout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    outline: none;
+}
+
 @media (max-width: 600px) {
     #header nav ul li a {
         display: inline-block;
