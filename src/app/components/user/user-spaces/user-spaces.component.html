@@ -32,8 +32,8 @@
       </div>
       <h4 class="my-3">Meus Spaces</h4>
       <section class="row row-gap-4 user-spaces-list">
-        <div class="col-md-4 space-cards-grid">
-          <div *ngFor="let space of spaces" class="space-card">
+        <div *ngFor="let space of spaces" class="col-md-4 space-cards-grid">
+          <div class="space-card">
             <h3>{{ space.name }}</h3>
             <h5>Data do evento: {{ space.eventDate | date: 'dd/MM/yyyy' }}</h5>
             <h5>Sugestões: {{space.suggestionsCount}}</h5>

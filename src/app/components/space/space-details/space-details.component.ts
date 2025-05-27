@@ -67,7 +67,7 @@ export class SpaceDetailsComponent implements OnInit {
       this.nextPageToken = results[0].nextPageToken;
       this.prevPageToken = results[0].prevPageToken;
 
-      this.totalResults = results.length + 10;
+      this.totalResults = this.nextPageToken ? results.length + (10 * (this.currentPage)) : results.length;
       this.totalPages = Math.ceil(this.totalResults / this.pageSize);
     })
   }

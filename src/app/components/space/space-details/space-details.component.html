@@ -24,9 +24,9 @@
       </div>
     </div>
 
-    <div *ngIf="totalPages > 1" class="pagination">
+    <div class="pagination">
       <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Anterior</button>
-      <button [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Próxima</button>
+      <button *ngIf="totalPages > 1" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Próxima</button>
     </div>
     <app-share-whatsapp-button [publicToken]="this.spaceToken" [spaceName]="this.spaceName"></app-share-whatsapp-button>
   </div>

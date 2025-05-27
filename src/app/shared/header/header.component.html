@@ -8,8 +8,8 @@
             </div>
             <nav>
                 <ul class="d-flex list-unstyled m-0">
-                    <li class="me-3"><a routerLink="/">Início</a></li>
-                    <li class="me-3"><a [routerLink]="[]" fragment="how-it-works">Como Funciona</a></li>
+                    <li *ngIf="!user" class="me-3"><a routerLink="/">Início</a></li>
+                    <li *ngIf="!user" class="me-3"><a (click)="goToFragment()">Como Funciona</a></li>
                     <li><a routerLink="/pricing">Planos</a></li>
                 </ul>
             </nav>
