@@ -1,7 +1,7 @@
 <app-loading [isLoading]="isLoading"></app-loading>
-
 <div *ngIf="!isLoading">
   <header>
+    <img src="assets/images/logo-sem-fundo.png" alt="VibeSync Logo" class="logo">
     <h1 routerLink="/home">VibeSync - Space</h1>
     <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você ao evento</p>
     <p>Pesquise na barra de busca abaixo a música que deseja ouvir e clique em sugerir.</p>
@@ -12,8 +12,13 @@
     <div class="header">
       <h2>{{spaceName}}</h2>
     </div>
-    <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()" placeholder="Pesquise uma música...">
-
+    <div class="search-box">
+      <input type="text" [(ngModel)]="searchQuery" (keydown.enter)="search()" placeholder="Pesquise uma música..." />
+      <button mat-icon-button type="button" class="search-icon-btn" (click)="search()" aria-label="Buscar">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+    <!-- <input type="text" [(ngModel)]="searchQuery" (keydown.enter)="search()" placeholder="Pesquise uma música..."> -->
     <div class="listMusics" *ngFor="let result of searchResults">
       <div class="music-item">
         <h3>{{ result.title }}</h3>
@@ -25,8 +30,10 @@
     </div>
 
     <div class="pagination">
-      <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Anterior</button>
-      <button *ngIf="totalPages > 1" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">Próxima</button>
+      <button *ngIf="totalPages > 1" [disabled]="currentPage === 1"
+        (click)="changePage(currentPage - 1)">Anterior</button>
+      <button *ngIf="totalPages > 1" [disabled]="currentPage === totalPages"
+        (click)="changePage(currentPage + 1)">Próxima</button>
     </div>
     <app-share-whatsapp-button [publicToken]="this.spaceToken" [spaceName]="this.spaceName"></app-share-whatsapp-button>
   </div>

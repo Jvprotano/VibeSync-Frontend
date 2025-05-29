@@ -6,15 +6,16 @@ import { SongService } from '../../../services/song.service';
 import { SpaceService } from '../../../services/space.service';
 
 @Component({
-  selector: 'app-space-details',
-  templateUrl: './space-details.component.html',
-  styleUrls: ['./space-details.component.scss'],
+  selector: 'app-space-suggest',
+  templateUrl: './space-suggest.component.html',
+  styleUrls: ['./space-suggest.component.scss'],
   standalone: false
 })
-export class SpaceDetailsComponent implements OnInit {
+export class SpaceSuggestComponent implements OnInit {
 
   spaceToken: string = '';
   searchQuery: string = '';
+  lastSearchQuery: string = '';
   searchResults: any[] = [];
   spaceName: string = 'Nome Teste';
 
@@ -59,9 +60,17 @@ export class SpaceDetailsComponent implements OnInit {
     if (!isPageChange) {
       this.pageToken = '';
       this.currentPage = 1;
+
+      if (this.lastSearchQuery === this.searchQuery.trim())
+        return;
     }
+
+    if (!this.searchQuery.trim())
+      return;
+
     this.songService.search(this.searchQuery, this.pageSize, this.pageToken).subscribe(results => {
 
+      this.lastSearchQuery = this.searchQuery.trim();
       this.searchResults = results;
 
       this.nextPageToken = results[0].nextPageToken;

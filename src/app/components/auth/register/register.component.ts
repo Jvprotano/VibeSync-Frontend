@@ -26,7 +26,6 @@ export class RegisterComponent {
   signup() {
     this.authService.register(this.fullName, this.email, this.password).subscribe({
       next: (space) => {
-        console.log('Space created successfully:', space);
         this.router.navigate(['/email-confirmation-message']);
       },
       error: (error) => {

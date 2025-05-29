@@ -22,9 +22,6 @@ export class EmailConfirmationComponent implements OnInit {
       const tokenFromUrl = params.get('token');
       const userIdFromUrl = params.get('userId');
 
-      console.log('Token from URL:', tokenFromUrl);
-      console.log('User ID from URL:', userIdFromUrl);
-
       if (tokenFromUrl && userIdFromUrl) {
 
         this.authService.confirmUser(userIdFromUrl, tokenFromUrl).subscribe({

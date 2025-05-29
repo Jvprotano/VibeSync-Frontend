@@ -1,6 +1,5 @@
 import { HomeComponent } from './components/home/home.component';
 import { CreateSpaceComponent } from './components/space/create-space/create-space.component';
-import { SpaceDetailsComponent } from './components/space/space-details/space-details.component';
 import { SpaceAdminComponent } from './components/space/space-admin/space-admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -16,12 +15,13 @@ import { PaymentSuccessComponent } from './components/payment/payment-success/pa
 import { PaymentErrorComponent } from './components/payment/payment-error/payment-error.component';
 import { EmailConfirmationMessageComponent } from './components/auth/email-confirmation-message/email-confirmation-message.component';
 import { EmailConfirmationComponent } from './components/auth/email-confirmation/email-confirmation.component';
+import { SpaceSuggestComponent } from './components/space/space-suggest/space-suggest.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'create-space', component: CreateSpaceComponent },
-  { path: 'space/:id', component: SpaceDetailsComponent },
+  { path: 'space/:id', component: SpaceSuggestComponent },
   { path: 'space-admin/:id', component: SpaceAdminComponent },
   { path: 'suggestions/:id', component: SuggestionsDashboardComponent },
   { path: 'pricing', component: PricingComponent },
@@ -36,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {anchorScrolling: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled' })],
   exports: [RouterModule]
 })
 

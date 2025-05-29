@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateSpaceComponent } from './components/space/create-space/create-space.component';
-import { SpaceDetailsComponent } from './components/space/space-details/space-details.component';
+import { SpaceSuggestComponent } from './components/space/space-suggest/space-suggest.component';
 import { HomeComponent } from './components/home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -34,7 +34,7 @@ import { InviteCardComponent } from './components/invite/invite-card.component';
     declarations: [
         AppComponent,
         CreateSpaceComponent,
-        SpaceDetailsComponent,
+        SpaceSuggestComponent,
         SpaceAdminComponent,
         HomeComponent,
         LoadingComponent,
