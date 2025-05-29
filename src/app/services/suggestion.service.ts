@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Suggestion } from '../models/suggestion.model';
+import { SuggestionFilterTime } from '../enums/suggestion-filter-time.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class SuggestionService {
     return this.http.post(`${this.apiUrl}/suggest`, { spaceToken, songId });
   }
 
-  getSuggestions(spaceAdminToken: string, amount: number, startDate?: string, endDate?: string): Observable<Suggestion[]> {
-    return this.http.get<Suggestion[]>(`${this.apiUrl}/suggestions?SpaceAdminToken=${spaceAdminToken}&StartDateTime=${startDate}&EndDateTime=${endDate}&Amount=${amount}`);
+  getSuggestions(spaceAdminToken: string, amount: number, timeFilter: SuggestionFilterTime): Observable<Suggestion[]> {
+    return this.http.get<Suggestion[]>(`${this.apiUrl}/suggestions?SpaceAdminToken=${spaceAdminToken}&TimeFilter=${timeFilter}&Amount=${amount}`);
   }
 }

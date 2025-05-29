@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { Space } from '../models/space.model';
 import { Injectable } from '@angular/core';
 import { SpacePublic } from '../models/space-public.model';

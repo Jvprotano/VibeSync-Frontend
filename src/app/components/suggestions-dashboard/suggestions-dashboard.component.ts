@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DateService } from '../../services/date.service';
 import { SuggestionService } from '../../services/suggestion.service';
 import { SpaceService } from '../../services/space.service';
+import { SuggestionFilterTime as SuggestionFilterTimeEnum } from '../../enums/suggestion-filter-time.enum';
 
 @Component({
   selector: 'app-suggestions-dashboard',
@@ -74,46 +75,37 @@ export class SuggestionsDashboardComponent implements OnInit {
   updateSuggestions() {
     this.isLoading = true;
 
-    this.getSuggestions(0);
-    this.getSuggestions(5);
-    this.getSuggestions(10);
-    this.getSuggestions(30);
-    this.getSuggestions(60);
+    this.getSuggestions(SuggestionFilterTimeEnum.AllTime);
+    this.getSuggestions(SuggestionFilterTimeEnum.Last5Minutes);
+    this.getSuggestions(SuggestionFilterTimeEnum.Last10Minutes);
+    this.getSuggestions(SuggestionFilterTimeEnum.Last30Minutes);
+    this.getSuggestions(SuggestionFilterTimeEnum.LastHour);
 
     this.lastUpdated = new Date();
     this.isLoading = false;
   }
 
-  getSuggestions(minutes: number) {
-
-    var startDate = '';
-    var dataAtual = this.dateService.getFormatedCurrentDateTime();
-
-    if (minutes == 0)
-      startDate = this.dateService.generateDateTimeString(99999099);
-    else
-      startDate = this.dateService.generateDateTimeString(minutes);
-
-    this.suggestionService.getSuggestions(this.adminToken, this.quantityPerPage, startDate, dataAtual).subscribe(suggestions => {
-      this.updateListByMinutes(minutes, suggestions);
+  getSuggestions(filterTime: SuggestionFilterTimeEnum) {
+    this.suggestionService.getSuggestions(this.adminToken, this.quantityPerPage, filterTime).subscribe(suggestions => {
+      this.updateListByMinutes(filterTime, suggestions);
     });
   }
 
-  updateListByMinutes(minutes: number, suggestions: Suggestion[]) {
+  updateListByMinutes(minutes: SuggestionFilterTimeEnum, suggestions: Suggestion[]) {
     switch (minutes) {
-      case 5:
+      case SuggestionFilterTimeEnum.Last5Minutes:
         this.suggestionsLast5Minutes = suggestions;
         break;
-      case 10:
+      case SuggestionFilterTimeEnum.Last10Minutes:
         this.suggestionsLast10Minutes = suggestions;
         break;
-      case 30:
+      case SuggestionFilterTimeEnum.Last30Minutes:
         this.suggestionsLast30Minutes = suggestions;
         break;
-      case 60:
+      case SuggestionFilterTimeEnum.LastHour:
         this.suggestionsLast60Minutes = suggestions;
         break;
-      case 0:
+      case SuggestionFilterTimeEnum.AllTime:
         this.allSuggestions = suggestions;
         break;
     }
