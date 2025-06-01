@@ -27,6 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/google5aa5a66f2d8ae1b0.html",
               "src/assets",
               "src/sitemap.xml",
               "src/robots.txt"
@@ -96,6 +98,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/google5aa5a66f2d8ae1b0.html",
               "src/assets",
               "src/sitemap.xml",
               "src/robots.txt"
