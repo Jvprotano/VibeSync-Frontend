@@ -4,15 +4,13 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 html {
-  @include mat.theme((
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
-  ));
+  @include mat.theme((color: (theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
 }
 
 body {
@@ -69,6 +67,33 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
-a, i, button, span, h1, h2, h3, h4, h5, h6, input, label, p {
+a,
+i,
+button,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+label,
+p {
   font-family: 'Orbitron', 'Roboto', sans-serif !important;
+}
+
+@media screen and (max-width: 728px) {
+  body {
+    margin-bottom: 40px;
+  }
+
+  #crisp-chatbox a {
+    bottom: 90px !important;
+  }
+
+}
+
+#toast-container {
+  position: fixed !important;
 }

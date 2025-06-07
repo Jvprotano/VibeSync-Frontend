@@ -1,5 +1,5 @@
 <header id="header">
-    <div class="d-flex align-items-center justify-content-between h-100 header-container">
+    <div class="d-md-flex d-none header-desktop align-items-center justify-content-between h-100 header-container">
         <div class="d-flex align-items-center gap-md-4">
             <div class="d-flex align-items-center">
                 <a routerLink="/">
@@ -27,6 +27,23 @@
         <div *ngIf="user" class="d-md-flex d-none align-items-center gap-4">
             <h4 *ngIf="user?.name" class="text-white fs-5">Usuário: {{ user != null ? user.name : "" }}</h4>
             <h4 *ngIf="user?.plan?.name" class="text-white fs-5">Plano: {{ user != null ? user.plan.name : "" }}</h4>
+            <button title="Sair" (click)="logout()" class="btn btn-logout text-white">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="d-md-none d-flex header-mobile align-items-center justify-content-between h-100 header-container">
+        <div class="d-flex align-items-center gap-md-4">
+            <div class="d-flex align-items-center">
+                <a routerLink="/">
+                    <img src="assets/images/logo-sem-fundo.png" alt="Logo" class="logo" />
+                </a>
+            </div>
+        </div>
+        <div *ngIf="!user && !isAuthenticated" class="me-2">
+            <a class="btn btn-login" routerLink="/login">Entrar</a>
+        </div>
+        <div *ngIf="user || isAuthenticated" class="me-2">
             <button title="Sair" (click)="logout()" class="btn btn-logout text-white">
                 <mat-icon>logout</mat-icon>
             </button>

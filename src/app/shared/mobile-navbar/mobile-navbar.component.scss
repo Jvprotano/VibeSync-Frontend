@@ -1,0 +1,51 @@
+@media screen and (max-width: 768px) {
+  .mobile-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(28, 39, 90);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    height: 85px;
+
+    .nav-item {
+      text-align: center;
+      flex-grow: 1;
+
+      .item-content {
+        padding: 8px 12px;
+
+        a {
+          text-decoration: none;
+          color: #333;
+          font-size: 14px;
+
+          &.active {
+            color: #007bff;
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+
+    .nav-item.active {
+      .item-content {
+        background-color: rgb(41, 55, 114);
+        border-radius: 5px;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-navbar {
+    display: none; // Hide the mobile navbar on larger screens
+  }
+
+}

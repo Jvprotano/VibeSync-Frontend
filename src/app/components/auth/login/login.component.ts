@@ -23,6 +23,10 @@ export class LoginComponent {
     private paymentService: PaymentService) { }
 
   login() {
+    if (!this.email || !this.password) {
+      this.toastrService.error('Por favor, preencha todos os campos.', 'Campos obrigatórios');
+      return;
+    }
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
         this.handlePostLoginRedirect();

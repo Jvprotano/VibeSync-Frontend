@@ -29,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { InviteCardComponent } from './components/invite/invite-card.component';
+import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.component";
 
 @NgModule({
     declarations: [
@@ -61,7 +62,8 @@ import { InviteCardComponent } from './components/invite/invite-card.component';
         MatTooltipModule,
         NgbModule,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        MobileNavbarComponent
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
