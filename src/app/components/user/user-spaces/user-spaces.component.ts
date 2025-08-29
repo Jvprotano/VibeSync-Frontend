@@ -6,6 +6,7 @@ import { SpaceService } from '../../../services/space.service';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user.service';
+import { SubscriptionService } from '../../../services/subscription.service';
 
 @Component({
   selector: 'app-user-spaces',
@@ -14,16 +15,18 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './user-spaces.component.scss'
 })
 export class UserSpacesComponent {
+  spaces: Space[] = [];
+  user: User | null = null;
+  cancelLoading = false;
 
   constructor(
     private spaceService: SpaceService,
     private toastrService: ToastrService,
     private router: Router,
     private authService: AuthService,
-    private userService: UserService) { };
-
-  spaces: Space[] = [];
-  user: User | null = null;
+    private userService: UserService,
+    private subscriptionService: SubscriptionService
+  ) { }
 
   ngOnInit() {
     this.spaceService.getUserSpaces().subscribe({
@@ -38,6 +41,29 @@ export class UserSpacesComponent {
     this.userService.getUser().subscribe({
       next: (user) => {
         this.user = user;
+      }
+    });
+  }
+
+  hasPaidPlan(): boolean {
+    return !!(this.user?.plan?.name && this.user.plan.name.toLowerCase() !== 'freemium');
+  }
+
+  cancelSubscription() {
+    if (this.cancelLoading) return;
+    this.cancelLoading = true;
+    this.subscriptionService.cancelSubscription().subscribe({
+      next: (res: any) => {
+        this.toastrService.success(
+          res?.endDatePeriod
+            ? `Assinatura cancelada. Você terá acesso até: ${new Date(res.endDatePeriod).toLocaleDateString('pt-BR')}`
+            : 'Assinatura cancelada com sucesso.'
+        );
+        this.cancelLoading = false;
+      },
+      error: () => {
+        this.toastrService.error('Erro ao cancelar assinatura.');
+        this.cancelLoading = false;
       }
     });
   }

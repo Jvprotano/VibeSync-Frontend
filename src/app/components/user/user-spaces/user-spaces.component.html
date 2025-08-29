@@ -1,18 +1,5 @@
 <app-header [user]="user"></app-header>
-<!-- <div class="navbar">
-  <div class="navbar-content">
-    <h1 class="navbar-title">VibeSync</h1>
-    <div class="navbar-user-info">
-      <h4 class="navbar-user">Usuário: {{user?.name}}</h4>
-      <h4 class="navbar-plan">Plano: {{user?.plan?.name}}</h4>
-      <button (click)="logout()" class="logout-button"><mat-icon>logout</mat-icon></button>
-    </div>
-  </div>
-</div> -->
 <div class="container mt-5">
-  <!-- <div class="user-spaces-header my-4">
-    <img routerLink="/home" src="assets/images/logo-sem-fundo.png" alt="VibeSync icon" class="vibesync-icon">
-  </div> -->
   <div class="row">
     <div class="col-12">
       <div class="d-md-flex align-items-center justify-content-between">
@@ -21,13 +8,22 @@
           <h6 *ngIf="canCreateSpaces() > 0">O seu plano permite criar mais {{canCreateSpaces()}} spaces</h6>
           <h6 *ngIf="canCreateSpaces() === 0">Você atingiu o limite de spaces do seu plano</h6>
         </div>
-        <div>
+        <div style="display: flex;">
           <button *ngIf="canCreateSpaces() > 0" (click)="createSpace()"
             class="create-space-button d-flex align-items-center justify-content-center"><span class="me-2">Criar Novo
               Space</span><mat-icon>add</mat-icon></button>
           <a *ngIf="canCreateSpaces() === 0" routerLink="/pricing"
             class="create-space-button d-flex align-items-center justify-content-center"><span class="me-2">Faça Upgrade
               Agora</span><mat-icon>diamond</mat-icon></a>
+          <button *ngIf="hasPaidPlan()" mat-icon-button [matMenuTriggerFor]="settingsMenu" class="ms-2"
+            aria-label="Configurações do plano">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <mat-menu #settingsMenu="matMenu">
+            <button mat-menu-item (click)="cancelSubscription()">
+              <span style="color: #e53935;">Cancelar assinatura</span>
+            </button>
+          </mat-menu>
         </div>
       </div>
       <h4 class="my-3">Meus Spaces</h4>
@@ -47,28 +43,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="user-spaces-container">
-    <div class="user-spaces-header">
-      <img routerLink="/home" src="assets/images/logo-sem-fundo.png" alt="VibeSync icon" class="vibesync-icon">
-    </div>
-
-    <section class="user-spaces-actions">
-      <h2>Meus Spaces</h2>
-      <button (click)="createSpace()" class="create-space-button"><mat-icon>add</mat-icon></button>
-    </section>
-
-    <section class="user-spaces-list">
-      <div class="space-cards-grid">
-        <div *ngFor="let space of spaces" class="space-card">
-          <h3>{{ space.name }}</h3>
-          <h5>Data do evento: {{ space.eventDate | date: 'dd/MM/yyyy' }}</h5>
-          <h5>Sugestões: 0</h5>
-          <button (click)="navigateToSpace(space.adminToken)" class="space-card-button">Acessar Space</button>
-        </div>
-      </div>
-      <div *ngIf="spaces.length === 0" class="no-spaces-message">
-        <p>Nenhum Space disponível.</p>
-      </div>
-    </section>
-  </div> -->

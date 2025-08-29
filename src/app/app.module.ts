@@ -32,6 +32,7 @@ import { InviteCardComponent } from './components/invite/invite-card.component';
 import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.component";
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
     declarations: [
@@ -67,11 +68,13 @@ import { ResetPasswordComponent } from './components/auth/reset-password/reset-p
         NgbModule,
         HeaderComponent,
         FooterComponent,
-        MobileNavbarComponent
+        MobileNavbarComponent,
+        MatMenuModule
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimationsAsync(),
-        DateService]
+        DateService
+    ]
 })
 export class AppModule { }
