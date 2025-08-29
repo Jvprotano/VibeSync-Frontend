@@ -30,6 +30,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { InviteCardComponent } from './components/invite/invite-card.component';
 import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.component";
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +52,8 @@ import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.comp
         PaymentErrorComponent,
         PaymentSuccessComponent,
         InviteCardComponent,
+        ForgotPasswordComponent,
+        ResetPasswordComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

@@ -80,3 +80,15 @@ input {
 .signup-link a {
   color: #41c3c3;
 }
+
+.forgot-password-link {
+  background: none;
+  border: none;
+  color: #41c3c3;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+}

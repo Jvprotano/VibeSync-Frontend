@@ -16,6 +16,8 @@ import { PaymentErrorComponent } from './components/payment/payment-error/paymen
 import { EmailConfirmationMessageComponent } from './components/auth/email-confirmation-message/email-confirmation-message.component';
 import { EmailConfirmationComponent } from './components/auth/email-confirmation/email-confirmation.component';
 import { SpaceSuggestComponent } from './components/space/space-suggest/space-suggest.component';
+import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path: 'user-spaces', component: UserSpacesComponent, canActivate: [AuthGuard] },
   { path: 'email-confirmation-message', component: EmailConfirmationMessageComponent, canActivate: [GuestGuard] },
   { path: 'email-confirmation', component: EmailConfirmationComponent, canActivate: [GuestGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
