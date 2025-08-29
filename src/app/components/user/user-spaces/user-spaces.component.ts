@@ -68,7 +68,7 @@ export class UserSpacesComponent {
     });
   }
 
-  canCreateSpaces() {
+  SpacesAvailable() {
     if (!this.user) {
       return 0;
     }
@@ -77,6 +77,12 @@ export class UserSpacesComponent {
     } else {
       return 0;
     }
+  }
+
+  IsPremium() {
+    return this.SpacesAvailable() > 0 &&
+      this.user?.plan?.name &&
+      this.user.plan.name.toLowerCase() == 'premium';
   }
 
   createSpace() {
