@@ -1,66 +1,62 @@
 <app-header></app-header>
 <div class="pricing-container">
   <section class="pricing-header">
-    <h1>Escolha o plano ideal para você</h1>
-    <p>Experimente o VibeSync e leve a experiência musical do seu evento para o próximo nível.</p>
+    <h1>{{ 'pricing.title' | translate }}</h1>
+    <p>{{ 'pricing.subtitle' | translate }}</p>
   </section>
 
   <section class="pricing-plans">
     <div class="plan">
-      <h2>Freemium</h2>
-      <p class="price">Grátis</p>
+      <h2>{{ 'pricing.plans.free.name' | translate }}</h2>
+      <p class="price">{{ 'pricing.plans.free.price' | translate }}</p>
       <ul>
-        <li>1 Space</li>
-        <li>Dashboard de pedidos</li>
+        <li *ngFor="let feature of 'pricing.plans.free.features' | translate">{{ feature }}</li>
       </ul>
-      <button routerLink="/create-space" class="btn">Experimente Grátis</button>
+      <button routerLink="/create-space" class="btn">{{ 'pricing.buttons.tryFree' | translate }}</button>
     </div>
 
     <div class="plan recommended">
-      <h2>Plano Básico</h2>
-      <p class="price">R$ 29,90/mês</p>
+      <h2>{{ 'pricing.plans.basic.name' | translate }}</h2>
+      <p class="price">{{ 'pricing.plans.basic.price' | translate }}</p>
       <ul>
-        <li>Até 5 Spaces por mês</li>
-        <li>Dashboard completo</li>
-        <li>Convite padrão com QRCode</li>
+        <li *ngFor="let feature of 'pricing.plans.basic.features' | translate">{{ feature }}</li>
       </ul>
-      <button (click)="buyPlan('3da77f60-87c2-4f63-9fdc-e3d33b186d05')" class="btn">Assinar Plano Básico</button>
+      <button (click)="buyPlan('3da77f60-87c2-4f63-9fdc-e3d33b186d05')" class="btn">
+        {{ 'pricing.buttons.subscribe' | translate }} {{ 'pricing.plans.basic.name' | translate }}
+      </button>
     </div>
 
     <div class="plan">
-      <h2>Plano Profissional</h2>
-      <p class="price">R$ 49,90/mês</p>
+      <h2>{{ 'pricing.plans.professional.name' | translate }}</h2>
+      <p class="price">{{ 'pricing.plans.professional.price' | translate }}</p>
       <ul>
-        <li>Até 10 Spaces por mês</li>
-        <li>Dashboard completo e atualizado em tempo real</li>
-        <li>Convite personalizado com QRCode</li>
-        <li>Personalização de cores</li>
+        <li *ngFor="let feature of 'pricing.plans.professional.features' | translate">{{ feature }}</li>
       </ul>
-      <button (click)="buyPlan('4d66ec50-fca2-4a18-972d-75683e9e2f14')" disabled class="btn">EM BREVE</button>
+      <button (click)="buyPlan('4d66ec50-fca2-4a18-972d-75683e9e2f14')" disabled class="btn">
+        {{ 'common.buttons.comingSoon' | translate }}
+      </button>
     </div>
 
     <div class="plan">
-      <h2>Plano Premium</h2>
-      <p class="price">R$ 99,90/mês</p>
+      <h2>{{ 'pricing.plans.premium.name' | translate }}</h2>
+      <p class="price">{{ 'pricing.plans.premium.price' | translate }}</p>
       <ul>
-        <li>Spaces ilimitados</li>
-        <li>Dashboard completo</li>
-        <li>Convite personalizado com QRCode</li>
-        <li>Personalização de cores</li>
-        <li>White-label</li>
+        <li *ngFor="let feature of 'pricing.plans.premium.features' | translate">{{ feature }}</li>
       </ul>
-      <button (click)="buyPlan('692fa6dd-6ff1-4227-a49d-cff32643dcae')" disabled class="btn">EM BREVE</button>
+      <button (click)="buyPlan('692fa6dd-6ff1-4227-a49d-cff32643dcae')" disabled class="btn">
+        {{ 'common.buttons.comingSoon' | translate }}
+      </button>
     </div>
   </section>
 
   <section class="pricing-faq">
-    <h2>Perguntas Frequentes</h2>
+    <h2>{{ 'pricing.faq.title' | translate }}</h2>
     <div class="faq-item" *ngFor="let faq of faqs">
       <div class="faq-question" (click)="faq.expanded = !faq.expanded">
-        <h3>{{ faq.question }} <mat-icon>{{ faq.expanded ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
+        <h3>{{ faq.question | translate }} <mat-icon>{{ faq.expanded ? 'expand_less' : 'expand_more' }}</mat-icon></h3>
       </div>
       <div class="faq-answer" *ngIf="faq.expanded">
-        <p>{{ faq.answer }}</p>
+        <p>{{ faq.answer | translate }}</p>
       </div>
     </div>
   </section>

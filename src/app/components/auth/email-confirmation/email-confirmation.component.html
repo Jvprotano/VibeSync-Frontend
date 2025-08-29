@@ -1,10 +1,10 @@
 <div class="email-confirmation-container">
-    <h2>Estamos processando a confirmação do seu e-mail.</h2>
+    <h2>{{ 'auth.emailConfirmation.title' | translate }}</h2>
     <p>
-        Por favor, aguarde nesta página. Você será redirecionado em breve.
+        {{ 'auth.emailConfirmation.waitMessage' | translate }}
     </p>
     <p>
-        Se você não for redirecionado automaticamente, clique no botão abaixo para voltar à página inicial.
+        {{ 'auth.emailConfirmation.redirectMessage' | translate }}
     </p>
-    <button routerLink="/home" class="btn">Voltar para a página inicial</button>
+    <button routerLink="/home" class="btn">{{ 'auth.emailConfirmation.backToHome' | translate }}</button>
 </div>

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
 import { NavigationStateService } from '../../services/navigation-state.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pricing',
@@ -18,7 +19,8 @@ export class PricingComponent {
     private toastrService: ToastrService,
     private authService: AuthService,
     private navigationStateService: NavigationStateService,
-    private router: Router) { }
+    private router: Router,
+    private translate: TranslateService) { }
 
   buyPlan(planId: string) {
 
@@ -26,22 +28,17 @@ export class PricingComponent {
       this.paymentService.initiateCheckoutAndRedirect(planId);
     } else {
       this.navigationStateService.setPostLoginAction({ type: 'buyPlan', payload: planId });
-      this.toastrService.info('Você precisa estar logado para comprar um plano. Redirecionando para o login...');
+      this.toastrService.info(this.translate.instant('common.messages.loginRequired'));
       this.router.navigate(['/login']);
     }
   }
 
   faqs = [
-    // {
-    //   question: 'Como funciona o teste gratuito?',
-    //   answer: 'Você pode experimentar qualquer plano pago gratuitamente por 7 dias.',
-    //   expanded: false
-    // },
     {
-      question: 'Posso cancelar minha assinatura a qualquer momento?',
-      answer: 'Sim, você pode cancelar sua assinatura quando quiser.',
+      question: 'pricing.faq.questions.cancel.question',
+      answer: 'pricing.faq.questions.cancel.answer',
       expanded: true
-    },
+    }
   ];
 
 }

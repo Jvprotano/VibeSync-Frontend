@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "^19.1.6",
     "@angular/router": "^19.1.6",
     "@ng-bootstrap/ng-bootstrap": "^18.0.0",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.6",
     "html2canvas": "^1.4.1",

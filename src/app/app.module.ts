@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,9 @@ import { SpaceAdminComponent } from './components/space/space-admin/space-admin.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Observable } from 'rxjs';
 import { SuggestionsDashboardComponent } from './components/suggestions-dashboard/suggestions-dashboard.component';
 import { SuggestionsTableComponent } from './components/suggestions-table/suggestions-table.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -33,6 +36,15 @@ import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.comp
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { MatMenuModule } from '@angular/material/menu';
+
+// Custom TranslateLoader implementation
+export class CustomTranslateLoader implements TranslateLoader {
+    constructor(private http: HttpClient) {}
+
+    getTranslation(lang: string): Observable<any> {
+        return this.http.get(`./assets/i18n/${lang}.json`);
+    }
+}
 
 @NgModule({
     declarations: [
@@ -69,7 +81,16 @@ import { MatMenuModule } from '@angular/material/menu';
         HeaderComponent,
         FooterComponent,
         MobileNavbarComponent,
-        MatMenuModule
+        MatMenuModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            defaultLanguage: 'pt',
+            loader: {
+                provide: TranslateLoader,
+                useClass: CustomTranslateLoader,
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [
         provideHttpClient(withInterceptorsFromDi()),

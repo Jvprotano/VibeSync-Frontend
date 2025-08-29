@@ -5,19 +5,19 @@
     <div class="login-header">
       <img routerLink="/home" src="\assets\images\logo-sem-fundo.png" alt="Logo" class="logo">
     </div>
-    <h2>Login</h2>
+    <h2>{{ 'auth.login.title' | translate }}</h2>
     <form (ngSubmit)="login()">
       <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" placeholder="Informe seu e-mail" id="email" name="email" [(ngModel)]="email" required>
+        <label for="email">{{ 'auth.fields.email' | translate }}</label>
+        <input type="email" [placeholder]="'auth.fields.emailPlaceholder' | translate" id="email" name="email" [(ngModel)]="email" required>
       </div>
       <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password" required>
+        <label for="password">{{ 'auth.fields.password' | translate }}</label>
+        <input type="password" [placeholder]="'auth.fields.passwordPlaceholder' | translate" id="password" name="password" [(ngModel)]="password" required>
       </div>
-      <button type="submit" class="login-button">Entrar</button>
-      <button type="button" class="forgot-password-link" routerLink="/forgot-password">Esqueci minha senha</button>
+      <button type="submit" class="login-button">{{ 'common.buttons.login' | translate }}</button>
+      <button type="button" class="forgot-password-link" routerLink="/forgot-password">{{ 'auth.login.forgotPassword' | translate }}</button>
     </form>
-    <p class="signup-link">Não tem uma conta? <a routerLink="/signup">Cadastre-se</a></p>
+    <p class="signup-link">{{ 'auth.login.noAccount' | translate }} <a routerLink="/signup">{{ 'common.buttons.signup' | translate }}</a></p>
   </div>
 </div>

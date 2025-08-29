@@ -1,0 +1,192 @@
+{
+    "home": {
+        "welcome": "Bienvenido a VibeSync, la plataforma que conecta a ti y tu evento en la misma sintonía.",
+        "description": "Con VibeSync, puedes crear un Space para tu evento y compartir un enlace para que el público elija las canciones que desea escuchar, mientras tú lo supervises en un panel detallado exclusivo.",
+        "freePlan": "¡Conoce nuestro plan GRATUITO y prueba esta nueva experiencia hoy mismo!",
+        "buttons": {
+            "createSpace": "Crear nuevo Space GRATIS",
+            "seePlans": "Ver nuestros planes",
+            "accessAccount": "Accede a tu cuenta"
+        },
+        "howItWorks": {
+            "title": "Cómo funciona VibeSync",
+            "description": "VibeSync transforma la interacción musical en eventos, permitiendo que el público participe activamente en la lista de reproducción. Así es cómo:",
+            "steps": {
+                "createSpace": {
+                    "title": "Crea tu Space",
+                    "description": "Comienza creando un Space único para tu evento, definiendo el ambiente musical."
+                },
+                "shareLink": {
+                    "title": "Comparte el Enlace",
+                    "description": "Distribuye el enlace del Space al público, invitándolos a participar en la experiencia musical."
+                },
+                "suggestions": {
+                    "title": "Sugerencias Musicales",
+                    "description": "El público sugiere canciones, añadiendo sus pistas favoritas a la lista de reproducción del evento."
+                },
+                "dashboard": {
+                    "title": "Panel de Control",
+                    "description": "Monitorea las sugerencias en tiempo real en el panel de administración y controla la vibra de tu evento."
+                }
+            }
+        }
+    },
+    "menu": {
+        "home": "Inicio",
+        "howItWorks": "Cómo Funciona",
+        "plans": "Planes"
+    },
+    "auth": {
+        "login": {
+            "title": "Iniciar Sesión",
+            "forgotPassword": "Olvidé mi contraseña",
+            "noAccount": "¿No tienes una cuenta?"
+        },
+        "forgotPassword": {
+            "title": "Olvidé mi contraseña",
+            "submit": "Enviar",
+            "backToLogin": "Volver al inicio de sesión",
+            "successMessage": "¡Correo enviado! Revisa tu bandeja de entrada.",
+            "errorMessage": "Error al enviar el correo. Por favor, inténtalo de nuevo."
+        },
+        "emailConfirmation": {
+            "title": "Estamos procesando la confirmación de tu correo electrónico.",
+            "waitMessage": "Por favor, espera en esta página. Serás redirigido pronto.",
+            "redirectMessage": "Si no eres redirigido automáticamente, haz clic en el botón de abajo para volver a la página de inicio.",
+            "backToHome": "Volver a la página de inicio",
+            "success": "¡Correo confirmado con éxito! Ahora puedes iniciar sesión.",
+            "errors": {
+                "invalidToken": "Token inválido, expirado o ya utilizado.",
+                "userNotFound": "Usuario no encontrado.",
+                "generic": "Ocurrió un error al confirmar tu correo electrónico. Por favor, inténtalo de nuevo más tarde.",
+                "invalidLink": "Enlace de confirmación inválido o incompleto."
+            },
+            "message": {
+                "title": "Confirmación de correo electrónico",
+                "verifyEmail": "Por favor, verifica tu correo electrónico y haz clic en el enlace de confirmación que te enviamos para completar tu registro.",
+                "notReceived": "Si no has recibido el correo, por favor verifica que fue enviado a la dirección correcta. También revisa tu carpeta de spam o correo no deseado."
+            }
+        },
+        "register": {
+            "title": "Regístrate",
+            "description": "Crea una cuenta para acceder a todas las funciones.",
+            "hasAccount": "¿Ya tienes una cuenta?",
+            "accessNow": "¡Accede ahora!"
+        },
+        "validation": {
+            "nameLength": "¡Ingrese un nombre válido con al menos 3 caracteres!",
+            "emailInvalid": "Ingrese un correo electrónico válido",
+            "passwordMismatch": "Las contraseñas no coinciden",
+            "fillAllFields": "Por favor complete todos los campos.",
+            "requiredFields": "Campos Requeridos",
+            "userNotFound": "¡Usuario no encontrado!",
+            "loginError": "Error al iniciar sesión."
+        },
+        "fields": {
+            "confirmPassword": "Confirmar Contraseña",
+            "confirmPasswordPlaceholder": "Confirma tu contraseña",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "Ingrese su correo electrónico",
+            "password": "Contraseña",
+            "passwordPlaceholder": "Ingrese su contraseña",
+            "name": "Nombre",
+            "namePlaceholder": "Ingrese su nombre"
+        }
+    },
+    "header": {
+        "user": "Usuario",
+        "plan": "Plan"
+    },
+    "common": {
+        "buttons": {
+            "create": "Crear",
+            "cancel": "Cancelar",
+            "save": "Guardar",
+            "close": "Cerrar",
+            "login": "Iniciar Sesión",
+            "signup": "Registrarse",
+            "upgrade": "Actualiza Ahora",
+            "createSpace": "Crear Nuevo Space",
+            "accessSpace": "Acceder Space",
+            "logout": "Cerrar Sesión",
+            "comingSoon": "PRÓXIMAMENTE"
+        },
+        "titles": {
+            "welcome": "Hola, {{name}}",
+            "mySpaces": "Mis Spaces",
+            "noSpaces": "No hay Spaces disponibles"
+        },
+        "messages": {
+            "unlimitedSpaces": "¡Felicidades, tienes spaces ilimitados!",
+            "spacesAvailable": "Tu plan te permite crear {{count}} spaces más",
+            "noSpacesAvailable": "Has alcanzado el límite de spaces de tu plan",
+            "subscriptionCanceled": "Suscripción cancelada. Tendrás acceso hasta: {{date}}",
+            "subscriptionCanceledSuccess": "Suscripción cancelada con éxito.",
+            "subscriptionCancelError": "Error al cancelar la suscripción",
+            "loginRequired": "Necesitas iniciar sesión para comprar un plan. Redirigiendo al inicio de sesión..."
+        }
+    },
+    "spaces": {
+        "eventDate": "Fecha del evento",
+        "suggestions": "Sugerencias",
+        "settings": "Configuración del plan",
+        "cancelSubscription": "Cancelar suscripción"
+    },
+    "pricing": {
+        "title": "Elige el plan perfecto para ti",
+        "subtitle": "Prueba VibeSync y lleva la experiencia musical de tu evento al siguiente nivel",
+        "buttons": {
+            "tryFree": "Prueba Gratis",
+            "subscribe": "Suscribirse a"
+        },
+        "plans": {
+            "free": {
+                "name": "Freemium",
+                "price": "Gratis",
+                "features": [
+                    "1 Space",
+                    "Panel de solicitudes"
+                ]
+            },
+            "basic": {
+                "name": "Plan Básico",
+                "price": "29,90$/mes",
+                "features": [
+                    "Hasta 5 Spaces por mes",
+                    "Panel completo",
+                    "Invitación estándar con QRCode"
+                ]
+            },
+            "professional": {
+                "name": "Plan Profesional",
+                "price": "49,90$/mes",
+                "features": [
+                    "Hasta 10 Spaces por mes",
+                    "Panel completo en tiempo real",
+                    "Invitación personalizada con QRCode",
+                    "Personalización de colores"
+                ]
+            },
+            "premium": {
+                "name": "Plan Premium",
+                "price": "99,90$/mes",
+                "features": [
+                    "Spaces ilimitados",
+                    "Panel completo",
+                    "Invitación personalizada con QRCode",
+                    "Personalización de colores",
+                    "White-label"
+                ]
+            }
+        },
+        "faq": {
+            "title": "Preguntas Frecuentes",
+            "questions": {
+                "cancel": {
+                    "question": "¿Puedo cancelar mi suscripción en cualquier momento?",
+                    "answer": "Sí, puedes cancelar tu suscripción cuando quieras."
+                }
+            }
+        }
+    }
+}

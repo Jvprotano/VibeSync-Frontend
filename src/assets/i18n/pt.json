@@ -1,0 +1,212 @@
+{
+    "home": {
+        "welcome": "Seja bem-vindo ao VibeSync, a plataforma que conecta você e o evento na mesma sintonia.",
+        "forgotPassword": {
+            "title": "Esqueci minha senha",
+            "submit": "Enviar",
+            "backToLogin": "Voltar para o login",
+            "successMessage": "Email enviado! Verifique sua caixa de entrada.",
+            "errorMessage": "Erro ao enviar email. Por favor, tente novamente."
+        },
+        "emailConfirmation": {
+            "title": "Estamos processando a confirmação do seu email.",
+            "waitMessage": "Por favor, aguarde nesta página. Você será redirecionado em breve.",
+            "redirectMessage": "Se você não for redirecionado automaticamente, clique no botão abaixo para voltar à página inicial.",
+            "backToHome": "Voltar para a página inicial",
+            "success": "Email confirmado com sucesso! Agora você pode fazer login.",
+            "errors": {
+                "invalidToken": "Token inválido, expirado ou já utilizado.",
+                "userNotFound": "Usuário não encontrado.",
+                "generic": "Ocorreu um erro ao confirmar seu email. Por favor, tente novamente mais tarde.",
+                "invalidLink": "Link de confirmação inválido ou incompleto."
+            },
+            "message": {
+                "title": "Confirmação do e-mail",
+                "verifyEmail": "Por favor, verifique seu e-mail e clique no link de confirmação que enviamos para concluir seu registro.",
+                "notReceived": "Se você não recebeu o e-mail, por favor, verifique se ele foi enviado para o endereço correto. Verifique também sua pasta de spam ou lixo eletrônico."
+            }
+        },
+        "description": "Com o VibeSync, você pode criar um Space para seu evento e compartilhar um link para que o público escolha as músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.",
+        "freePlan": "Conheça nosso plano GRATUITO e experimente hoje mesmo essa nova experiência!",
+        "buttons": {
+            "createSpace": "Criar novo Space GRÁTIS",
+            "seePlans": "Veja nossos planos",
+            "accessAccount": "Acesse sua conta"
+        },
+        "howItWorks": {
+            "title": "Como o VibeSync funciona",
+            "description": "O VibeSync transforma a interação musical em eventos, permitindo que o público participe ativamente da playlist. Veja como:",
+            "steps": {
+                "createSpace": {
+                    "title": "Crie seu Space",
+                    "description": "Inicie criando um Space único para seu evento, definindo o ambiente musical."
+                },
+                "shareLink": {
+                    "title": "Compartilhe o Link",
+                    "description": "Distribua o link do Space para o público, convidando-os a participar da experiência musical."
+                },
+                "suggestions": {
+                    "title": "Sugestões Musicais",
+                    "description": "O público sugere músicas, adicionando suas faixas favoritas à playlist do evento."
+                },
+                "dashboard": {
+                    "title": "Painel de Controle",
+                    "description": "Acompanhe as sugestões em tempo real no painel admin e controle a vibe do seu evento."
+                }
+            }
+        }
+    },
+    "menu": {
+        "home": "Início",
+        "howItWorks": "Como Funciona",
+        "plans": "Planos"
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "forgotPassword": "Esqueci minha senha",
+            "noAccount": "Não tem uma conta?"
+        },
+        "forgotPassword": {
+            "title": "Esqueci minha senha",
+            "submit": "Enviar",
+            "backToLogin": "Voltar para o login",
+            "successMessage": "E-mail enviado! Verifique sua caixa de entrada.",
+            "errorMessage": "Erro ao enviar o e-mail. Tente novamente."
+        },
+        "emailConfirmation": {
+            "title": "Estamos processando a confirmação do seu e-mail.",
+            "waitMessage": "Por favor, aguarde nesta página. Você será redirecionado em breve.",
+            "redirectMessage": "Se você não for redirecionado automaticamente, clique no botão abaixo para voltar à página inicial.",
+            "backToHome": "Voltar para a página inicial",
+            "success": "E-mail confirmado com sucesso! Agora você pode fazer login.",
+            "errors": {
+                "invalidToken": "Token inválido, expirado ou já utilizado.",
+                "userNotFound": "Usuário não encontrado.",
+                "generic": "Ocorreu um erro ao confirmar o e-mail. Tente novamente mais tarde.",
+                "invalidLink": "Link de confirmação inválido ou incompleto."
+            }
+        },
+        "register": {
+            "title": "Registre-se",
+            "description": "Crie uma conta para acessar todos os recursos.",
+            "hasAccount": "Já possui uma conta?",
+            "accessNow": "Acesse agora!"
+        },
+        "validation": {
+            "nameLength": "Digite um nome válido com no mínimo 3 caracteres!",
+            "emailInvalid": "Digite um e-mail válido",
+            "passwordMismatch": "As senhas não conferem",
+            "fillAllFields": "Por favor, preencha todos os campos.",
+            "requiredFields": "Campos obrigatórios",
+            "userNotFound": "Usuário não encontrado!",
+            "loginError": "Ocorreu um erro ao entrar."
+        },
+        "fields": {
+            "confirmPassword": "Confirme a Senha",
+            "confirmPasswordPlaceholder": "Confirme sua senha",
+            "email": "E-mail",
+            "emailPlaceholder": "Informe seu e-mail",
+            "password": "Senha",
+            "passwordPlaceholder": "Informe sua senha",
+            "name": "Nome",
+            "namePlaceholder": "Informe seu nome"
+        }
+    },
+    "header": {
+        "user": "Usuário",
+        "plan": "Plano"
+    },
+    "common": {
+        "buttons": {
+            "create": "Criar",
+            "cancel": "Cancelar",
+            "save": "Salvar",
+            "close": "Fechar",
+            "login": "Entrar",
+            "signup": "Cadastrar",
+            "upgrade": "Faça Upgrade Agora",
+            "createSpace": "Criar Novo Space",
+            "accessSpace": "Acessar Space",
+            "logout": "Sair",
+            "comingSoon": "EM BREVE"
+        },
+        "titles": {
+            "welcome": "Olá, {{name}}",
+            "mySpaces": "Meus Spaces",
+            "noSpaces": "Nenhum Space disponível"
+        },
+        "messages": {
+            "unlimitedSpaces": "Parabéns, você possui spaces ilimitados!",
+            "spacesAvailable": "O seu plano permite criar mais {{count}} spaces",
+            "noSpacesAvailable": "Você atingiu o limite de spaces do seu plano",
+            "subscriptionCanceled": "Assinatura cancelada. Você terá acesso até: {{date}}",
+            "subscriptionCanceledSuccess": "Assinatura cancelada com sucesso.",
+            "subscriptionCancelError": "Erro ao cancelar assinatura",
+            "loginRequired": "Você precisa estar logado para comprar um plano. Redirecionando para o login..."
+        }
+    },
+    "spaces": {
+        "eventDate": "Data do evento",
+        "suggestions": "Sugestões",
+        "settings": "Configurações do plano",
+        "cancelSubscription": "Cancelar assinatura"
+    },
+    "pricing": {
+        "title": "Escolha o plano ideal para você",
+        "subtitle": "Experimente o VibeSync e leve a experiência musical do seu evento para o próximo nível",
+        "buttons": {
+            "tryFree": "Experimente Grátis",
+            "subscribe": "Assinar"
+        },
+        "plans": {
+            "free": {
+                "name": "Freemium",
+                "price": "Grátis",
+                "features": [
+                    "1 Space",
+                    "Dashboard de pedidos"
+                ]
+            },
+            "basic": {
+                "name": "Plano Básico",
+                "price": "R$ 29,90/mês",
+                "features": [
+                    "Até 5 Spaces por mês",
+                    "Dashboard completo",
+                    "Convite padrão com QRCode"
+                ]
+            },
+            "professional": {
+                "name": "Plano Profissional",
+                "price": "R$ 49,90/mês",
+                "features": [
+                    "Até 10 Spaces por mês",
+                    "Dashboard completo e atualizado em tempo real",
+                    "Convite personalizado com QRCode",
+                    "Personalização de cores"
+                ]
+            },
+            "premium": {
+                "name": "Plano Premium",
+                "price": "R$ 99,90/mês",
+                "features": [
+                    "Spaces ilimitados",
+                    "Dashboard completo",
+                    "Convite personalizado com QRCode",
+                    "Personalização de cores",
+                    "White-label"
+                ]
+            }
+        },
+        "faq": {
+            "title": "Perguntas Frequentes",
+            "questions": {
+                "cancel": {
+                    "question": "Posso cancelar minha assinatura a qualquer momento?",
+                    "answer": "Sim, você pode cancelar sua assinatura quando quiser."
+                }
+            }
+        }
+    }
+}

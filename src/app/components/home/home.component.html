@@ -5,17 +5,15 @@
     <div class="home-top position-relative py-5">
         <div class="header">
             <h1>VibeSync</h1>
-            <p>Seja bem-vindo ao VibeSync, a plataforma que conecta você e o evento na mesma sintonia.</p>
-            <p>Com o VibeSync, você pode criar um Space para seu evento e compartilhar um link para que o público
-                escolha as
-                músicas que deseja ouvir, enquanto você acompanha em um painel detalhado exclusivo.</p>
-            <p>Conheça nosso plano <b>GRATUITO</b> e experimente hoje mesmo essa nova experiência! </p>
+            <p>{{ 'home.welcome' | translate }}</p>
+            <p>{{ 'home.description' | translate }}</p>
+            <p>{{ 'home.freePlan' | translate }}</p>
         </div>
         <div class="buttons">
-            <button (click)="CreateSpace()" class="btn">Criar novo Space GRÁTIS</button>
-            <button routerLink="/pricing" class="btn btn-planos">Veja nossos planos <mat-icon
+            <button (click)="CreateSpace()" class="btn">{{ 'home.buttons.createSpace' | translate }}</button>
+            <button routerLink="/pricing" class="btn btn-planos">{{ 'home.buttons.seePlans' | translate }} <mat-icon
                     class="btn-icon">diamond</mat-icon></button>
-            <button routerLink="/login" class="btn btn-planos">Acesse sua conta <mat-icon
+            <button routerLink="/login" class="btn btn-planos">{{ 'home.buttons.accessAccount' | translate }} <mat-icon
                     class="btn-icon">person</mat-icon></button>
         </div>
         <div class="scroll-downs">
@@ -23,16 +21,12 @@
                 <div class="scroller"></div>
             </div>
         </div>
-        <!-- <div class="scroll-down" (click)="scrollToHowItWorks()">
-            <mat-icon class="arrow-down">arrow_downward</mat-icon>
-        </div> -->
     </div>
 
     <section id="how-it-works" class="how-it-works my-md-5" #howItWorksSection>
         <div class="how-it-works-content">
-            <h2>Como o VibeSync funciona</h2>
-            <p>O VibeSync transforma a interação musical em eventos, permitindo que o público participe ativamente da
-                playlist. Veja como:</p>
+            <h2>{{ 'home.howItWorks.title' | translate }}</h2>
+            <p>{{ 'home.howItWorks.description' | translate }}</p>
             <div class="row gap-md-0 gap-3">
                 <div class="col-md-3">
                     <div class="step">
@@ -40,8 +34,8 @@
                             <mat-icon>add_circle_outline</mat-icon>
                         </div>
                         <div class="step-content">
-                            <h3>Crie seu Space</h3>
-                            <p>Inicie criando um Space único para seu evento, definindo o ambiente musical.</p>
+                            <h3>{{ 'home.howItWorks.steps.createSpace.title' | translate }}</h3>
+                            <p>{{ 'home.howItWorks.steps.createSpace.description' | translate }}</p>
                         </div>
                     </div>
                 </div>
@@ -51,10 +45,8 @@
                             <mat-icon>share</mat-icon>
                         </div>
                         <div class="step-content">
-                            <h3>Compartilhe o Link</h3>
-                            <p>Distribua o link do Space para o público, convidando-os a participar da experiência
-                                musical.
-                            </p>
+                            <h3>{{ 'home.howItWorks.steps.shareLink.title' | translate }}</h3>
+                            <p>{{ 'home.howItWorks.steps.shareLink.description' | translate }}</p>
                         </div>
                     </div>
                 </div>
@@ -64,8 +56,8 @@
                             <mat-icon>music_note</mat-icon>
                         </div>
                         <div class="step-content">
-                            <h3>Sugestões Musicais</h3>
-                            <p>O público sugere músicas, adicionando suas faixas favoritas à playlist do evento.</p>
+                            <h3>{{ 'home.howItWorks.steps.suggestions.title' | translate }}</h3>
+                            <p>{{ 'home.howItWorks.steps.suggestions.description' | translate }}</p>
                         </div>
                     </div>
                 </div>
@@ -75,51 +67,12 @@
                             <mat-icon>dashboard</mat-icon>
                         </div>
                         <div class="step-content">
-                            <h3>Painel de Controle</h3>
-                            <p>Acompanhe as sugestões em tempo real no painel admin e controle a vibe do seu evento.</p>
+                            <h3>{{ 'home.howItWorks.steps.dashboard.title' | translate }}</h3>
+                            <p>{{ 'home.howItWorks.steps.dashboard.description' | translate }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="steps">
-                <div class="step">
-                    <div class="step-icon">
-                        <mat-icon>add_circle_outline</mat-icon>
-                    </div>
-                    <div class="step-content">
-                        <h3>Crie seu Space</h3>
-                        <p>Inicie criando um Space único para seu evento, definindo o ambiente musical.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <mat-icon>share</mat-icon>
-                    </div>
-                    <div class="step-content">
-                        <h3>Compartilhe o Link</h3>
-                        <p>Distribua o link do Space para o público, convidando-os a participar da experiência musical.
-                        </p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <mat-icon>music_note</mat-icon>
-                    </div>
-                    <div class="step-content">
-                        <h3>Sugestões Musicais</h3>
-                        <p>O público sugere músicas, adicionando suas faixas favoritas à playlist do evento.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <mat-icon>dashboard</mat-icon>
-                    </div>
-                    <div class="step-content">
-                        <h3>Painel de Controle</h3>
-                        <p>Acompanhe as sugestões em tempo real no painel admin e controle a vibe do seu evento.</p>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </section>
 </div>

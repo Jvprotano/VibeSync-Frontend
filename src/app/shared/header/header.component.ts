@@ -3,11 +3,13 @@ import { Router, RouterModule } from '@angular/router';
 import { User } from '../../models/user.model';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { AuthService } from '../../services/auth.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule, CommonModule, MatIconModule],
+  imports: [RouterModule, CommonModule, MatIconModule, TranslateModule, MatMenuModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -15,7 +17,12 @@ export class HeaderComponent {
   @Input() user: User | null = null;
   isAuthenticated: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private viewportScroller: ViewportScroller) {
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private viewportScroller: ViewportScroller,
+    public translate: TranslateService
+  ) {
     this.authService.isAuthenticated$.subscribe(isAuthenticated => {
       this.isAuthenticated = isAuthenticated;
     });

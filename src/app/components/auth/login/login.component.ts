@@ -4,6 +4,7 @@ import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { NavigationStateService } from '../../../services/navigation-state.service';
 import { PaymentService } from '../../../services/payment.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -20,20 +21,26 @@ export class LoginComponent {
     private router: Router,
     private toastrService: ToastrService,
     private navigationStateService: NavigationStateService,
-    private paymentService: PaymentService) { }
+    private paymentService: PaymentService,
+    private translate: TranslateService) { }
 
   login() {
     if (!this.email || !this.password) {
-      this.toastrService.error('Por favor, preencha todos os campos.', 'Campos obrigatórios');
+      this.toastrService.error(
+        this.translate.instant('auth.validation.fillAllFields'),
+        this.translate.instant('auth.validation.requiredFields')
+      );
       return;
     }
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
         this.handlePostLoginRedirect();
-
       },
       error: () => {
-        this.toastrService.error('Usuário não encontrado!', 'Ocorreu um erro ao entrar.');
+        this.toastrService.error(
+          this.translate.instant('auth.validation.userNotFound'),
+          this.translate.instant('auth.validation.loginError')
+        );
       }
     });
   }

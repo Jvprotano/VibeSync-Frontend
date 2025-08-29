@@ -5,44 +5,44 @@
       <div class="signup-header">
         <img routerLink="/home" src="\assets\images\logo-sem-fundo.png" alt="Logo" class="logo">
       </div>
-      <h2>Registre-se</h2>
-      <p class="signup-description">Crie uma conta para acessar todos os recursos.</p>
-      <p class="signup-link">Já possui uma conta? <a routerLink="/login">Acesse agora!</a></p>
+      <h2>{{ 'auth.register.title' | translate }}</h2>
+      <p class="signup-description">{{ 'auth.register.description' | translate }}</p>
+      <p class="signup-link">{{ 'auth.register.hasAccount' | translate }} <a routerLink="/login">{{ 'auth.register.accessNow' | translate }}</a></p>
     </div>
     <div class="signup-card-form">
       <form (ngSubmit)="signup()">
         <div class="form-group">
-          <label for="fullName">Nome</label>
-          <input type="text" placeholder="Informe seu nome" id="name" name="name" [(ngModel)]="fullName" required>
+          <label for="fullName">{{ 'auth.fields.name' | translate }}</label>
+          <input type="text" [placeholder]="'auth.fields.namePlaceholder' | translate" id="name" name="name" [(ngModel)]="fullName" required>
           <div *ngIf="fullName.length > 0 && !isValidFullName(fullName)" class="validation-error-message">
-            Digite um nome válido com no mínimo 3 caracteres!
+            {{ 'auth.validation.nameLength' | translate }}
           </div>
         </div>
         <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" placeholder="Informe seu e-mail" id="email" name="email" [(ngModel)]="email" required>
+          <label for="email">{{ 'auth.fields.email' | translate }}</label>
+          <input type="email" [placeholder]="'auth.fields.emailPlaceholder' | translate" id="email" name="email" [(ngModel)]="email" required>
           <div *ngIf="email.length > 0 && !isValidEmail(email)" class="validation-error-message">
-            Digite um e-mail válido
+            {{ 'auth.validation.emailInvalid' | translate }}
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Senha</label>
-          <input type="password" placeholder="Informe sua senha" id="password" name="password" [(ngModel)]="password"
+          <label for="password">{{ 'auth.fields.password' | translate }}</label>
+          <input type="password" [placeholder]="'auth.fields.passwordPlaceholder' | translate" id="password" name="password" [(ngModel)]="password"
             required>
-          <div *ngIf="password.length > 0 && !isValidPassword(password)" [innerHTML]="passwordErrorMessage"
+          <div *ngIf="password.length > 0 && !isValidPassword(password)" [innerHTML]="passwordErrorMessage | translate"
             class="validation-error-message">
           </div>
         </div>
         <div class="form-group">
-          <label for="confirmPassword">Confirme a Senha</label>
-          <input type="password" placeholder="Confirme sua senha" id="confirmPassword" name="confirmPassword"
+          <label for="confirmPassword">{{ 'auth.fields.confirmPassword' | translate }}</label>
+          <input type="password" [placeholder]="'auth.fields.confirmPasswordPlaceholder' | translate" id="confirmPassword" name="confirmPassword"
             [(ngModel)]="confirmPassword" required>
           <div *ngIf="password.length > 0 && confirmPassword.length > 0 && confirmPassword !== password"
             class="validation-error-message">
-            As senhas não conferem
+            {{ 'auth.validation.passwordMismatch' | translate }}
           </div>
         </div>
-        <button type="submit" class="signup-button">Entrar</button>
+        <button type="submit" class="signup-button">{{ 'common.buttons.signup' | translate }}</button>
       </form>
     </div>
   </div>

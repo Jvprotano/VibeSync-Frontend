@@ -1,0 +1,192 @@
+{
+    "home": {
+        "welcome": "Welcome to VibeSync, the platform that connects you and your event on the same vibe.",
+        "description": "With VibeSync, you can create a Space for your event and share a link so that your audience can choose the songs they want to hear, while you monitor everything in an exclusive detailed dashboard.",
+        "freePlan": "Check out our FREE plan and try this new experience today!",
+        "buttons": {
+            "createSpace": "Create new Space FREE",
+            "seePlans": "See our plans",
+            "accessAccount": "Access your account"
+        },
+        "howItWorks": {
+            "title": "How VibeSync works",
+            "description": "VibeSync transforms musical interaction at events, allowing the audience to actively participate in the playlist. Here's how:",
+            "steps": {
+                "createSpace": {
+                    "title": "Create your Space",
+                    "description": "Start by creating a unique Space for your event, defining the musical environment."
+                },
+                "shareLink": {
+                    "title": "Share the Link",
+                    "description": "Share the Space link with your audience, inviting them to join the musical experience."
+                },
+                "suggestions": {
+                    "title": "Musical Suggestions",
+                    "description": "The audience suggests songs, adding their favorite tracks to the event playlist."
+                },
+                "dashboard": {
+                    "title": "Control Panel",
+                    "description": "Monitor suggestions in real-time on the admin panel and control your event's vibe."
+                }
+            }
+        }
+    },
+    "menu": {
+        "home": "Home",
+        "howItWorks": "How It Works",
+        "plans": "Plans"
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "forgotPassword": "Forgot my password",
+            "noAccount": "Don't have an account?"
+        },
+        "forgotPassword": {
+            "title": "Forgot my password",
+            "submit": "Submit",
+            "backToLogin": "Back to login",
+            "successMessage": "Email sent! Check your inbox.",
+            "errorMessage": "Error sending email. Please try again."
+        },
+        "emailConfirmation": {
+            "title": "We are processing your email confirmation.",
+            "waitMessage": "Please wait on this page. You will be redirected soon.",
+            "redirectMessage": "If you are not redirected automatically, click the button below to return to the homepage.",
+            "backToHome": "Back to homepage",
+            "success": "Email confirmed successfully! You can now login.",
+            "errors": {
+                "invalidToken": "Invalid, expired, or already used token.",
+                "userNotFound": "User not found.",
+                "generic": "An error occurred while confirming your email. Please try again later.",
+                "invalidLink": "Invalid or incomplete confirmation link."
+            },
+            "message": {
+                "title": "Email Confirmation",
+                "verifyEmail": "Please check your email and click on the confirmation link we sent to complete your registration.",
+                "notReceived": "If you haven't received the email, please verify it was sent to the correct address. Also check your spam or junk folder."
+            }
+        },
+        "register": {
+            "title": "Sign Up",
+            "description": "Create an account to access all features.",
+            "hasAccount": "Already have an account?",
+            "accessNow": "Access now!"
+        },
+        "validation": {
+            "nameLength": "Enter a valid name with at least 3 characters!",
+            "emailInvalid": "Enter a valid email",
+            "passwordMismatch": "Passwords do not match",
+            "fillAllFields": "Please fill in all fields.",
+            "requiredFields": "Required Fields",
+            "userNotFound": "User not found!",
+            "loginError": "Error while logging in."
+        },
+        "fields": {
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordPlaceholder": "Confirm your password",
+            "email": "E-mail",
+            "emailPlaceholder": "Enter your email",
+            "password": "Password",
+            "passwordPlaceholder": "Enter your password",
+            "name": "Name",
+            "namePlaceholder": "Enter your name"
+        }
+    },
+    "header": {
+        "user": "User",
+        "plan": "Plan"
+    },
+    "common": {
+        "buttons": {
+            "create": "Create",
+            "cancel": "Cancel",
+            "save": "Save",
+            "close": "Close",
+            "login": "Login",
+            "signup": "Sign Up",
+            "upgrade": "Upgrade Now",
+            "createSpace": "Create New Space",
+            "accessSpace": "Access Space",
+            "logout": "Logout",
+            "comingSoon": "COMING SOON"
+        },
+        "titles": {
+            "welcome": "Hi, {{name}}",
+            "mySpaces": "My Spaces",
+            "noSpaces": "No Spaces available"
+        },
+        "messages": {
+            "unlimitedSpaces": "Congratulations, you have unlimited spaces!",
+            "spacesAvailable": "Your plan allows you to create {{count}} more spaces",
+            "noSpacesAvailable": "You've reached your plan's space limit",
+            "subscriptionCanceled": "Subscription canceled. You'll have access until: {{date}}",
+            "subscriptionCanceledSuccess": "Subscription successfully canceled.",
+            "subscriptionCancelError": "Error canceling subscription",
+            "loginRequired": "You need to be logged in to purchase a plan. Redirecting to login..."
+        }
+    },
+    "spaces": {
+        "eventDate": "Event date",
+        "suggestions": "Suggestions",
+        "settings": "Plan settings",
+        "cancelSubscription": "Cancel subscription"
+    },
+    "pricing": {
+        "title": "Choose the perfect plan for you",
+        "subtitle": "Try VibeSync and take your event's musical experience to the next level",
+        "buttons": {
+            "tryFree": "Try for Free",
+            "subscribe": "Subscribe to"
+        },
+        "plans": {
+            "free": {
+                "name": "Freemium",
+                "price": "Free",
+                "features": [
+                    "1 Space",
+                    "Request dashboard"
+                ]
+            },
+            "basic": {
+                "name": "Basic Plan",
+                "price": "$29.90/month",
+                "features": [
+                    "Up to 5 Spaces per month",
+                    "Complete dashboard",
+                    "Standard invitation with QRCode"
+                ]
+            },
+            "professional": {
+                "name": "Professional Plan",
+                "price": "$49.90/month",
+                "features": [
+                    "Up to 10 Spaces per month",
+                    "Complete real-time dashboard",
+                    "Custom invitation with QRCode",
+                    "Color customization"
+                ]
+            },
+            "premium": {
+                "name": "Premium Plan",
+                "price": "$99.90/month",
+                "features": [
+                    "Unlimited Spaces",
+                    "Complete dashboard",
+                    "Custom invitation with QRCode",
+                    "Color customization",
+                    "White-label"
+                ]
+            }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "questions": {
+                "cancel": {
+                    "question": "Can I cancel my subscription at any time?",
+                    "answer": "Yes, you can cancel your subscription whenever you want."
+                }
+            }
+        }
+    }
+}

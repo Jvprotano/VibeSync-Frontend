@@ -8,26 +8,43 @@
             </div>
             <nav>
                 <ul class="d-flex list-unstyled m-0">
-                    <li *ngIf="!user" class="me-3"><a routerLink="/">Início</a></li>
-                    <li *ngIf="!user" class="me-3"><a (click)="goToFragment()">Como Funciona</a></li>
-                    <li><a routerLink="/pricing">Planos</a></li>
+                    <li *ngIf="!user" class="me-3"><a routerLink="/">{{ 'menu.home' | translate }}</a></li>
+                    <li *ngIf="!user" class="me-3"><a (click)="goToFragment()">{{ 'menu.howItWorks' | translate }}</a></li>
+                    <li><a routerLink="/pricing">{{ 'menu.plans' | translate }}</a></li>
                 </ul>
             </nav>
+
+            <div class="language-selector ms-3">
+                <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+                    <mat-icon>language</mat-icon>
+                </button>
+                <mat-menu #languageMenu="matMenu">
+                    <button mat-menu-item (click)="translate.use('pt')">
+                        <span>Português</span>
+                    </button>
+                    <button mat-menu-item (click)="translate.use('en')">
+                        <span>English</span>
+                    </button>
+                    <button mat-menu-item (click)="translate.use('es')">
+                        <span>Español</span>
+                    </button>
+                </mat-menu>
+            </div>
         </div>
         <div *ngIf="!user && !isAuthenticated" class="d-md-flex d-none align-items-center gap-4">
-            <a class="btn btn-login" routerLink="/login">Entrar</a>
-            <a class="btn btn-register" routerLink="/signup">Cadastrar</a>
+            <a class="btn btn-login" routerLink="/login">{{ 'common.buttons.login' | translate }}</a>
+            <a class="btn btn-register" routerLink="/signup">{{ 'common.buttons.signup' | translate }}</a>
         </div>
         <div *ngIf="!user && isAuthenticated" class="d-md-flex d-none align-items-center gap-4">
-            <a class="btn btn-login w-100" routerLink="/user-spaces">Meus Spaces</a>
-            <button title="Sair" (click)="logout()" class="btn btn-logout text-white">
+            <a class="btn btn-login w-100" routerLink="/user-spaces">{{ 'common.titles.mySpaces' | translate }}</a>
+            <button [title]="'common.buttons.logout' | translate" (click)="logout()" class="btn btn-logout text-white">
                 <mat-icon>logout</mat-icon>
             </button>
         </div>
         <div *ngIf="user" class="d-md-flex d-none align-items-center gap-4">
-            <h4 *ngIf="user?.name" class="text-white fs-5">Usuário: {{ user != null ? user.name : "" }}</h4>
-            <h4 *ngIf="user?.plan?.name" class="text-white fs-5">Plano: {{ user != null ? user.plan.name : "" }}</h4>
-            <button title="Sair" (click)="logout()" class="btn btn-logout text-white">
+            <h4 *ngIf="user?.name" class="text-white fs-5">{{ 'header.user' | translate }}: {{ user != null ? user.name : "" }}</h4>
+            <h4 *ngIf="user?.plan?.name" class="text-white fs-5">{{ 'header.plan' | translate }}: {{ user != null ? user.plan.name : "" }}</h4>
+            <button [title]="'common.buttons.logout' | translate" (click)="logout()" class="btn btn-logout text-white">
                 <mat-icon>logout</mat-icon>
             </button>
         </div>
@@ -39,12 +56,28 @@
                     <img src="assets/images/logo-sem-fundo.png" alt="Logo" class="logo" />
                 </a>
             </div>
+            <div class="language-selector ms-3">
+                <button mat-icon-button [matMenuTriggerFor]="mobileLanguageMenu">
+                    <mat-icon>language</mat-icon>
+                </button>
+                <mat-menu #mobileLanguageMenu="matMenu">
+                    <button mat-menu-item (click)="translate.use('pt')">
+                        <span>Português</span>
+                    </button>
+                    <button mat-menu-item (click)="translate.use('en')">
+                        <span>English</span>
+                    </button>
+                    <button mat-menu-item (click)="translate.use('es')">
+                        <span>Español</span>
+                    </button>
+                </mat-menu>
+            </div>
         </div>
         <div *ngIf="!user && !isAuthenticated" class="me-2">
-            <a class="btn btn-login" routerLink="/login">Entrar</a>
+            <a class="btn btn-login" routerLink="/login">{{ 'common.buttons.login' | translate }}</a>
         </div>
         <div *ngIf="user || isAuthenticated" class="me-2">
-            <button title="Sair" (click)="logout()" class="btn btn-logout text-white">
+            <button [title]="'common.buttons.logout' | translate" (click)="logout()" class="btn btn-logout text-white">
                 <mat-icon>logout</mat-icon>
             </button>
         </div>
