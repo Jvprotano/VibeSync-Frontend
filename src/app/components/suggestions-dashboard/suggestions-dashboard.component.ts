@@ -6,6 +6,7 @@ import { DateService } from '../../services/date.service';
 import { SuggestionService } from '../../services/suggestion.service';
 import { SpaceService } from '../../services/space.service';
 import { SuggestionFilterTime as SuggestionFilterTimeEnum } from '../../enums/suggestion-filter-time.enum';
+import { DeviceService } from '../../services/device.service';
 
 @Component({
   selector: 'app-suggestions-dashboard',
@@ -18,6 +19,7 @@ export class SuggestionsDashboardComponent implements OnInit {
   spaceName: string = '';
   isLoading: boolean = true;
   adminToken: string = '';
+  spaceToken: string = '';
 
   allSuggestions: Suggestion[] = [];
   suggestionsLast5Minutes: Suggestion[] = [];
@@ -30,13 +32,17 @@ export class SuggestionsDashboardComponent implements OnInit {
 
   lastUpdated: Date = new Date();
 
+  isMobile = this.deviceService.isMobile$;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private suggestionService: SuggestionService,
     private spaceService: SpaceService,
     private toastrService: ToastrService,
-    private dateService: DateService) { }
+    private dateService: DateService,
+    private deviceService: DeviceService
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -51,6 +57,7 @@ export class SuggestionsDashboardComponent implements OnInit {
     this.spaceService.getAdminSpace(this.adminToken).subscribe({
       next: (space) => {
         this.spaceName = space.name;
+        this.spaceToken = space.publicToken;
         this.isLoading = false;
       },
       error: () => {
