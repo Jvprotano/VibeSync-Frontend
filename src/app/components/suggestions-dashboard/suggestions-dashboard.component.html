@@ -1,48 +1,13 @@
-<app-loading [isLoading]="isLoading"></app-loading>
-
-<div *ngIf="!isLoading" class="container">
-    <button class="btn-voltar d-flex align-items-center" mat-icon-button (click)="voltar()" aria-label="Voltar">
-        <mat-icon>arrow_back</mat-icon>
-    </button>
-
-    <h1 id="vibeSyncTitleCard">VibeSync - {{ this.spaceName }}</h1>
-
-    <div class="suggestions">
-
-        <div class="filter-quantity">
-            <div *ngFor="let quantity of quantitiesPerPage" class="quantity-per-page">
-                <button class="btn-quantity" [disabled]="quantity === this.quantityPerPage"
-                    (click)="changeQuantityPerPage(quantity)">{{quantity}}</button>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <app-suggestions-table [title]="'Top sugestões'" [suggestions]="allSuggestions"></app-suggestions-table>
-            </div>
-            <div class="col-md-6">
-                <app-suggestions-table [title]="'Top dos últimos 5 minutos'"
-                    [suggestions]="suggestionsLast5Minutes"></app-suggestions-table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <app-suggestions-table [title]="'Top dos últimos 10 minutos'"
-                    [suggestions]="suggestionsLast10Minutes"></app-suggestions-table>
-            </div>
-            <div class="col-md-6">
-                <app-suggestions-table [title]="'Top dos últimos 30 minutos'"
-                    [suggestions]="suggestionsLast30Minutes"></app-suggestions-table>
-            </div>
-            <div class="col-md-6">
-                <app-suggestions-table [title]="'Top dos últimos 60 minutos'"
-                    [suggestions]="suggestionsLast60Minutes"></app-suggestions-table>
-            </div>
-        </div>
-    </div>
-    <div class="update-indicator">
-        <mat-spinner [diameter]="20" [strokeWidth]="3"
-            [matTooltip]="'Última atualização: ' + (lastUpdated | date:'medium')"></mat-spinner>
-    </div>
-</div>
+<app-suggestions-mobile *ngIf="isMobile | async; else mobileSuggestions" [spaceName]="spaceName" [isLoading]="isLoading"
+    [adminToken]="adminToken" [allSuggestions]="allSuggestions" [suggestionsLast5Minutes]="suggestionsLast5Minutes"
+    [suggestionsLast10Minutes]="suggestionsLast10Minutes" [suggestionsLast30Minutes]="suggestionsLast30Minutes"
+    [suggestionsLast60Minutes]="suggestionsLast60Minutes" [quantitiesPerPage]="quantitiesPerPage"
+    [quantityPerPage]="quantityPerPage" [lastUpdated]="lastUpdated" [spaceToken]="spaceToken"></app-suggestions-mobile>
+<ng-template #mobileSuggestions>
+    <app-suggestions-desktop [spaceName]="spaceName" [isLoading]="isLoading" [adminToken]="adminToken"
+        [allSuggestions]="allSuggestions" [suggestionsLast5Minutes]="suggestionsLast5Minutes"
+        [suggestionsLast10Minutes]="suggestionsLast10Minutes" [suggestionsLast30Minutes]="suggestionsLast30Minutes"
+        [suggestionsLast60Minutes]="suggestionsLast60Minutes" [quantitiesPerPage]="quantitiesPerPage"
+        [quantityPerPage]="quantityPerPage" [lastUpdated]="lastUpdated"
+        [spaceToken]="spaceToken"></app-suggestions-desktop>
+</ng-template>

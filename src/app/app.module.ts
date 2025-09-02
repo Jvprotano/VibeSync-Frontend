@@ -36,6 +36,8 @@ import { MobileNavbarComponent } from "./shared/mobile-navbar/mobile-navbar.comp
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { SuggestionsDesktopComponent } from './components/suggestions-dashboard/suggestions-desktop/suggestions-desktop.component';
+import { SuggestionsMobileComponent } from './components/suggestions-dashboard/suggestions-mobile/suggestions-mobile.component';
 
 // Custom TranslateLoader implementation
 export class CustomTranslateLoader implements TranslateLoader {
@@ -67,6 +69,8 @@ export class CustomTranslateLoader implements TranslateLoader {
         InviteCardComponent,
         ForgotPasswordComponent,
         ResetPasswordComponent,
+        SuggestionsDesktopComponent,
+        SuggestionsMobileComponent
     ],
     bootstrap: [AppComponent],
     imports: [

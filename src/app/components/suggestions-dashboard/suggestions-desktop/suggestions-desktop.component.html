@@ -1,0 +1,84 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+<div *ngIf="!isLoading" class="dashboard-header">
+    <div class="header-content d-flex justify-content-between align-items-center px-5 py-2">
+        <div class="logo-section d-flex align-items-center">
+            <button class="btn-voltar bg-transparent d-flex align-items-center" mat-icon-button (click)="voltar()" aria-label="Voltar">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <img src="assets/images/logo-sem-fundo.png" width="90px" alt="VibeSync Logo" class="app-logo ms-3" />
+        </div>
+        <div class="event-section d-flex align-items-center">
+            <span class="event-status me-3">
+                Evento em andamento
+                <span class="ms-1 blinking-dot"></span>
+            </span>
+            <button (click)="share()" class="btn solicitar-musica-btn">
+                Compartilhar Space
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!isLoading" class="container">
+
+    <h1 class="title">VibeSync - {{ this.spaceName }}</h1>
+    <p class="subtitle">Pedidos em tempo real realizados pelo público</p>
+
+    <!-- Time Filters -->
+    <div class="time-filters">
+        <button [ngClass]="{'active': i === activeSuggestions}" class="filter-btn"
+            *ngFor="let time of timeFilters; let i = index" (click)="filterByTime(i)">
+            {{ time }}
+        </button>
+    </div>
+
+    <!-- Suggestions Grid -->
+    <div *ngIf="getSuggestions.length > 0; else noSuggestions;" class="suggestions-grid">
+        <div *ngFor="let suggestion of getSuggestions; let i = index" class="suggestion-card">
+            <div class="card-header">
+                <span class="rank">{{ i + 1 }}</span>
+                <img class="rounded-3" src="{{suggestion.song.thumbnailUrl}}" width="60px">
+            </div>
+            <div class="card-body">
+                <h3 class="song-title"> {{ suggestion.song.title }}</h3>
+                <p class="artist-name">{{ suggestion.song.artistName }}</p>
+            </div>
+            <div class="card-footer">
+                <span class="requests-count d-flex align-items-center gap-1">
+                    <mat-icon style="color: red; vertical-align: middle; font-size: 16px; width: 16px; height: 16px;">favorite</mat-icon>
+                    {{ suggestion.countSuggestions }} pedidos
+                </span>
+                <a id="youtube-button" class="d-flex align-items-center" mat-icon-button
+                    [href]="suggestion.song.youtubeUrl" target="_blank">
+                    <mat-icon>play_arrow</mat-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+    <ng-template #noSuggestions>
+        <div class="no-suggestions-alert d-flex flex-column align-items-center justify-content-center py-5">
+            <mat-icon>music_off</mat-icon>
+            <h2 class="mt-3" style="color: #555;">Nenhuma música solicitada ainda</h2>
+            <p >Aguardando pedidos do público. Assim que alguém solicitar uma música, ela aparecerá aqui!</p>
+        </div>
+    </ng-template>
+
+    <!-- Statistics Section -->
+    <div class="statistics">
+        <div class="stat-item">
+            <span class="stat-value">{{ stats.activeListeners }}</span>
+            <span class="stat-label">Participantes</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ stats.totalRequests }}</span>
+            <span class="stat-label">Pedidos de músicas</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ stats.avgWaitTime }}</span>
+            <span class="stat-label">Tempo médio</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">{{ stats.uniqueSongs }}</span>
+            <span class="stat-label">Músicas Únicas</span>
+        </div>
+    </div>
+</div>
