@@ -14,12 +14,8 @@ html {
 }
 
 body {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   min-height: 100vh;
   margin: 0;
-  // padding: 1rem;
   box-sizing: border-box;
   line-height: 1.6;
 }
@@ -80,7 +76,7 @@ h6,
 input,
 label,
 p {
-  font-family:  'Roboto', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 @media screen and (max-width: 728px) {
@@ -96,4 +92,8 @@ p {
 
 #toast-container {
   position: fixed !important;
+}
+
+.vibesync-font {
+  font-family: 'Orbitron' !important;
 }
