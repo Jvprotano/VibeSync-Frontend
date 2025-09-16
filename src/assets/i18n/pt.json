@@ -164,16 +164,16 @@
                 "name": "Freemium",
                 "price": "Grátis",
                 "features": [
-                    "1 Space",
-                    "Dashboard de pedidos"
+                    "Até 5 Spaces",
+                    "Painel de pedidos"
                 ]
             },
             "basic": {
                 "name": "Plano Básico",
                 "price": "R$ 29,90/mês",
                 "features": [
-                    "Até 5 Spaces por mês",
-                    "Dashboard completo",
+                    "Até 10 Spaces por mês",
+                    "Painel de sugestões completo",
                     "Convite padrão com QRCode"
                 ]
             },
@@ -181,8 +181,8 @@
                 "name": "Plano Profissional",
                 "price": "R$ 49,90/mês",
                 "features": [
-                    "Até 10 Spaces por mês",
-                    "Dashboard completo e atualizado em tempo real",
+                    "Até 30 Spaces por mês",
+                    "Painel de sugestões completo e atualizado em tempo real",
                     "Convite personalizado com QRCode",
                     "Personalização de cores"
                 ]
@@ -191,11 +191,11 @@
                 "name": "Plano Premium",
                 "price": "R$ 99,90/mês",
                 "features": [
-                    "Spaces ilimitados",
-                    "Dashboard completo",
+                    "Spaces ILIMITADOS!",
+                    "Painel de sugestões completo e atualizado em tempo real",
                     "Convite personalizado com QRCode",
-                    "Personalização de cores",
-                    "White-label"
+                    "Personalização de cores do convite e da tela de sugestões do usuário",
+                    "White-label - Remoção da marca VibeSync e inserção da sua marca"
                 ]
             }
         },
@@ -205,6 +205,22 @@
                 "cancel": {
                     "question": "Posso cancelar minha assinatura a qualquer momento?",
                     "answer": "Sim, você pode cancelar sua assinatura quando quiser."
+                },
+                "changePlan": {
+                    "question": "Posso mudar meu plano depois de assinar?",
+                    "answer": "Sim, você pode mudar seu plano a qualquer momento. A mudança será aplicada no próximo ciclo de faturamento."
+                },
+                "paymentMethods": {
+                    "question": "Quais métodos de pagamento são aceitos?",
+                    "answer": "Atualmente aceitamos pagamentos via cartão de crédito."
+                },
+                "renewal": {
+                    "question": "Minha assinatura será renovada automaticamente?",
+                    "answer": "Sim, sua assinatura será renovada automaticamente no final de cada período, a menos que você a cancele."
+                },
+                "accessAfterCancel": {
+                    "question": "Posso continuar acessando os recursos do meu plano após o cancelamento?",
+                    "answer": "Sim, você poderá continuar acessando os recursos do seu plano até o final do período pago."
                 }
             }
         }

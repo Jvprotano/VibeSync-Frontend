@@ -15,6 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LoginComponent {
   email = '';
   password = '';
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -25,18 +26,22 @@ export class LoginComponent {
     private translate: TranslateService) { }
 
   login() {
+    this.isLoading = true;
     if (!this.email || !this.password) {
       this.toastrService.error(
         this.translate.instant('auth.validation.fillAllFields'),
         this.translate.instant('auth.validation.requiredFields')
       );
+      this.isLoading = false;
       return;
     }
     this.authService.login(this.email, this.password).subscribe({
       next: () => {
         this.handlePostLoginRedirect();
+        this.isLoading = false;
       },
       error: () => {
+        this.isLoading = false;
         this.toastrService.error(
           this.translate.instant('auth.validation.userNotFound'),
           this.translate.instant('auth.validation.loginError')

@@ -27,7 +27,7 @@ export class HelperService {
         }
 
         if (passwordErrorMessage) {
-            return { isValid: false, errorMessage: passwordErrorMessage };
+            return { isValid: false, errorMessage: passwordErrorMessage.slice(4) };
         }
 
         return { isValid: true, errorMessage: '' };

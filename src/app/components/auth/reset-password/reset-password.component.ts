@@ -14,7 +14,7 @@ export class ResetPasswordComponent {
     token = '';
     newPassword = '';
     confirmPassword = '';
-    loading = false;
+    isLoading = false;
 
     constructor(private route: ActivatedRoute, private authService: AuthService, private toastr: ToastrService, private router: Router) {
         this.route.queryParamMap.subscribe(params => {
@@ -32,15 +32,17 @@ export class ResetPasswordComponent {
             this.toastr.error('As senhas não coincidem.');
             return;
         }
-        this.loading = true;
+        this.isLoading = true;
         this.authService.resetPassword(this.email, this.token, this.newPassword).subscribe({
             next: () => {
+                this.isLoading = false;
                 this.toastr.success('Senha redefinida com sucesso!');
                 this.router.navigate(['/login']);
             },
             error: () => {
+                this.isLoading = false;
                 this.toastr.error('Erro ao redefinir a senha.');
-                this.loading = false;
+                this.isLoading = false;
             }
         });
     }

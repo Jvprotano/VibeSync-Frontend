@@ -13,7 +13,7 @@ $font-family-sans-serif: 'Arial', sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   max-width: 350px;
   margin: 20px auto;
-  overflow: hidden; // Garante que as seções internas não ultrapassem as bordas arredondadas
+  overflow: hidden;
   font-family: $font-family-sans-serif;
   text-align: center;
 }

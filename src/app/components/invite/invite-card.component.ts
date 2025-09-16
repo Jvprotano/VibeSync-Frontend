@@ -25,7 +25,6 @@ export class InviteCardComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-
     this.updateDisplayLink();
     this.setQrCode();
   }
@@ -61,11 +60,9 @@ export class InviteCardComponent implements OnInit, OnChanges {
         logging: false,
         backgroundColor: null,
       });
-      // if (actionsElement) this.renderer.setStyle(actionsElement, 'display', ''); // Mostra de novo
       return canvas;
     } catch (error) {
       console.error('Erro ao gerar canvas do convite:', error);
-      // if (actionsElement) this.renderer.setStyle(actionsElement, 'display', ''); // Mostra de novo em caso de erro
       return null;
     }
   }

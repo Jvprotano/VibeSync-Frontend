@@ -38,7 +38,26 @@ export class PricingComponent {
       question: 'pricing.faq.questions.cancel.question',
       answer: 'pricing.faq.questions.cancel.answer',
       expanded: true
+    },
+    {
+      question: 'pricing.faq.questions.changePlan.question',
+      answer: 'pricing.faq.questions.changePlan.answer',
+      expanded: false
+    },
+    {
+      question: 'pricing.faq.questions.paymentMethods.question',
+      answer: 'pricing.faq.questions.paymentMethods.answer',
+      expanded: false
+    },
+    {
+      question: 'pricing.faq.questions.renewal.question',
+      answer: 'pricing.faq.questions.renewal.answer',
+      expanded: false
+    },
+    {
+      question: 'pricing.faq.questions.accessAfterCancel.question',
+      answer: 'pricing.faq.questions.accessAfterCancel.answer',
+      expanded: false
     }
   ];
-
 }

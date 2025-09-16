@@ -144,38 +144,38 @@
                 "name": "Freemium",
                 "price": "Free",
                 "features": [
-                    "1 Space",
-                    "Request dashboard"
+                    "Up to 5 Spaces",
+                    "Requested songs panel"
                 ]
             },
             "basic": {
                 "name": "Basic Plan",
-                "price": "$29.90/month",
+                "price": "$9.90/month",
                 "features": [
-                    "Up to 5 Spaces per month",
-                    "Complete dashboard",
+                    "Up to 10 Spaces per month",
+                    "Complete requested songs panel",
                     "Standard invitation with QRCode"
                 ]
             },
             "professional": {
                 "name": "Professional Plan",
-                "price": "$49.90/month",
+                "price": "$19.90/month",
                 "features": [
-                    "Up to 10 Spaces per month",
-                    "Complete real-time dashboard",
+                    "Up to 30 Spaces per month",
+                    "Complete real-time requested songs panel",
                     "Custom invitation with QRCode",
                     "Color customization"
                 ]
             },
             "premium": {
                 "name": "Premium Plan",
-                "price": "$99.90/month",
+                "price": "$49.90/month",
                 "features": [
-                    "Unlimited Spaces",
-                    "Complete dashboard",
+                    "UNLIMITED Spaces!",
+                    "Complete real-time requested songs panel",
                     "Custom invitation with QRCode",
-                    "Color customization",
-                    "White-label"
+                    "Color customization of the invitation and user request screen",
+                    "White-label - Removal of the VibeSync brand and insertion of your own brand"
                 ]
             }
         },
@@ -185,6 +185,22 @@
                 "cancel": {
                     "question": "Can I cancel my subscription at any time?",
                     "answer": "Yes, you can cancel your subscription whenever you want."
+                },
+                "changePlan": {
+                    "question": "Can I change my plan after subscribing?",
+                    "answer": "Yes, you can change your plan at any time. The change will be applied in the next billing cycle."
+                },
+                "paymentMethods": {
+                    "question": "What payment methods are accepted?",
+                    "answer": "We currently accept payments via credit card."
+                },
+                "renewal": {
+                    "question": "Will my subscription be renewed automatically?",
+                    "answer": "Yes, your subscription will be renewed automatically at the end of each period unless you cancel it."
+                },
+                "accessAfterCancel": {
+                    "question": "Can I continue to access my plan's features after cancellation?",
+                    "answer": "Yes, you will be able to access your plan's features until the end of the paid period."
                 }
             }
         }

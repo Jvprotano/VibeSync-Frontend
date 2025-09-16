@@ -16,6 +16,7 @@ export class RegisterComponent {
   confirmPassword = '';
   fullName = '';
   passwordErrorMessage = '';
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -24,11 +25,14 @@ export class RegisterComponent {
     private helperService: HelperService) { }
 
   signup() {
+    this.isLoading = true;
     this.authService.register(this.fullName, this.email, this.password).subscribe({
       next: (space) => {
+        this.isLoading = false;
         this.router.navigate(['/email-confirmation-message']);
       },
       error: (error) => {
+        this.isLoading = false;
         if (error.status === 400) {
           this.toastrService.error('Dados inválidos ou já cadastrados!');
           return;

@@ -144,38 +144,38 @@
                 "name": "Freemium",
                 "price": "Gratis",
                 "features": [
-                    "1 Space",
+                    "Hasta 5 Spaces",
                     "Panel de solicitudes"
                 ]
             },
             "basic": {
                 "name": "Plan Básico",
-                "price": "29,90$/mes",
+                "price": "9,90$/mes",
                 "features": [
-                    "Hasta 5 Spaces por mes",
-                    "Panel completo",
+                    "Hasta 10 Spaces por mes",
+                    "Panel de solicitudes completo",
                     "Invitación estándar con QRCode"
                 ]
             },
             "professional": {
                 "name": "Plan Profesional",
-                "price": "49,90$/mes",
+                "price": "19,90$/mes",
                 "features": [
-                    "Hasta 10 Spaces por mes",
-                    "Panel completo en tiempo real",
+                    "Hasta 300 Spaces por mes",
+                    "Panel de solicitudes completo en tiempo real",
                     "Invitación personalizada con QRCode",
                     "Personalización de colores"
                 ]
             },
             "premium": {
                 "name": "Plan Premium",
-                "price": "99,90$/mes",
+                "price": "49,90$/mes",
                 "features": [
-                    "Spaces ilimitados",
-                    "Panel completo",
+                    "Spaces ILIMITADOS!",
+                    "Panel de solicitudes completo en tiempo real",
                     "Invitación personalizada con QRCode",
-                    "Personalización de colores",
-                    "White-label"
+                    "Personalización de colores de la invitación y la pantalla de solicitudes del usuario",
+                    "White-label - Eliminación de la marca VibeSync e inserción de tu propia marca"
                 ]
             }
         },
@@ -185,6 +185,22 @@
                 "cancel": {
                     "question": "¿Puedo cancelar mi suscripción en cualquier momento?",
                     "answer": "Sí, puedes cancelar tu suscripción cuando quieras."
+                },
+                "changePlan": {
+                    "question": "¿Puedo cambiar mi plan después de suscribirme?",
+                    "answer": "Sí, puedes cambiar tu plan en cualquier momento. El cambio se aplicará en el próximo ciclo de facturación."
+                },
+                "paymentMethods": {
+                    "question": "¿Qué métodos de pago son aceptados?",
+                    "answer": "Actualmente aceptamos pagos con tarjeta de crédito."
+                },
+                "renewal": {
+                    "question": "¿Mi suscripción se renovará automáticamente?",
+                    "answer": "Sí, tu suscripción se renovará automáticamente al final de cada período, a menos que la canceles."
+                },
+                "accessAfterCancel": {
+                    "question": "¿Puedo seguir accediendo a los recursos de mi plan después de cancelar?",
+                    "answer": "Sí, podrás seguir accediendo a los recursos de tu plan hasta el final del período pagado."
                 }
             }
         }
